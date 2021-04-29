@@ -8,13 +8,13 @@
           <mass>1.58616</mass>
           <inertia>
             <ixx>0.0132</ixx>
-            <ixy>-3.59956e-8</ixy>
-            <ixz>9.65836e-7</ixz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
             <iyy>0.01323</iyy>
-            <iyz>8.89949e-8</iyz>
+            <iyz>0</iyz>
             <izz>0.00476</izz>
           </inertia>
-          <pose>0.00006096849 0.00000168221 0.04064295789 0 -0 0</pose>
+          <pose>0 0 0.04064295789 0 -0 0</pose>
       </inertial>
       <collision name='base_link_collision'>
         <geometry>
@@ -22,7 +22,7 @@
             <uri>model://sductedfan/meshes/DF - Product-gazebo-1.STL</uri>
           </mesh-->
           <box>
-            <size>0.25 0.25 0.42</size>
+            <size>0.25 0.25 0.52</size>
           </box>
         </geometry>
         <!--surface>
@@ -128,27 +128,15 @@
       <inertial>
         <mass>0.01457</mass>
         <inertia>
-          <ixx>9.25055e-6</ixx>
-          <ixy>2.37481e-009</ixy>
-          <ixz>1.22053e-007</ixz>
+          <ixx>9.25055e-006</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
           <iyy>0.00001</iyy>
-          <iyz>7.68809e-008</iyz>
+          <iyz>0</iyz>
           <izz>0.00001</izz>
         </inertia>
         <pose>0.06976717442 0 -0.14877551654 0 -0 0</pose>
       </inertial>
-      <!--inertial>
-        <mass>0.0000001</mass>
-        <inertia>
-          <ixx>0.0000001</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.0000001</iyy>
-          <iyz>0</iyz>
-          <izz>0.0000001</izz>
-        </inertia>
-        <pose>0.0 0 -0.0 0 -0 0</pose>
-      </inertial-->
       <pose>0 0 0 0 -0 0</pose>
       <gravity>1</gravity>
       <self_collide>0</self_collide>
@@ -180,23 +168,11 @@
           <ixy>0</ixy>
           <ixz>0</ixz>
           <iyy>9.25055e-006</iyy>
-          <iyz>-1.22076e-007</iyz>
+          <iyz>0</iyz>
           <izz>0.00001</izz>
         </inertia>
         <pose>0 -0.06976717442 -0.1487769891 0 -0 0</pose>
       </inertial>
-      <!--inertial>
-        <mass>0.0000001</mass>
-        <inertia>
-          <ixx>0.0000001</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.0000001</iyy>
-          <iyz>0</iyz>
-          <izz>0.0000001</izz>
-        </inertia>
-        <pose>0 0.0 -0.0 0 -0 0</pose>
-      </inertial-->
       <pose>0 0 0 0 -0 0</pose>
       <gravity>1</gravity>
       <self_collide>0</self_collide>
@@ -220,32 +196,20 @@
         <cast_shadows>1</cast_shadows>
       </visual>
     </link>
-	  
+
 	  <link name='cs3'>
       <inertial>
         <mass>0.01457</mass>
         <inertia>
-          <ixx>9.25055e-6</ixx>
+          <ixx>9.25055e-006</ixx>
           <ixy>0</ixy>
-          <ixz>-1.22076e-007</ixz>
+          <ixz>0</ixz>
           <iyy>0.00001</iyy>
           <iyz>0</iyz>
           <izz>0.00001</izz>
         </inertia>
         <pose>-0.06976717442 0 -0.14877551654 0 -0 0</pose>
       </inertial>
-      <!--inertial>
-        <mass>0.0000001</mass>
-        <inertia>
-          <ixx>0.0000001</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.0000001</iyy>
-          <iyz>0</iyz>
-          <izz>0.0000001</izz>
-        </inertia>
-        <pose>0.0 0 -0.0 0 -0 0</pose>
-      </inertial-->
       <pose>0 0 0 0 -0 0</pose>
       <gravity>1</gravity>
       <self_collide>0</self_collide>
@@ -277,23 +241,11 @@
           <ixy>0</ixy>
           <ixz>0</ixz>
           <iyy>9.25055e-006</iyy>
-          <iyz>1.22076e-007</iyz>
+          <iyz>0</iyz>
           <izz>0.00001</izz>
         </inertia>
         <pose>0 0.06976717442 -0.1487769891 0 -0 0</pose>
       </inertial>
-      <!--inertial>
-        <mass>0.0000001</mass>
-        <inertia>
-          <ixx>0.0000001</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.0000001</iyy>
-          <iyz>0</iyz>
-          <izz>0.0000001</izz>
-        </inertia>
-        <pose>0 0.0 -0.0 0 -0 0</pose>
-      </inertial-->
       <pose>0 0 0 0 -0 0</pose>
       <gravity>1</gravity>
       <self_collide>0</self_collide>
@@ -317,19 +269,19 @@
         <cast_shadows>1</cast_shadows>
       </visual>
     </link>
-    
+
     <link name='rotor'>
       <inertial>
-        <mass>0.01836</mass>
+        <mass>0.015678</mass>
         <inertia>
-          <ixx>0.00002</ixx>
+          <ixx>1.851e-05</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.00002</iyy>
+          <iyy>1.855e-05</iyy>
           <iyz>0</iyz>
-          <izz>0.00004</izz>
+          <izz>3.648e-05</izz>
         </inertia>
-        <pose>-0.00014029 -0.00003274 -42.50779552 0 -0 0</pose>
+        <pose>-0.0 -0.0 -0.04250779552 0 -0 0</pose>
       </inertial>
       <pose>0 0 0 0 -0 0</pose>
       <gravity>1</gravity>
@@ -354,13 +306,13 @@
         <cast_shadows>1</cast_shadows>
       </visual>
     </link>
-    
+
     <joint name='cs1_joint' type='revolute'>
       <parent>base_link</parent>
       <child>cs1</child>
        <pose frame=''>0 0 -0.15 0 -0 0</pose>
       <axis>
-        <xyz>-1 0 0</xyz>
+        <xyz>1 0 0</xyz>
         <use_parent_model_frame>0</use_parent_model_frame>
         <limit>
           <lower>-0.35</lower>
@@ -369,7 +321,7 @@
           <velocity>-1</velocity>
         </limit>
         <dynamics>
-          <damping>0.01</damping>
+          <damping>0.001</damping>
           <friction>0.0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -381,7 +333,7 @@
       <child>cs2</child>
       <pose frame=''>0 0 -0.15 0 -0 0</pose>
       <axis>
-        <xyz>0 -1 0</xyz>
+        <xyz>0 1 0</xyz>
         <use_parent_model_frame>0</use_parent_model_frame>
         <limit>
           <lower>-0.35</lower>
@@ -390,20 +342,20 @@
           <velocity>-1</velocity>
         </limit>
         <dynamics>
-          <damping>0.01</damping>
+          <damping>0.001</damping>
           <friction>0.0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
       </axis>
     </joint>
-    
+
     <joint name='cs3_joint' type='revolute'>
       <parent>base_link</parent>
       <child>cs3</child>
        <pose frame=''>0 0 -0.15 0 -0 0</pose>
       <axis>
-        <xyz>-1 0 0</xyz>
+        <xyz>1 0 0</xyz>
         <use_parent_model_frame>0</use_parent_model_frame>
         <limit>
           <lower>-0.35</lower>
@@ -412,7 +364,7 @@
           <velocity>-1</velocity>
         </limit>
         <dynamics>
-          <damping>0.01</damping>
+          <damping>0.001</damping>
           <friction>0.0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -433,14 +385,14 @@
           <velocity>-1</velocity>
         </limit>
         <dynamics>
-          <damping>0.01</damping>
+          <damping>0.001</damping>
           <friction>0.0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
       </axis>
     </joint>
-    
+
     <joint name='rotor_joint' type='revolute'>
       <parent>base_link</parent>
       <child>rotor</child>
@@ -474,7 +426,7 @@
         </ode>
       </physics>
     </joint>
-    
+
     <include>
       <uri>model://gps</uri>
       <pose>0 0 0 0 0 0</pose>
@@ -491,7 +443,7 @@
         <propeller name="up_propeller">
           <propeller_index>0</propeller_index>
           <propeller_joint>rotor_joint</propeller_joint>
-          <propeller_wind_constant>0.18</propeller_wind_constant>
+          <propeller_wind_constant>0.4</propeller_wind_constant>
         </propeller>
       </wind_from_propeller>
       <a0>0</a0>
@@ -502,14 +454,14 @@
       <cla_stall>0</cla_stall>
       <cda_stall>0.0</cda_stall>
       <cma_stall>0</cma_stall>
-      <cp>0 0 -0.20763</cp>
+      <cp>0.069 0 -0.148</cp>
       <area>0.0018</area>
       <air_density>1.2041</air_density>
       <forward>0 0 1</forward>
       <upward>0 -1 0</upward>
       <link_name>base_link</link_name>
       <control_joint_name>cs1_joint</control_joint_name>
-      <control_joint_rad_to_cl>8</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>3</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
@@ -520,7 +472,7 @@
         <propeller name="up_propeller">
           <propeller_index>0</propeller_index>
           <propeller_joint>rotor_joint</propeller_joint>
-          <propeller_wind_constant>0.18</propeller_wind_constant>
+          <propeller_wind_constant>0.4</propeller_wind_constant>
         </propeller>
       </wind_from_propeller>
       <a0>0</a0>
@@ -531,18 +483,18 @@
       <cla_stall>0</cla_stall>
       <cda_stall>0.0</cda_stall>
       <cma_stall>0</cma_stall>
-      <cp>0 0 -0.20763</cp>
+      <cp>0 -0.069 -0.148</cp>
       <area>0.0018</area>
       <air_density>1.2041</air_density>
       <forward>0 0 1</forward>
-      <upward>-1 0 0</upward>
+      <upward>1 0 0</upward>
       <link_name>base_link</link_name>
       <control_joint_name>cs2_joint</control_joint_name>
-      <control_joint_rad_to_cl>8</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>3</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
-    
+
     <plugin name="cs3_plugin" filename="libLiftDragPlugin.so">
       <is_sductedfan>1</is_sductedfan>
       <num_of_propeller>1</num_of_propeller>
@@ -550,7 +502,7 @@
         <propeller name="up_propeller">
           <propeller_index>0</propeller_index>
           <propeller_joint>rotor_joint</propeller_joint>
-          <propeller_wind_constant>0.18</propeller_wind_constant>
+          <propeller_wind_constant>0.4</propeller_wind_constant>
         </propeller>
       </wind_from_propeller>
       <a0>0</a0>
@@ -561,14 +513,14 @@
       <cla_stall>0</cla_stall>
       <cda_stall>0.0</cda_stall>
       <cma_stall>0</cma_stall>
-      <cp>0 0 -0.20763</cp>
+      <cp>-0.069 0 -0.148</cp>
       <area>0.0018</area>
       <air_density>1.2041</air_density>
       <forward>0 0 1</forward>
-      <upward>0 1 0</upward>
+      <upward>0 -1 0</upward>
       <link_name>base_link</link_name>
       <control_joint_name>cs3_joint</control_joint_name>
-      <control_joint_rad_to_cl>8</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>3</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
@@ -579,7 +531,7 @@
         <propeller name="up_propeller">
           <propeller_index>0</propeller_index>
           <propeller_joint>rotor_joint</propeller_joint>
-          <propeller_wind_constant>0.18</propeller_wind_constant>
+          <propeller_wind_constant>0.4</propeller_wind_constant>
         </propeller>
       </wind_from_propeller>
       <a0>0</a0>
@@ -590,19 +542,19 @@
       <cla_stall>0</cla_stall>
       <cda_stall>0.0</cda_stall>
       <cma_stall>0</cma_stall>
-      <cp>0 0 -0.20763</cp>
+      <cp>0 0.069 -0.148</cp>
       <area>0.0018</area>
       <air_density>1.2041</air_density>
       <forward>0 0 1</forward>
       <upward>1 0 0</upward>
       <link_name>base_link</link_name>
       <control_joint_name>cs4_joint</control_joint_name>
-      <control_joint_rad_to_cl>8</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>3</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
-    
-    
+
+
     <plugin name='rotor_plugin' filename='libgazebo_motor_model.so'>
       <robotNamespace></robotNamespace>
       <jointName>rotor_joint</jointName>
@@ -611,17 +563,21 @@
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>2000</maxRotVelocity>
-      <motorConstant>8.54858e-06</motorConstant>
-      <momentConstant>0.01</momentConstant>
+      <!-- Lift Force T -->
+      <motorConstant>2.35e-05</motorConstant>
+      <!-- Drag moment by H-->
+      <momentConstant>0.0</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>0</motorNumber>
-      <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
-      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <!-- Drag Force H-->
+      <rotorDragCoefficient>0</rotorDragCoefficient>
+      <!-- Drag moment by T -->
+      <rollingMomentCoefficient>0</rollingMomentCoefficient>
       <motorSpeedPubTopic>/motor_speed/0</motorSpeedPubTopic>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
       <robotNamespace></robotNamespace>
     </plugin>
-    
+
     <plugin name='gazebo_imu_plugin' filename='libgazebo_imu_plugin.so'>
       <robotNamespace></robotNamespace>
       <linkName>sductedfan/imu_link</linkName>
@@ -688,7 +644,7 @@
         <channel name="roll1">
           <input_index>2</input_index>
           <input_offset>0</input_offset>
-          <input_scaling>-0.35</input_scaling>
+          <input_scaling>0.35</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position</joint_control_type>
@@ -743,7 +699,7 @@
         <channel name="pitch2">
           <input_index>5</input_index>
           <input_offset>0</input_offset>
-          <input_scaling>-0.35</input_scaling>
+          <input_scaling>0.35</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position</joint_control_type>
