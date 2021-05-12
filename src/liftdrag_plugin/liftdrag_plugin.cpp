@@ -330,9 +330,9 @@ void LiftDragPlugin::OnUpdate()
       //gzdbg << "propellerRad: [" << propellerRad<<"]\n";
       ignition::math::Vector3d propeller_rotation= this->propeller_joint_[i]->LocalAxis(0);//
       //gzdbg << "propeller_rotation: [" << propeller_rotation<<"]\n";
-      double wind_by_propeller = this->propeller_wind_constant_[i] * std::abs(propellerRad);
+      double wind_by_propeller = this->propeller_wind_constant_[i] * std::abs(propellerRad); // V_e = k_v * Omega, propeller_wind_constant_ == k_v
       W_P = propeller_rotation * wind_by_propeller;
-      W_PI += pose_propeller.Rot().RotateVector(W_P);
+      W_PI += pose_propeller.Rot().RotateVector(W_P); // W_PI == velInLDPlane == speedInLDPlane == V_e
     }
 
     if(this->is_ductedfan_)
@@ -385,7 +385,11 @@ void LiftDragPlugin::OnUpdate()
 
   // compute dynamic pressure
   double speedInLDPlane = velInLDPlane.Length();
-  double q = 0.5 * this->rho * speedInLDPlane * speedInLDPlane;
+  double q = 0.5 * this->rho * speedInLDPlane * speedInLDPlane; 
+  // (controlJointRadToCL * 0.5 * this->rho * area) * (speedInLDPlane * speedInLDPlane) * (controlAngle) == F, 
+  // (controlJointRadToCL * 0.5 * this->rho * area) == k_cv, controlJointRadToCL * 0.5 * 1.2041 * 0.0018 == 0.0073
+  // propeller_wind_constant_ == k_v == 0.0169
+  // st. k_cv * k_v^2 == a const value
 
   // compute cl at cp, check for stall, correct for sweep
   double cl;
