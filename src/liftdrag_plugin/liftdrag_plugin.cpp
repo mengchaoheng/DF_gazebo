@@ -326,7 +326,7 @@ void LiftDragPlugin::OnUpdate()
       ignition::math::Pose3d pose_propeller = this->propeller_joint_[i]->WorldPose();
       //if (i==1)
         //gzdbg << "pose_propeller: [" << pose_propeller<<"]\n";
-      double propellerRad = this->propeller_joint_[i]->GetVelocity(0);
+      double propellerRad = this->propeller_joint_[i]->GetVelocity(0); // Multiply rotorVelocitySlowdownSim to get the real V
       //gzdbg << "propellerRad: [" << propellerRad<<"]\n";
       ignition::math::Vector3d propeller_rotation= this->propeller_joint_[i]->LocalAxis(0);//
       //gzdbg << "propeller_rotation: [" << propeller_rotation<<"]\n";
