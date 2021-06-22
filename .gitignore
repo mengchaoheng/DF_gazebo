@@ -28,3 +28,5 @@ models/boat/boat.sdf
 models/typhoon_h480/typhoon_h480.sdf
 models/ductedfan/ductedfan.sdf
 models/sductedfan/sductedfan.sdf
+models/depth_camera/depth_camera.sdf
+models/standard_vtol_drop/standard_vtol_drop.sdf
