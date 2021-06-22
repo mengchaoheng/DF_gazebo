@@ -154,9 +154,9 @@ void LiftDragPlugin::Load(physics::ModelPtr _model,
           boost::bind(&LiftDragPlugin::OnUpdate, this));
     }
 
-    
+
   }
-  
+
   if (_sdf->HasElement("robotNamespace"))
   {
     namespace_ = _sdf->GetElement("robotNamespace")->Get<std::string>();
@@ -180,7 +180,7 @@ void LiftDragPlugin::Load(physics::ModelPtr _model,
       gzerr << "Joint with name[" << controlJointName << "] does not exist.\n";
     }
   }
-  
+
   if (_sdf->HasElement("num_of_propeller") && _sdf->HasElement("wind_from_propeller"))
   {
     this->num_of_propeller_ = _sdf->Get<int>("num_of_propeller");
@@ -385,11 +385,12 @@ void LiftDragPlugin::OnUpdate()
 
   // compute dynamic pressure
   double speedInLDPlane = velInLDPlane.Length();
-  double q = 0.5 * this->rho * speedInLDPlane * speedInLDPlane; 
-  // (controlJointRadToCL * 0.5 * this->rho * area) * (speedInLDPlane * speedInLDPlane) * (controlAngle) == F, 
+  double q = 0.5 * this->rho * speedInLDPlane * speedInLDPlane;
+  // (controlJointRadToCL * 0.5 * this->rho * area) * (speedInLDPlane * speedInLDPlane) * (controlAngle) == F,
   // (controlJointRadToCL * 0.5 * this->rho * area) == k_cv, controlJointRadToCL * 0.5 * 1.2041 * 0.0018 == 0.0073
   // propeller_wind_constant_ == k_v == 0.0169
   // st. k_cv * k_v^2 == a const value
+  //std::cout << "real_motor_velocity: " << real_motor_velocity << std::endl;
 
   // compute cl at cp, check for stall, correct for sweep
   double cl;

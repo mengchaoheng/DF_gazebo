@@ -161,7 +161,7 @@ void GazeboMavlinkInterface::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf
   // set input_reference_ from inputs.control
   input_reference_.resize(n_out_max);
   joints_.resize(n_out_max);
-  //pids_.resize(n_out_max);
+  pids_.resize(n_out_max);
   joint_max_errors_.resize(n_out_max);
   for (int i = 0; i < n_out_max; ++i)
   {

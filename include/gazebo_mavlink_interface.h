@@ -48,7 +48,6 @@
 
 #include <gazebo/gazebo.hh>
 #include <gazebo/common/common.hh>
-#include <gazebo/common/PID.hh>
 #include <gazebo/common/Plugin.hh>
 #include <gazebo/physics/physics.hh>
 #include <gazebo/transport/transport.hh>
@@ -165,8 +164,7 @@ private:
   bool send_odometry_{false};
 
   std::vector<physics::JointPtr> joints_;
-  //std::vector<common::PID> pids_;
-  std::array<common::PID, 16> pids_;
+  std::vector<common::PID> pids_;
   std::vector<double> joint_max_errors_;
 
   /// \brief Pointer to the update event connection.
