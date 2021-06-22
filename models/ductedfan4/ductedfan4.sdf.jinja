@@ -1,25 +1,25 @@
 <?xml version="1.0"?>
 <sdf version='1.5'>
-  <model name='ductedfan'>
+  <model name='ductedfan4'>
     <pose>0 0 0.5 0 0 0</pose>
     <link name='base_link'>
       <pose>0 0 0 0 0 0</pose>
       <inertial>
-          <mass>1.51082</mass>
+          <mass>1.29536</mass>
           <inertia>
-            <ixx>0.0276508</ixx>
-            <ixy>0</ixy>
-            <ixz>0.00026669</ixz>
-            <iyy>0.0275263</iyy>
-            <iyz>0.00028741</iyz>
-            <izz>0.00619679</izz>
+            <ixx>0.00967</ixx>
+            <ixy>2.77142e-007</ixy>
+            <ixz>-0.00003</ixz>
+            <iyy>0.0097</iyy>
+            <iyz>1.31952e-006</iyz>
+            <izz>0.00448</izz>
           </inertia>
-          <pose>-4.1e-05 -7.6e-05 0.042069 0 -0 0</pose>
+          <pose>0 0 0.01899931 0 -0 0</pose>
       </inertial>
       <collision name='base_link_collision'>
         <geometry>
           <!--mesh>
-            <uri>model://ductedfan/meshes/DF - Product-gazebo-1.STL</uri>
+            <uri>model://ductedfan4/meshes/DF - Product-gazebo-1.STL</uri>
           </mesh-->
           <box>
             <size>0.25 0.25 0.52</size>
@@ -44,7 +44,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ductedfan/meshes/DF - Product-gazebo-1.STL</uri>
+            <uri>model://ductedfan4/meshes/base.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -58,7 +58,7 @@
       <velocity_decay/>
       <self_collide>0</self_collide>
     </link>
-    <link name='ductedfan/imu_link'>
+    <link name='ductedfan4/imu_link'>
       <pose>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
@@ -73,8 +73,8 @@
         </inertia>
       </inertial>
     </link>
-    <joint name='ductedfan/imu_joint' type='revolute'>
-      <child>ductedfan/imu_link</child>
+    <joint name='ductedfan4/imu_joint' type='revolute'>
+      <child>ductedfan4/imu_link</child>
       <parent>base_link</parent>
       <axis>
         <xyz>1 0 0</xyz>
@@ -91,7 +91,7 @@
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
-    <!--link name='ductedfan/airspeed_link'>
+    <!--link name='ductedfan4/airspeed_link'>
       <pose>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
@@ -106,8 +106,8 @@
         </inertia>
       </inertial>
     </link>
-    <joint name='ductedfan/airspeed_joint' type='revolute'>
-      <child>ductedfan/airspeed_link</child>
+    <joint name='ductedfan4/airspeed_joint' type='revolute'>
+      <child>ductedfan4/airspeed_link</child>
       <parent>base_link</parent>
       <axis>
         <xyz>1 0 0</xyz>
@@ -124,31 +124,19 @@
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint-->
-    <link name='cspitch'>
+    <link name='cs1'>
       <inertial>
-        <mass>0.149682</mass>
+        <mass>0.01457</mass>
         <inertia>
-          <ixx>0.00066011</ixx>
+          <ixx>9.25055e-006</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>8.5e-05</iyy>
+          <iyy>0.00001</iyy>
           <iyz>0</iyz>
-          <izz>0.000689</izz>
+          <izz>0.00001</izz>
         </inertia>
-        <pose>0.000401 0 -0.210756 0 -0 0</pose>
+        <pose>0.06976717442 0 -0.14877551654 0 -0 0</pose>
       </inertial>
-      <!--inertial>
-        <mass>0.0000001</mass>
-        <inertia>
-          <ixx>0.0000001</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.0000001</iyy>
-          <iyz>0</iyz>
-          <izz>0.0000001</izz>
-        </inertia>
-        <pose>0.0 0 -0.0 0 -0 0</pose>
-      </inertial-->
       <pose>0 0 0 0 -0 0</pose>
       <gravity>1</gravity>
       <self_collide>0</self_collide>
@@ -158,7 +146,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://ductedfan/meshes/DF - control surface-60-2-1.STL</uri>
+            <uri>model://ductedfan4/meshes/cs11.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -172,31 +160,19 @@
         <cast_shadows>1</cast_shadows>
       </visual>
     </link>
-    <link name='csroll'>
+    <link name='cs2'>
       <inertial>
-        <mass>0.138453</mass>
+        <mass>0.01457</mass>
         <inertia>
-          <ixx>9.877e-05</ixx>
+          <ixx>0.00001</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.00067119</iyy>
+          <iyy>9.25055e-006</iyy>
           <iyz>0</iyz>
-          <izz>0.00068256</izz>
+          <izz>0.00001</izz>
         </inertia>
-        <pose>0 0.000824 -0.20992 0 -0 0</pose>
+        <pose>0 -0.06976717442 -0.1487769891 0 -0 0</pose>
       </inertial>
-      <!--inertial>
-        <mass>0.0000001</mass>
-        <inertia>
-          <ixx>0.0000001</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.0000001</iyy>
-          <iyz>0</iyz>
-          <izz>0.0000001</izz>
-        </inertia>
-        <pose>0 0.0 -0.0 0 -0 0</pose>
-      </inertial-->
       <pose>0 0 0 0 -0 0</pose>
       <gravity>1</gravity>
       <self_collide>0</self_collide>
@@ -206,7 +182,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://ductedfan/meshes/DF - control surface-60-67-3.STL</uri>
+            <uri>model://ductedfan4/meshes/cs2.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -220,18 +196,19 @@
         <cast_shadows>1</cast_shadows>
       </visual>
     </link>
-    <link name='r1'>
+
+	  <link name='cs3'>
       <inertial>
-        <mass>0.015678</mass>
+        <mass>0.01457</mass>
         <inertia>
-          <ixx>1.851e-05</ixx>
+          <ixx>9.25055e-006</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>1.855e-05</iyy>
+          <iyy>0.00001</iyy>
           <iyz>0</iyz>
-          <izz>3.648e-05</izz>
+          <izz>0.00001</izz>
         </inertia>
-        <pose>0.000403 0.000759 -0.071513 0 -0 0</pose>
+        <pose>-0.06976717442 0 -0.14877551654 0 -0 0</pose>
       </inertial>
       <pose>0 0 0 0 -0 0</pose>
       <gravity>1</gravity>
@@ -242,7 +219,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://ductedfan/meshes/DF - fan-1.STL</uri>
+            <uri>model://ductedfan4/meshes/cs33.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -256,18 +233,18 @@
         <cast_shadows>1</cast_shadows>
       </visual>
     </link>
-    <link name='r2'>
+    <link name='cs4'>
       <inertial>
-        <mass>0.015678</mass>
+        <mass>0.01457</mass>
         <inertia>
-          <ixx>1.851e-05</ixx>
+          <ixx>0.00001</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>1.855e-05</iyy>
+          <iyy>9.25055e-006</iyy>
           <iyz>0</iyz>
-          <izz>3.648e-05</izz>
+          <izz>0.00001</izz>
         </inertia>
-        <pose>0.000403 0.000759 -0.154513 0 -0 0</pose>
+        <pose>0 0.06976717442 -0.1487769891 0 -0 0</pose>
       </inertial>
       <pose>0 0 0 0 -0 0</pose>
       <gravity>1</gravity>
@@ -278,7 +255,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://ductedfan/meshes/DF - fan-2.STL</uri>
+            <uri>model://ductedfan4/meshes/cs4.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -292,48 +269,137 @@
         <cast_shadows>1</cast_shadows>
       </visual>
     </link>
-    <joint name='cspitch_joint' type='revolute'>
+
+    <link name='rotor'>
+      <inertial>
+        <mass>0.01836</mass>
+        <inertia>
+          <ixx>0.000019</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000019</iyy>
+          <iyz>0</iyz>
+          <izz>0.000037</izz>
+        </inertia>
+        <pose>-0.0 -0.0 -0.04250779552 0 -0 0</pose>
+      </inertial>
+      <pose>0 0 0 0 -0 0</pose>
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <enable_wind>0</enable_wind>
+      <visual name='visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan4/meshes/rotor.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Blue</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+
+    <joint name='cs1_joint' type='revolute'>
       <parent>base_link</parent>
-      <child>cspitch</child>
-      <pose>0.00037 0 -0.19763 0 -0 0</pose>
-      <axis>
-        <xyz>0 1 0</xyz>
-        <limit>
-          <lower>-0.35</lower>
-          <upper>0.35</upper>
-        </limit>
-        <dynamics>
-          <damping>0.01</damping>
-          <friction>0.0</friction>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-        </dynamics>
-      </axis>
-    </joint>
-    <joint name='csroll_joint' type='revolute'>
-      <parent>base_link</parent>
-      <child>csroll</child>
-      <pose>0 0.00074 -0.19763 0 -0 0</pose>
+      <child>cs1</child>
+       <pose frame=''>0 0 -0.15 0 -0 0</pose>
       <axis>
         <xyz>1 0 0</xyz>
+        <use_parent_model_frame>0</use_parent_model_frame>
         <limit>
           <lower>-0.35</lower>
           <upper>0.35</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
-          <damping>0.01</damping>
+          <damping>0.001</damping>
           <friction>0.0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
       </axis>
     </joint>
-    <joint name='r1_joint' type='revolute'>
+    <joint name='cs2_joint' type='revolute'>
       <parent>base_link</parent>
-      <child>r1</child>
-      <pose>0.000403 0.000759 -0.071513 0 -0 0</pose>
+      <child>cs2</child>
+      <pose frame=''>0 0 -0.15 0 -0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <use_parent_model_frame>0</use_parent_model_frame>
+        <limit>
+          <lower>-0.35</lower>
+          <upper>0.35</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.001</damping>
+          <friction>0.0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <joint name='cs3_joint' type='revolute'>
+      <parent>base_link</parent>
+      <child>cs3</child>
+       <pose frame=''>0 0 -0.15 0 -0 0</pose>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <use_parent_model_frame>0</use_parent_model_frame>
+        <limit>
+          <lower>-0.35</lower>
+          <upper>0.35</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.001</damping>
+          <friction>0.0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <joint name='cs4_joint' type='revolute'>
+      <parent>base_link</parent>
+      <child>cs4</child>
+      <pose frame=''>0 0 -0.15 0 -0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <use_parent_model_frame>0</use_parent_model_frame>
+        <limit>
+          <lower>-0.35</lower>
+          <upper>0.35</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.001</damping>
+          <friction>0.0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <joint name='rotor_joint' type='revolute'>
+      <parent>base_link</parent>
+      <child>rotor</child>
+      <pose frame=''>0 0 -0.045 0 -0 0</pose>
       <axis>
         <xyz>0 0 1</xyz>
+        <use_parent_model_frame>0</use_parent_model_frame>
         <limit>
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
@@ -360,38 +426,7 @@
         </ode>
       </physics>
     </joint>
-    <joint name='r2_joint' type='revolute'>
-      <parent>base_link</parent>
-      <child>r2</child>
-      <pose>0.000403 0.000759 -0.154513 0 -0 0</pose>
-      <axis>
-        <xyz>0 0 1</xyz>
-        <limit>
-          <lower>-1e+16</lower>
-          <upper>1e+16</upper>
-          <effort>-1</effort>
-          <velocity>-1</velocity>
-        </limit>
-        <dynamics>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-          <damping>0.0</damping>
-          <friction>0</friction>
-        </dynamics>
-      </axis>
-      <physics>
-        <ode>
-          <limit>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </limit>
-          <suspension>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </suspension>
-        </ode>
-      </physics>
-    </joint>
+
     <include>
       <uri>model://gps</uri>
       <pose>0 0 0 0 0 0</pose>
@@ -401,19 +436,14 @@
       <child>gps::link</child>
       <parent>base_link</parent>
     </joint>
-    <plugin name="csroll_plugin" filename="libLiftDragPlugin.so">
-      <is_ductedfan>1</is_ductedfan>
-      <num_of_propeller>2</num_of_propeller>
+    <plugin name="cs1_plugin" filename="libLiftDragPlugin.so">
+      <is_sductedfan>1</is_sductedfan>
+      <num_of_propeller>1</num_of_propeller>
       <wind_from_propeller>
         <propeller name="up_propeller">
           <propeller_index>0</propeller_index>
-          <propeller_joint>r1_joint</propeller_joint>
-          <propeller_wind_constant>0.18</propeller_wind_constant>
-        </propeller>
-        <propeller name="down_propeller">
-          <propeller_index>1</propeller_index>
-          <propeller_joint>r2_joint</propeller_joint>
-          <propeller_wind_constant>0.18</propeller_wind_constant>
+          <propeller_joint>rotor_joint</propeller_joint>
+          <propeller_wind_constant>0.169</propeller_wind_constant>
         </propeller>
       </wind_from_propeller>
       <a0>0</a0>
@@ -424,30 +454,25 @@
       <cla_stall>0</cla_stall>
       <cda_stall>0.0</cda_stall>
       <cma_stall>0</cma_stall>
-      <cp>0 0 -0.20763</cp>
+      <cp>0.069 0 -0.148</cp>
       <area>0.0018</area>
       <air_density>1.2041</air_density>
       <forward>0 0 1</forward>
       <upward>0 -1 0</upward>
       <link_name>base_link</link_name>
-      <control_joint_name>csroll_joint</control_joint_name>
-      <control_joint_rad_to_cl>8</control_joint_rad_to_cl>
+      <control_joint_name>cs1_joint</control_joint_name>
+      <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
-    <plugin name="cspitch_plugin" filename="libLiftDragPlugin.so">
-      <is_ductedfan>1</is_ductedfan>
-      <num_of_propeller>2</num_of_propeller>
+    <plugin name="cs2_plugin" filename="libLiftDragPlugin.so">
+      <is_sductedfan>1</is_sductedfan>
+      <num_of_propeller>1</num_of_propeller>
       <wind_from_propeller>
         <propeller name="up_propeller">
           <propeller_index>0</propeller_index>
-          <propeller_joint>r1_joint</propeller_joint>
-          <propeller_wind_constant>0.18</propeller_wind_constant>
-        </propeller>
-        <propeller name="down_propeller">
-          <propeller_index>1</propeller_index>
-          <propeller_joint>r2_joint</propeller_joint>
-          <propeller_wind_constant>0.18</propeller_wind_constant>
+          <propeller_joint>rotor_joint</propeller_joint>
+          <propeller_wind_constant>0.169</propeller_wind_constant>
         </propeller>
       </wind_from_propeller>
       <a0>0</a0>
@@ -458,55 +483,104 @@
       <cla_stall>0</cla_stall>
       <cda_stall>0.0</cda_stall>
       <cma_stall>0</cma_stall>
-      <cp>0 0 -0.20763</cp>
+      <cp>0 -0.069 -0.148</cp>
       <area>0.0018</area>
       <air_density>1.2041</air_density>
       <forward>0 0 1</forward>
       <upward>1 0 0</upward>
       <link_name>base_link</link_name>
-      <control_joint_name>cspitch_joint</control_joint_name>
-      <control_joint_rad_to_cl>8</control_joint_rad_to_cl>
+      <control_joint_name>cs2_joint</control_joint_name>
+      <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
-    <plugin name='r1_plugin' filename='libgazebo_motor_model.so'>
+
+    <plugin name="cs3_plugin" filename="libLiftDragPlugin.so">
+      <is_sductedfan>1</is_sductedfan>
+      <num_of_propeller>1</num_of_propeller>
+      <wind_from_propeller>
+        <propeller name="up_propeller">
+          <propeller_index>0</propeller_index>
+          <propeller_joint>rotor_joint</propeller_joint>
+          <propeller_wind_constant>0.169</propeller_wind_constant>
+        </propeller>
+      </wind_from_propeller>
+      <a0>0</a0>
+      <cla>0</cla>
+      <cda>0</cda>
+      <cma>0</cma>
+      <alpha_stall>0.6</alpha_stall>
+      <cla_stall>0</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>-0.069 0 -0.148</cp>
+      <area>0.0018</area>
+      <air_density>1.2041</air_density>
+      <forward>0 0 1</forward>
+      <upward>0 -1 0</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>cs3_joint</control_joint_name>
+      <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
-      <jointName>r1_joint</jointName>
-      <linkName>r1</linkName>
-      <turningDirection>cw</turningDirection>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+    <plugin name="cs4_plugin" filename="libLiftDragPlugin.so">
+      <is_sductedfan>1</is_sductedfan>
+      <num_of_propeller>1</num_of_propeller>
+      <wind_from_propeller>
+        <propeller name="up_propeller">
+          <propeller_index>0</propeller_index>
+          <propeller_joint>rotor_joint</propeller_joint>
+          <propeller_wind_constant>0.169</propeller_wind_constant>
+        </propeller>
+      </wind_from_propeller>
+      <a0>0</a0>
+      <cla>0</cla>
+      <cda>0</cda>
+      <cma>0</cma>
+      <alpha_stall>0.6</alpha_stall>
+      <cla_stall>0</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>0 0.069 -0.148</cp>
+      <area>0.0018</area>
+      <air_density>1.2041</air_density>
+      <forward>0 0 1</forward>
+      <upward>1 0 0</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>cs4_joint</control_joint_name>
+      <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+
+
+    <plugin name='rotor_plugin' filename='libgazebo_motor_model.so'>
+      <robotNamespace></robotNamespace>
+      <jointName>rotor_joint</jointName>
+      <linkName>rotor</linkName>
+      <turningDirection>ccw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>2000</maxRotVelocity>
-      <motorConstant>8.54858e-06</motorConstant>
-      <momentConstant>0.01</momentConstant>
+      <maxRotVelocity>2450</maxRotVelocity>
+      <!-- Lift Force T -->
+      <motorConstant>9.1316618e-6</motorConstant>
+      <!-- Drag moment by H-->
+      <momentConstant>0.0</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>0</motorNumber>
-      <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
-      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <!-- Drag Force H-->
+      <rotorDragCoefficient>0</rotorDragCoefficient>
+      <!-- Drag moment by T -->
+      <rollingMomentCoefficient>0</rollingMomentCoefficient>
       <motorSpeedPubTopic>/motor_speed/0</motorSpeedPubTopic>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
       <robotNamespace></robotNamespace>
     </plugin>
-    <plugin name='r2_plugin' filename='libgazebo_motor_model.so'>
-      <robotNamespace></robotNamespace>
-      <jointName>r2_joint</jointName>
-      <linkName>r2</linkName>
-      <turningDirection>ccw</turningDirection>
-      <timeConstantUp>0.0125</timeConstantUp>
-      <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>2000</maxRotVelocity>
-      <motorConstant>8.54858e-06</motorConstant>
-      <momentConstant>0.01</momentConstant>
-      <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
-      <motorNumber>1</motorNumber>
-      <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
-      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
-      <motorSpeedPubTopic>/motor_speed/1</motorSpeedPubTopic>
-      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
-    </plugin>
+
     <plugin name='gazebo_imu_plugin' filename='libgazebo_imu_plugin.so'>
       <robotNamespace></robotNamespace>
-      <linkName>ductedfan/imu_link</linkName>
+      <linkName>ductedfan4/imu_link</linkName>
       <imuTopic>/imu</imuTopic>
       <gyroscopeNoiseDensity>0.00018665</gyroscopeNoiseDensity>
       <gyroscopeRandomWalk>3.8785e-05</gyroscopeRandomWalk>
@@ -535,7 +609,7 @@
     </plugin>
     <!--plugin name='airspeed_plugin' filename='libgazebo_airspeed_plugin.so'>
       <robotNamespace/>
-      <linkName>ductedfan/airspeed_link</linkName>
+      <linkName>ductedfan4/airspeed_link</linkName>
     </plugin-->
     <plugin name='mavlink_interface' filename='libgazebo_mavlink_interface.so'>
       <robotNamespace></robotNamespace>
@@ -561,47 +635,78 @@
         <channel name="up_rotor">
           <input_index>0</input_index>
           <input_offset>0</input_offset>
-          <input_scaling>1500</input_scaling>
+          <!-- Construct a gain to cancel the link from pwm to motor speed. -->
+          <input_scaling>2450</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>velocity</joint_control_type>
-          <joint_name>r1_joint</joint_name>
+          <joint_name>rotor_joint</joint_name>
         </channel>
-        <channel name="down_rotor">
-          <input_index>1</input_index>
-          <input_offset>0</input_offset>
-          <input_scaling>1500</input_scaling>
-          <zero_position_disarmed>0</zero_position_disarmed>
-          <zero_position_armed>0</zero_position_armed>
-          <joint_control_type>velocity</joint_control_type>
-          <joint_name>r2_joint</joint_name>
-        </channel>
-        <channel name="roll">
+        <channel name="roll1">
           <input_index>2</input_index>
           <input_offset>0</input_offset>
-          <input_scaling>-0.35</input_scaling>
+          <input_scaling>0.35</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position</joint_control_type>
-          <joint_name>csroll_joint</joint_name>
+          <joint_name>cs1_joint</joint_name>
           <joint_control_pid>
             <p>1</p>
             <i>0</i>
             <d>0</d>
-            <iMax>0</iMax>
-            <iMin>0</iMin>
-            <cmdMax>20</cmdMax>
-            <cmdMin>-20</cmdMin>
+            <iMax>0.5</iMax>
+            <iMin>-0.5</iMin>
+            <cmdMax>10</cmdMax>
+            <cmdMin>-10</cmdMin>
+            <errMax>20</errMax>
           </joint_control_pid>
         </channel>
-        <channel name="pitch">
+        <channel name="pitch1">
           <input_index>3</input_index>
           <input_offset>0</input_offset>
           <input_scaling>-0.35</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position</joint_control_type>
-          <joint_name>cspitch_joint</joint_name>
+          <joint_name>cs2_joint</joint_name>
+          <joint_control_pid>
+            <p>1</p>
+            <i>0.0</i>
+            <d>0</d>
+            <iMax>0.5</iMax>
+            <iMin>-0.5</iMin>
+            <cmdMax>10</cmdMax>
+            <cmdMin>-10</cmdMin>
+            <errMax>20</errMax>
+          </joint_control_pid>
+        </channel>
+        <channel name="roll2">
+          <input_index>4</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>-0.35</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>0</zero_position_armed>
+          <joint_control_type>position</joint_control_type>
+          <joint_name>cs3_joint</joint_name>
+          <joint_control_pid>
+            <p>1</p>
+            <i>0</i>
+            <d>0</d>
+            <iMax>0.5</iMax>
+            <iMin>-0.5</iMin>
+            <cmdMax>10</cmdMax>
+            <cmdMin>-10</cmdMin>
+            <errMax>20</errMax>
+          </joint_control_pid>
+        </channel>
+        <channel name="pitch2">
+          <input_index>5</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>0.35</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>0</zero_position_armed>
+          <joint_control_type>position</joint_control_type>
+          <joint_name>cs4_joint</joint_name>
           <joint_control_pid>
             <p>1</p>
             <i>0.0</i>
