@@ -44,12 +44,12 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ductedfan4/meshes/base.STL</uri>
+            <uri>model://ductedfan4/meshes/battery-4s-10000-2.STL</uri>
           </mesh>
         </geometry>
         <material>
           <script>
-            <name>Gazebo/DarkGrey</name>
+            <name>Gazebo/Blue</name>
             <uri>__default__</uri>
           </script>
         </material>
@@ -58,6 +58,664 @@
       <velocity_decay/>
       <self_collide>0</self_collide>
     </link>
+    <link name='duct_in'>
+      <inertial>
+        <mass>0.09705</mass>
+        <inertia>
+          <ixx>0.00039</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00039</iyy>
+          <iyz>0</iyz>
+          <izz>0.00073</izz>
+        </inertia>
+        <pose frame=''>0 0 -0.12 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan4/meshes/duct-in.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/White</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_0' type='fixed'>
+      <parent>base_link</parent>
+      <child>duct_in</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </joint>
+    <link name='ductout1'>
+      <inertial>
+        <mass>0.03029</mass>
+        <inertia>
+          <ixx>0.00017</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>4e-05</iyy>
+          <iyz>0</iyz>
+          <izz>0.00015</izz>
+        </inertia>
+        <pose frame=''>0.103 0 -0.058 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan4/meshes/duct-out-1.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/White</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_1' type='fixed'>
+      <parent>base_link</parent>
+      <child>ductout1</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </joint>
+    <link name='ductout2'>
+      <inertial>
+        <mass>0.03029</mass>
+        <inertia>
+          <ixx>7e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00014</iyy>
+          <iyz>0</iyz>
+          <izz>0.00015</izz>
+        </inertia>
+        <pose frame=''>-0.051873 0.089847 -0.058015 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan4/meshes/duct-out-2.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/White</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_2' type='fixed'>
+      <parent>base_link</parent>
+      <child>ductout2</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </joint>
+	  <link name='ductout3'>
+      <inertial>
+        <mass>0.03029</mass>
+        <inertia>
+          <ixx>7e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00014</iyy>
+          <iyz>0</iyz>
+          <izz>0.00015</izz>
+        </inertia>
+        <pose frame=''>-0.051873 -0.089847 -0.058015 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan4/meshes/duct-out-3.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/White</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_3' type='fixed'>
+      <parent>base_link</parent>
+      <child>ductout3</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </joint>
+    <link name='tail1'>
+      <inertial>
+        <mass>0.02601</mass>
+        <inertia>
+          <ixx>0.00019</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00017</iyy>
+          <iyz>0</iyz>
+          <izz>4e-05</izz>
+        </inertia>
+        <pose frame=''>0.069059 -0.119414 -0.088549 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan4/meshes/tail-1.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/Black</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_4' type='fixed'>
+      <parent>base_link</parent>
+      <child>tail1</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </joint>
+    <link name='tail2'>
+      <inertial>
+        <mass>0.02601</mass>
+        <inertia>
+          <ixx>0.00016</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0002</iyy>
+          <iyz>0</iyz>
+          <izz>4e-05</izz>
+        </inertia>
+        <pose frame=''>-0.137946 -0.0001 -0.088549 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan4/meshes/tail-2.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/Black</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_5' type='fixed'>
+      <parent>base_link</parent>
+      <child>tail2</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </joint>
+    <link name='tail3'>
+      <inertial>
+        <mass>0.02601</mass>
+        <inertia>
+          <ixx>0.00019</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00017</iyy>
+          <iyz>0</iyz>
+          <izz>4e-05</izz>
+        </inertia>
+        <pose frame=''>0.068886 0.119514 -0.088549 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan4/meshes/tail-3.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/Black</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_6' type='fixed'>
+      <parent>base_link</parent>
+      <child>tail3</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </joint>
+    <link name='bec'>
+      <inertial>
+        <mass>0.0518</mass>
+        <inertia>
+          <ixx>5.18e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1e-05</iyy>
+          <iyz>0</iyz>
+          <izz>1e-05</izz>
+        </inertia>
+        <pose frame=''>0 0 0.016549 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan4/meshes/bec-Hobbywing-Platinum.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/Black</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_7' type='fixed'>
+      <parent>base_link</parent>
+      <child>bec</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </joint>
+    <link name='motor'>
+      <inertial>
+        <mass>0.15819</mass>
+        <inertia>
+          <ixx>4e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>4e-05</iyy>
+          <iyz>0</iyz>
+          <izz>2e-05</izz>
+        </inertia>
+        <pose frame=''>0 0 -0.01617 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan4/meshes/motor-Sunnysky-X2814III-1000KV.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/Red</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_8' type='fixed'>
+      <parent>base_link</parent>
+      <child>motor</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </joint>
+    <link name='panel11'>
+      <inertial>
+        <mass>0.01056</mass>
+        <inertia>
+          <ixx>1e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>9.33e-06</iyy>
+          <iyz>0</iyz>
+          <izz>4.68e-06</izz>
+        </inertia>
+        <pose frame=''>0.039 0 0.062654 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan4/meshes/panel11.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/Black</name>
+          </script>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <joint name='JOINT_9' type='fixed'>
+      <parent>base_link</parent>
+      <child>panel11</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </joint>
+    <link name='panel12'>
+      <inertial>
+        <mass>0.01056</mass>
+        <inertia>
+          <ixx>1e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>9.33e-06</iyy>
+          <iyz>0</iyz>
+          <izz>4.68e-06</izz>
+        </inertia>
+        <pose frame=''>-0.039 0 0.062654 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan4/meshes/panel12.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/Black</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_10' type='fixed'>
+      <parent>base_link</parent>
+      <child>panel12</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </joint>
+    <link name='shelf1'>
+      <inertial>
+        <mass>0.01935</mass>
+        <inertia>
+          <ixx>1e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1e-05</iyy>
+          <iyz>0</iyz>
+          <izz>2e-05</izz>
+        </inertia>
+        <pose frame=''>0.004661 0 0.028802 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan4/meshes/shelf1.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_11' type='fixed'>
+      <parent>base_link</parent>
+      <child>shelf1</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </joint>
+    <link name='servo1'>
+      <inertial>
+        <mass>0.00961</mass>
+        <inertia>
+          <ixx>4.8e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>4.1e-07</iyy>
+          <iyz>0</iyz>
+          <izz>8.1e-07</izz>
+        </inertia>
+        <pose frame=''>0.017 0.00565 -0.144995 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan4/meshes/servo-KST-X08H-1.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/Red</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_12' type='fixed'>
+      <parent>base_link</parent>
+      <child>servo1</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </joint>
+    <link name='servo2'>
+      <inertial>
+        <mass>0.00961</mass>
+        <inertia>
+          <ixx>4.1e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>4.9e-07</iyy>
+          <iyz>0</iyz>
+          <izz>8.1e-07</izz>
+        </inertia>
+        <pose frame=''>0.00559 -0.017144 -0.140995 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan4/meshes/servo-KST-X08H-2.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/Red</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_13' type='fixed'>
+      <parent>base_link</parent>
+      <child>servo2</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </joint>
+    <link name='servo3'>
+      <inertial>
+        <mass>0.00961</mass>
+        <inertia>
+          <ixx>4.1e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>4.9e-07</iyy>
+          <iyz>0</iyz>
+          <izz>8.1e-07</izz>
+        </inertia>
+        <pose frame=''>-0.005596 0.017144 -0.140995 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan4/meshes/servo-KST-X08H-3.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/Red</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_14' type='fixed'>
+      <parent>base_link</parent>
+      <child>servo3</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </joint>
+    <link name='servo4'>
+      <inertial>
+        <mass>0.00961</mass>
+        <inertia>
+          <ixx>4.9e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>4.1e-07</iyy>
+          <iyz>0</iyz>
+          <izz>8.1e-07</izz>
+        </inertia>
+        <pose frame=''>-0.017144 -0.005596 -0.140995 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan4/meshes/servo-KST-X08H-4.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/Red</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_15' type='fixed'>
+      <parent>base_link</parent>
+      <child>servo4</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </joint>
+    <link name='box_up'>
+      <inertial>
+        <mass>0.0189</mass>
+        <inertia>
+          <ixx>8.21e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1e-05</iyy>
+          <iyz>0</iyz>
+          <izz>2e-05</izz>
+        </inertia>
+        <pose frame=''>0.000321 0.000141 0.008071 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan4/meshes/box_up.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_16' type='fixed'>
+      <parent>base_link</parent>
+      <child>box_up</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </joint>
+    <link name='box_up2'>
+      <inertial>
+        <mass>0.00977</mass>
+        <inertia>
+          <ixx>6.99e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>6.99e-06</iyy>
+          <iyz>0</iyz>
+          <izz>1e-05</izz>
+        </inertia>
+        <pose frame=''>0 0 0.017832 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan4/meshes/box_up2.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <joint name='JOINT_17' type='fixed'>
+      <parent>base_link</parent>
+      <child>box_up2</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </joint>
+    <link name='base_board_flyctrl'>
+      <inertial>
+        <mass>0.00837</mass>
+        <inertia>
+          <ixx>3.17e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>5.66e-06</iyy>
+          <iyz>0</iyz>
+          <izz>8.82e-06</izz>
+        </inertia>
+        <pose frame=''>0 0 0.106461 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan4/meshes/base_board_flyctrl.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/Black</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_18' type='fixed'>
+      <parent>base_link</parent>
+      <child>base_board_flyctrl</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </joint>
+    
+    
     <link name='ductedfan4/imu_link'>
       <pose>0 0 0 0 0 0</pose>
       <inertial>
@@ -147,7 +805,7 @@
         </geometry>
         <material>
           <script>
-            <name>Gazebo/Blue</name>
+            <name>Gazebo/Grey</name>
             <uri>__default__</uri>
           </script>
         </material>
@@ -178,7 +836,7 @@
         </geometry>
         <material>
           <script>
-            <name>Gazebo/Blue</name>
+            <name>Gazebo/Grey</name>
             <uri>__default__</uri>
           </script>
         </material>
@@ -210,7 +868,7 @@
         </geometry>
         <material>
           <script>
-            <name>Gazebo/Blue</name>
+            <name>Gazebo/Grey</name>
             <uri>__default__</uri>
           </script>
         </material>
@@ -241,7 +899,7 @@
         </geometry>
         <material>
           <script>
-            <name>Gazebo/Blue</name>
+            <name>Gazebo/Grey</name>
             <uri>__default__</uri>
           </script>
         </material>
@@ -278,7 +936,7 @@
         </geometry>
         <material>
           <script>
-            <name>Gazebo/Blue</name>
+            <name>Gazebo/Black</name>
             <uri>__default__</uri>
           </script>
         </material>
