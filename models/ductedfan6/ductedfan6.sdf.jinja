@@ -1424,7 +1424,7 @@
           <joint_control_type>velocity</joint_control_type>
           <joint_name>rotor_joint</joint_name>
         </channel>
-        <channel name="roll1">
+        <channel name="1">
           <input_index>4</input_index>
           <input_offset>0</input_offset>
           <input_scaling>0.35</input_scaling>
@@ -1433,7 +1433,7 @@
           <joint_control_type>position_kinematic</joint_control_type>
           <joint_name>cs1_joint</joint_name>
         </channel>
-        <channel name="pitch1">
+        <channel name="2">
           <input_index>5</input_index>
           <input_offset>0</input_offset>
           <input_scaling>0.35</input_scaling>
@@ -1442,35 +1442,8 @@
           <joint_control_type>position_kinematic</joint_control_type>
           <joint_name>cs2_joint</joint_name>
         </channel>
-        <channel name="roll2">
+        <channel name="3">
           <input_index>6</input_index>
-          <input_offset>0</input_offset>
-          <input_scaling>0.35</input_scaling>
-          <zero_position_disarmed>0</zero_position_disarmed>
-          <zero_position_armed>0</zero_position_armed>
-          <joint_control_type>position_kinematic</joint_control_type>
-          <joint_name>cs3_joint</joint_name>
-        </channel>
-        <channel name="pitch2">
-          <input_index>7</input_index>
-          <input_offset>0</input_offset>
-          <input_scaling>0.35</input_scaling>
-          <zero_position_disarmed>0</zero_position_disarmed>
-          <zero_position_armed>0</zero_position_armed>
-          <joint_control_type>position_kinematic</joint_control_type>
-          <joint_name>cs4_joint</joint_name>
-        </channel>
-        <channel name="pitch_add">
-          <input_index>8</input_index>
-          <input_offset>0</input_offset>
-          <input_scaling>0.35</input_scaling>
-          <zero_position_disarmed>0</zero_position_disarmed>
-          <zero_position_armed>0</zero_position_armed>
-          <joint_control_type>position_kinematic</joint_control_type>
-          <joint_name>cs11_joint</joint_name>
-        </channel>
-        <channel name="pitch_add1">
-          <input_index>9</input_index>
           <input_offset>0</input_offset>
           <input_scaling>0.35</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
@@ -1478,6 +1451,34 @@
           <joint_control_type>position_kinematic</joint_control_type>
           <joint_name>cs22_joint</joint_name>
         </channel>
+        <channel name="4">
+          <input_index>7</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>0.35</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>0</zero_position_armed>
+          <joint_control_type>position_kinematic</joint_control_type>
+          <joint_name>cs3_joint</joint_name>
+        </channel>
+        <channel name="5">
+          <input_index>8</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>0.35</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>0</zero_position_armed>
+          <joint_control_type>position_kinematic</joint_control_type>
+          <joint_name>cs4_joint</joint_name>
+        </channel>
+        <channel name="6">
+          <input_index>9</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>0.35</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>0</zero_position_armed>
+          <joint_control_type>position_kinematic</joint_control_type>
+          <joint_name>cs11_joint</joint_name>
+        </channel>
+
       </control_channels>
     </plugin>
     <static>0</static>
