@@ -1,0 +1,1394 @@
+<?xml version="1.0"?>
+<sdf version='1.5'>
+  <model name='ductedfan_mini'>
+    <pose>0 0 0.3 0 0 0</pose>
+    <!-- <link name='base_link'>
+      <pose>0 0 0 0 0 0</pose>
+      <inertial>
+          <mass>0.431</mass>
+          <inertia>
+            <ixx>0.001506</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00154</iyy>
+            <iyz>0</iyz>
+            <izz>0.000689</izz>
+          </inertia>
+          <pose>0 0 -0.006015 0 -0 0</pose>
+      </inertial>
+      <collision name='base_link_collision'>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/base.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_link_visual'>
+        <pose>0.0 0 -0.0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/base.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/White</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+    </link> -->
+    <link name='ductedfan_mini/imu_link'>
+      <pose>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.015</mass>
+        <inertia>
+          <ixx>1e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1e-05</iyy>
+          <iyz>0</iyz>
+          <izz>1e-05</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <joint name='ductedfan_mini/imu_joint' type='revolute'>
+      <child>ductedfan_mini/imu_link</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='base_link'>
+      <inertial>
+        <mass>0.031</mass>
+        <inertia>
+          <ixx>0.000049</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00005</iyy>
+          <iyz>0</iyz>
+          <izz>0.000074</izz>
+        </inertia>
+        <pose frame=''>0.002036 0.000016 0.011332 0 -0 0</pose>
+      </inertial>
+      <collision name='collision'>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/Product1all - body1.stp.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/Product1all - body1.stp.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/FlatBlack</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <!-- <joint name='JOINT_1' type='fixed'>
+      <parent>base_link</parent>
+      <child>body1</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </joint> -->
+    <link name='ducted'>
+      <inertial>
+        <mass>0.022</mass>
+        <inertia>
+          <ixx>0.000126</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000126</iyy>
+          <iyz>0</iyz>
+          <izz>0.000203</izz>
+        </inertia>
+        <pose frame=''>0.0 -0.0 -0.062011 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/ducted.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/White</name>
+          </script>
+        </material>
+      </visual>
+      <collision name='collision'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <!-- <mesh>
+            <uri>model://ductedfan_mini/meshes/ducted.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh> -->
+          <box>
+            <size>0.25 0.25 0.33</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+            </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
+          </friction>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+            <threshold>1e+06</threshold>
+          </bounce>
+          <contact>
+            <collide_without_contact>0</collide_without_contact>
+            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+            <collide_bitmask>1</collide_bitmask>
+            <ode>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+              <max_vel>0.01</max_vel>
+              <min_depth>0</min_depth>
+            </ode>
+            <bullet>
+              <split_impulse>1</split_impulse>
+              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+            </bullet>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+    <joint name='JOINT_ducted' type='fixed'>
+      <parent>base_link</parent>
+      <child>ducted</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+    </joint>
+    <!-- <link name='MF1'>
+      <inertial>
+        <mass>0.007</mass>
+        <inertia>
+          <ixx>0.000015</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000025</iyy>
+          <iyz>0</iyz>
+          <izz>0.000024</izz>
+        </inertia>
+        <pose frame=''>0.038972 -0.067501 -0.062011 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 2.09333</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/Product1all - duct-MF07-1.stp.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/Blue</name>
+          </script>
+        </material>
+      </visual>
+      <collision name='collision'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 -0 2.09333</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/Product1all - duct-MF07-1.stp.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <joint name='JOINT_MF1' type='fixed'>
+      <parent>base_link</parent>
+      <child>MF1</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </joint>
+    <link name='MF2'>
+      <inertial>
+        <mass>0.007</mass>
+        <inertia>
+          <ixx>0.000015</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000025</iyy>
+          <iyz>0</iyz>
+          <izz>0.000024</izz>
+        </inertia>
+        <pose frame=''>0.038972 0.067501 -0.062011 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 -2.09333</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/Product1all - duct-MF07-1.stp.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/Red</name>
+          </script>
+        </material>
+      </visual>
+      <collision name='collision'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 -0 -2.09333</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/Product1all - duct-MF07-1.stp.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <joint name='JOINT_MF2' type='fixed'>
+      <parent>base_link</parent>
+      <child>MF2</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </joint>
+    <link name='MF3'>
+      <inertial>
+        <mass>0.007</mass>
+        <inertia>
+          <ixx>0.000015</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000025</iyy>
+          <iyz>0</iyz>
+          <izz>0.000024</izz>
+        </inertia>
+        <pose frame=''>-0.077944 0 -0.062011 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/Product1all - duct-MF07-1.stp.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/DarkGrey</name>
+          </script>
+        </material>
+      </visual>
+      <collision name='collision'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/Product1all - duct-MF07-1.stp.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <joint name='JOINT_MF3' type='fixed'>
+      <parent>base_link</parent>
+      <child>MF3</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </joint>-->
+    <link name='motor'>
+      <inertial>
+        <mass>0.035</mass>
+        <inertia>
+          <ixx>0.000002</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000002</iyy>
+          <iyz>0</iyz>
+          <izz>0.000003</izz>
+        </inertia>
+        <pose frame=''>-0.0 0 -0.026433 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/Product1all - motor-Emax-RS2306.stp.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/Gold</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_motor' type='fixed'>
+      <parent>base_link</parent>
+      <child>motor</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+    </joint>
+    <link name='body3'>
+      <inertial>
+        <mass>0.039</mass>
+        <inertia>
+          <ixx>0.00007</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000069</iyy>
+          <iyz>0</iyz>
+          <izz>0.000129</izz>
+        </inertia>
+        <pose frame=''>-0.000315 0 -0.102197 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/Product1all - body3.stp.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/FlatBlack</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_body3' type='fixed'>
+      <parent>base_link</parent>
+      <child>body3</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+    </joint>
+    <link name='body2'>
+      <inertial>
+        <mass>0.004</mass>
+        <inertia>
+          <ixx>8.7e-7</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>8.7436e-7</iyy>
+          <iyz>0</iyz>
+          <izz>0.000002</izz>
+        </inertia>
+        <pose frame=''>0 0 -0.127487 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/Product1all - body2.stp.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/DarkGrey</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_body2' type='fixed'>
+      <parent>base_link</parent>
+      <child>body2</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+    </joint>
+    <link name='body4'>
+      <inertial>
+        <mass>0.008</mass>
+        <inertia>
+          <ixx>0.000035</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000034</iyy>
+          <iyz>0</iyz>
+          <izz>0.000069</izz>
+        </inertia>
+        <pose frame=''>0 0 -0.123249 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/Product1all - body4.stp.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/FlatBlack</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_body4' type='fixed'>
+      <parent>base_link</parent>
+      <child>body4</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+    </joint>
+    <link name='battery'>
+      <inertial>
+        <mass>0.229</mass>
+        <inertia>
+          <ixx>0.000087</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000114</iyy>
+          <iyz>0</iyz>
+          <izz>0.000182</izz>
+        </inertia>
+        <pose frame=''>0 0 0.02746 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/Product1all - battery-3s-5000-2170.stp.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/Blue</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_battery' type='fixed'>
+      <parent>base_link</parent>
+      <child>battery</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+    </joint>
+    <link name='bec'>
+      <inertial>
+        <mass>0.029</mass>
+        <inertia>
+          <ixx>0.000002</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000005</iyy>
+          <iyz>0</iyz>
+          <izz>0.000006</izz>
+        </inertia>
+        <pose frame=''>0 0 -0.0084 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/Product1all - bec-Hobbywing-Platinum 25A.stp.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/DarkGrey</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_bec' type='fixed'>
+      <parent>base_link</parent>
+      <child>bec</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+    </joint>
+    <link name='controller'>
+      <inertial>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>4.06e-7</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000004</iyy>
+          <iyz>0</iyz>
+          <izz>0.000004</izz>
+        </inertia>
+        <pose frame=''>0.007625 0 0.005218 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/Product1all - controller-MAV-2.stp.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/Green</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_controller' type='fixed'>
+      <parent>base_link</parent>
+      <child>controller</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+    </joint>
+    <link name='FPGA'>
+      <inertial>
+        <mass>0.011</mass>
+        <inertia>
+          <ixx>0.000006</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000006</iyy>
+          <iyz>0</iyz>
+          <izz>0.000011</izz>
+        </inertia>
+        <pose frame=''>0.0 0 0.04775 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/Product1all - FPGA.stp.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/DarkGrey</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_FPGA' type='fixed'>
+      <parent>base_link</parent>
+      <child>FPGA</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+    </joint>
+    <link name='servo1'>
+      <inertial>
+        <mass>0.003</mass>
+        <inertia>
+          <ixx>2.838e-7</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.128599e-7</iyy>
+          <iyz>0</iyz>
+          <izz>2.065654e-7</izz>
+        </inertia>
+        <pose frame=''>0.014116 -0.005325 -0.131 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 3.14</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/Product1all - servo-DM-S0025.stp.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/Red</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_servo1' type='fixed'>
+      <parent>base_link</parent>
+      <child>servo1</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+    </joint>
+    <link name='servo2'>
+      <inertial>
+        <mass>0.003</mass>
+        <inertia>
+          <ixx>2.838e-7</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.128599e-7</iyy>
+          <iyz>0</iyz>
+          <izz>2.065654e-7</izz>
+        </inertia>
+        <pose frame=''>-0.005325 -0.014116 -0.131 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 1.57</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/Product1all - servo-DM-S0025.stp.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/Red</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_servo2' type='fixed'>
+      <parent>base_link</parent>
+      <child>servo2</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+    </joint>
+    <link name='servo3'>
+      <inertial>
+        <mass>0.003</mass>
+        <inertia>
+          <ixx>2.838e-7</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.128599e-7</iyy>
+          <iyz>0</iyz>
+          <izz>2.065654e-7</izz>
+        </inertia>
+        <pose frame=''>-0.014116 0.005325 -0.131 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/Product1all - servo-DM-S0025.stp.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/Red</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_servo3' type='fixed'>
+      <parent>base_link</parent>
+      <child>servo3</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+    </joint>
+    <link name='servo4'>
+      <inertial>
+        <mass>0.003</mass>
+        <inertia>
+          <ixx>2.838e-7</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.128599e-7</iyy>
+          <iyz>0</iyz>
+          <izz>2.065654e-7</izz>
+        </inertia>
+        <pose frame=''>0.005325 0.014116 -0.131 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 -1.57</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/Product1all - servo-DM-S0025.stp.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/Red</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='JOINT_servo4' type='fixed'>
+      <parent>base_link</parent>
+      <child>servo4</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+    </joint>
+    <link name='cs1'>
+      <inertial>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>1.111369e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>8.123572e-07</iyy>
+          <iyz>0</iyz>
+          <izz>7.222304e-07</izz>
+        </inertia>
+        <pose>0.056893 0 -0.137795 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose>0 0 0 0 -0 -1.57</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/cs.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Grey</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='cs2'>
+      <inertial>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>1.111369e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>8.123572e-07</iyy>
+          <iyz>0</iyz>
+          <izz>7.222304e-07</izz>
+        </inertia>
+        <pose>0 -0.056893 -0.137795 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose>0 0 0 0 -0 3.14</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/cs.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Grey</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+
+	  <link name='cs3'>
+      <inertial>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>1.111369e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>8.123572e-07</iyy>
+          <iyz>0</iyz>
+          <izz>7.222304e-07</izz>
+        </inertia>
+        <pose>-0.056893 0 -0.137795 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose>0 0 0 0 -0 1.57</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/cs.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Grey</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='cs4'>
+      <inertial>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>1.111369e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>8.123572e-07</iyy>
+          <iyz>0</iyz>
+          <izz>7.222304e-07</izz>
+        </inertia>
+        <pose>0 0.056893 -0.137795 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/cs.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Grey</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+
+    <link name='rotor'>
+      <inertial>
+        <mass>0.018</mass>
+        <inertia>
+          <ixx>0.000015</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000015</iyy>
+          <iyz>0</iyz>
+          <izz>0.000029</izz>
+        </inertia>
+        <pose>-0.0 -0.0 -0.04 0 -0 0</pose>
+      </inertial>
+      <pose>0 0 0 0 -0 0</pose>
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <enable_wind>0</enable_wind>
+      <visual name='visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/rotor.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+      <collision name='rotor_collision'>
+        <geometry>
+          <mesh>
+            <uri>model://ductedfan_mini/meshes/rotor.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <joint name='rotor_joint' type='revolute'>
+      <parent>base_link</parent>
+      <child>rotor</child>
+      <pose frame=''>0 0 -0.04 0 -0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <use_parent_model_frame>0</use_parent_model_frame>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+          <damping>0.0001</damping>
+          <friction>0</friction>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+    </joint>
+
+    <joint name='cs1_joint' type='revolute'>
+      <parent>base_link</parent>
+      <child>cs1</child>
+      <pose>0 0 -0.131 0 -0 0</pose>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <use_parent_model_frame>0</use_parent_model_frame>
+        <limit>
+          <lower>-0.35</lower>
+          <upper>0.35</upper>
+        </limit>
+        <dynamics>
+          <damping>0.001</damping>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+    </joint>
+    <joint name='cs2_joint' type='revolute'>
+      <parent>base_link</parent>
+      <child>cs2</child>
+      <pose>0 0 -0.131 0 -0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <use_parent_model_frame>0</use_parent_model_frame>
+        <limit>
+          <lower>-0.35</lower>
+          <upper>0.35</upper>
+        </limit>
+        <dynamics>
+          <damping>0.001</damping>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+    </joint>
+
+    <joint name='cs3_joint' type='revolute'>
+      <parent>base_link</parent>
+      <child>cs3</child>
+      <pose>-0 0 -0.131 0 -0 0</pose>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <use_parent_model_frame>0</use_parent_model_frame>
+        <limit>
+          <lower>-0.35</lower>
+          <upper>0.35</upper>
+        </limit>
+        <dynamics>
+          <damping>0.001</damping>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+    </joint>
+    <joint name='cs4_joint' type='revolute'>
+      <parent>base_link</parent>
+      <child>cs4</child>
+      <pose>0 0 -0.131 0 -0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <use_parent_model_frame>0</use_parent_model_frame>
+        <limit>
+          <lower>-0.35</lower>
+          <upper>0.35</upper>
+        </limit>
+        <dynamics>
+          <damping>0.001</damping>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+    </joint>
+
+
+    <include>
+      <uri>model://gps</uri>
+      <pose>0 0 0 0 0 0</pose>
+      <name>gps</name>
+    </include>
+    <joint name='gps_joint' type='fixed'>
+      <child>gps::link</child>
+      <parent>base_link</parent>
+    </joint>
+    <plugin name="cs1_plugin" filename="libLiftDragPlugin.so">
+      <is_ductedfan>1</is_ductedfan>
+      <num_of_propeller>1</num_of_propeller>
+      <wind_from_propeller>
+        <propeller name="up_propeller">
+          <propeller_index>0</propeller_index>
+          <propeller_joint>rotor_joint</propeller_joint>
+          <propeller_wind_constant>0.169</propeller_wind_constant>
+        </propeller>
+      </wind_from_propeller>
+      <a0>0</a0>
+      <cla>0</cla>
+      <cda>0</cda>
+      <cma>0</cma>
+      <alpha_stall>0.6</alpha_stall>
+      <cla_stall>0</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>0.069 0 -0.148</cp>
+      <area>0.0018</area>
+      <air_density>1.2041</air_density>
+      <forward>0 0 1</forward>
+      <upward>0 -1 0</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>cs1_joint</control_joint_name>
+      <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+    <plugin name="cs2_plugin" filename="libLiftDragPlugin.so">
+      <is_ductedfan>1</is_ductedfan>
+      <num_of_propeller>1</num_of_propeller>
+      <wind_from_propeller>
+        <propeller name="up_propeller">
+          <propeller_index>0</propeller_index>
+          <propeller_joint>rotor_joint</propeller_joint>
+          <propeller_wind_constant>0.169</propeller_wind_constant>
+        </propeller>
+      </wind_from_propeller>
+      <a0>0</a0>
+      <cla>0</cla>
+      <cda>0</cda>
+      <cma>0</cma>
+      <alpha_stall>0.6</alpha_stall>
+      <cla_stall>0</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>0 -0.069 -0.148</cp>
+      <area>0.0018</area>
+      <air_density>1.2041</air_density>
+      <forward>0 0 1</forward>
+      <upward>1 0 0</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>cs2_joint</control_joint_name>
+      <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+
+    <plugin name="cs3_plugin" filename="libLiftDragPlugin.so">
+      <is_ductedfan>1</is_ductedfan>
+      <num_of_propeller>1</num_of_propeller>
+      <wind_from_propeller>
+        <propeller name="up_propeller">
+          <propeller_index>0</propeller_index>
+          <propeller_joint>rotor_joint</propeller_joint>
+          <propeller_wind_constant>0.169</propeller_wind_constant>
+        </propeller>
+      </wind_from_propeller>
+      <a0>0</a0>
+      <cla>0</cla>
+      <cda>0</cda>
+      <cma>0</cma>
+      <alpha_stall>0.6</alpha_stall>
+      <cla_stall>0</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>-0.069 0 -0.148</cp>
+      <area>0.0018</area>
+      <air_density>1.2041</air_density>
+      <forward>0 0 1</forward>
+      <upward>0 -1 0</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>cs3_joint</control_joint_name>
+      <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+    <plugin name="cs4_plugin" filename="libLiftDragPlugin.so">
+      <is_ductedfan>1</is_ductedfan>
+      <num_of_propeller>1</num_of_propeller>
+      <wind_from_propeller>
+        <propeller name="up_propeller">
+          <propeller_index>0</propeller_index>
+          <propeller_joint>rotor_joint</propeller_joint>
+          <propeller_wind_constant>0.169</propeller_wind_constant>
+        </propeller>
+      </wind_from_propeller>
+      <a0>0</a0>
+      <cla>0</cla>
+      <cda>0</cda>
+      <cma>0</cma>
+      <alpha_stall>0.6</alpha_stall>
+      <cla_stall>0</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>0 0.069 -0.148</cp>
+      <area>0.0018</area>
+      <air_density>1.2041</air_density>
+      <forward>0 0 1</forward>
+      <upward>1 0 0</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>cs4_joint</control_joint_name>
+      <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+
+
+    <plugin name='rotor_plugin' filename='libgazebo_motor_model.so'>
+      <robotNamespace></robotNamespace>
+      <jointName>rotor_joint</jointName>
+      <linkName>rotor</linkName>
+      <turningDirection>ccw</turningDirection>
+      <timeConstantUp>0.0125</timeConstantUp>
+      <timeConstantDown>0.025</timeConstantDown>
+      <maxRotVelocity>2450</maxRotVelocity>
+      <!-- Lift Force T -->
+      <motorConstant>9.1316618e-6</motorConstant>
+      <!-- Drag moment by H-->
+      <momentConstant>0.0</momentConstant>
+      <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
+      <motorNumber>0</motorNumber>
+      <!-- Drag Force H-->
+      <rotorDragCoefficient>0</rotorDragCoefficient>
+      <!-- Drag moment by T -->
+      <rollingMomentCoefficient>0</rollingMomentCoefficient>
+      <motorSpeedPubTopic>/motor_speed/0</motorSpeedPubTopic>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+      <robotNamespace></robotNamespace>
+    </plugin>
+
+    <plugin name='gazebo_imu_plugin' filename='libgazebo_imu_plugin.so'>
+      <robotNamespace></robotNamespace>
+      <linkName>ductedfan_mini/imu_link</linkName>
+      <imuTopic>/imu</imuTopic>
+      <gyroscopeNoiseDensity>0.00018665</gyroscopeNoiseDensity>
+      <gyroscopeRandomWalk>3.8785e-05</gyroscopeRandomWalk>
+      <gyroscopeBiasCorrelationTime>1000.0</gyroscopeBiasCorrelationTime>
+      <gyroscopeTurnOnBiasSigma>0.0087</gyroscopeTurnOnBiasSigma>
+      <accelerometerNoiseDensity>0.00186</accelerometerNoiseDensity>
+      <accelerometerRandomWalk>0.006</accelerometerRandomWalk>
+      <accelerometerBiasCorrelationTime>300.0</accelerometerBiasCorrelationTime>
+      <accelerometerTurnOnBiasSigma>0.196</accelerometerTurnOnBiasSigma>
+    </plugin>
+    <plugin name='groundtruth_plugin' filename='libgazebo_groundtruth_plugin.so'>
+      <robotNamespace/>
+    </plugin>
+    <plugin name='magnetometer_plugin' filename='libgazebo_magnetometer_plugin.so'>
+      <robotNamespace/>
+      <pubRate>100</pubRate>
+      <noiseDensity>0.0004</noiseDensity>
+      <randomWalk>6.4e-06</randomWalk>
+      <biasCorrelationTime>600</biasCorrelationTime>
+      <magTopic>/mag</magTopic>
+    </plugin>
+    <plugin name='barometer_plugin' filename='libgazebo_barometer_plugin.so'>
+      <robotNamespace/>
+      <pubRate>50</pubRate>
+      <baroTopic>/baro</baroTopic>
+    </plugin>
+    <!--plugin name='airspeed_plugin' filename='libgazebo_airspeed_plugin.so'>
+      <robotNamespace/>
+      <linkName>ductedfan4/airspeed_link</linkName>
+    </plugin-->
+    <plugin name='mavlink_interface' filename='libgazebo_mavlink_interface.so'>
+      <robotNamespace></robotNamespace>
+      <imuSubTopic>/imu</imuSubTopic>
+      <magSubTopic>/mag</magSubTopic>
+      <baroSubTopic>/baro</baroSubTopic>
+      <mavlink_addr>INADDR_ANY</mavlink_addr>
+      <mavlink_tcp_port>{{ mavlink_tcp_port }}</mavlink_tcp_port>
+      <mavlink_udp_port>{{ mavlink_udp_port }}</mavlink_udp_port>
+      <serialEnabled>{{ serial_enabled }}</serialEnabled>
+      <serialDevice>{{ serial_device }}</serialDevice>
+      <baudRate>{{ serial_baudrate }}</baudRate>
+      <qgc_addr>INADDR_ANY</qgc_addr>
+      <qgc_udp_port>14550</qgc_udp_port>
+      <sdk_addr>INADDR_ANY</sdk_addr>
+      <sdk_udp_port>14540</sdk_udp_port>
+      <hil_mode>{{ hil_mode }}</hil_mode>
+      <hil_state_level>false</hil_state_level>
+      <enable_lockstep>true</enable_lockstep>
+      <use_tcp>true</use_tcp>
+      <motorSpeedCommandPubTopic>/gazebo/command/motor_speed</motorSpeedCommandPubTopic>
+      <control_channels>
+        <channel name="up_rotor">
+          <input_index>0</input_index>
+          <input_offset>0</input_offset>
+          <!-- Construct a gain to cancel the link from pwm to motor speed. -->
+          <input_scaling>2450</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>0</zero_position_armed>
+          <joint_control_type>velocity</joint_control_type>
+          <joint_name>rotor_joint</joint_name>
+        </channel>
+        <channel name="roll1">
+          <input_index>4</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>0.35</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>0</zero_position_armed>
+          <joint_control_type>position</joint_control_type>
+          <joint_name>cs1_joint</joint_name>
+          <joint_control_pid>
+            <p>0.05</p>
+            <i>0</i>
+            <d>0</d>
+            <iMax>0</iMax>
+            <iMin>0</iMin>
+            <cmdMax>20</cmdMax>
+            <cmdMin>-20</cmdMin>
+          </joint_control_pid>
+        </channel>
+        <channel name="pitch1">
+          <input_index>5</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>-0.35</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>0</zero_position_armed>
+          <joint_control_type>position</joint_control_type>
+          <joint_name>cs2_joint</joint_name>
+          <joint_control_pid>
+            <p>0.05</p>
+            <i>0</i>
+            <d>0</d>
+            <iMax>0</iMax>
+            <iMin>0</iMin>
+            <cmdMax>20</cmdMax>
+            <cmdMin>-20</cmdMin>
+          </joint_control_pid>
+        </channel>
+        <channel name="roll2">
+          <input_index>6</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>-0.35</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>0</zero_position_armed>
+          <joint_control_type>position</joint_control_type>
+          <joint_name>cs3_joint</joint_name>
+          <joint_control_pid>
+            <p>0.05</p>
+            <i>0</i>
+            <d>0</d>
+            <iMax>0</iMax>
+            <iMin>0</iMin>
+            <cmdMax>20</cmdMax>
+            <cmdMin>-20</cmdMin>
+          </joint_control_pid>
+        </channel>
+        <channel name="pitch2">
+          <input_index>7</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>0.35</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>0</zero_position_armed>
+          <joint_control_type>position</joint_control_type>
+          <joint_name>cs4_joint</joint_name>
+          <joint_control_pid>
+            <p>0.05</p>
+            <i>0</i>
+            <d>0</d>
+            <iMax>0</iMax>
+            <iMin>0</iMin>
+            <cmdMax>20</cmdMax>
+            <cmdMin>-20</cmdMin>
+          </joint_control_pid>
+        </channel>
+      </control_channels>
+    </plugin>
+    <static>0</static>
+  </model>
+</sdf>

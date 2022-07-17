@@ -482,7 +482,7 @@
           <iyz>0</iyz>
           <izz>8.1e-07</izz>
         </inertia>
-        <pose frame=''>0.017 0.00565 -0.144995 0 -0 0</pose>
+        <pose frame=''>0.017 0.00565 -0.140995 0 -0 0</pose>
       </inertial>
       <visual name='visual'>
         <pose frame=''>0 0 0 0 -0 0</pose>
@@ -714,8 +714,8 @@
       <child>base_board_flyctrl</child>
       <pose frame=''>0 0 0 0 -0 0</pose>
     </joint>
-    
-    
+
+
     <link name='ductedfan4/imu_link'>
       <pose>0 0 0 0 0 0</pose>
       <inertial>
@@ -948,7 +948,7 @@
     <joint name='cs1_joint' type='revolute'>
       <parent>base_link</parent>
       <child>cs1</child>
-       <pose frame=''>0 0 -0.15 0 -0 0</pose>
+       <pose frame=''>0 0 -0.140995 0 -0 0</pose>
       <axis>
         <xyz>1 0 0</xyz>
         <use_parent_model_frame>0</use_parent_model_frame>
@@ -957,14 +957,19 @@
           <upper>0.35</upper>
         </limit>
         <dynamics>
-          <damping>0.01</damping>
+          <damping>0.001</damping>
         </dynamics>
       </axis>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
     </joint>
     <joint name='cs2_joint' type='revolute'>
       <parent>base_link</parent>
       <child>cs2</child>
-      <pose frame=''>0 0 -0.15 0 -0 0</pose>
+      <pose frame=''>0 0 -0.140995 0 -0 0</pose>
       <axis>
         <xyz>0 1 0</xyz>
         <use_parent_model_frame>0</use_parent_model_frame>
@@ -973,15 +978,20 @@
           <upper>0.35</upper>
         </limit>
         <dynamics>
-          <damping>0.01</damping>
+          <damping>0.001</damping>
         </dynamics>
       </axis>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
     </joint>
 
     <joint name='cs3_joint' type='revolute'>
       <parent>base_link</parent>
       <child>cs3</child>
-       <pose frame=''>0 0 -0.15 0 -0 0</pose>
+       <pose frame=''>0 0 -0.140995 0 -0 0</pose>
       <axis>
         <xyz>1 0 0</xyz>
         <use_parent_model_frame>0</use_parent_model_frame>
@@ -990,14 +1000,19 @@
           <upper>0.35</upper>
         </limit>
         <dynamics>
-          <damping>0.01</damping>
+          <damping>0.001</damping>
         </dynamics>
       </axis>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
     </joint>
     <joint name='cs4_joint' type='revolute'>
       <parent>base_link</parent>
       <child>cs4</child>
-      <pose frame=''>0 0 -0.15 0 -0 0</pose>
+      <pose frame=''>0 0 -0.140995 0 -0 0</pose>
       <axis>
         <xyz>0 1 0</xyz>
         <use_parent_model_frame>0</use_parent_model_frame>
@@ -1006,9 +1021,14 @@
           <upper>0.35</upper>
         </limit>
         <dynamics>
-          <damping>0.01</damping>
+          <damping>0.001</damping>
         </dynamics>
       </axis>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
     </joint>
 
     <joint name='rotor_joint' type='revolute'>
@@ -1027,20 +1047,13 @@
         <dynamics>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
-          <damping>0.0</damping>
+          <damping>0.0001</damping>
           <friction>0</friction>
         </dynamics>
       </axis>
       <physics>
         <ode>
-          <limit>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </limit>
-          <suspension>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </suspension>
+          <implicit_spring_damper>1</implicit_spring_damper>
         </ode>
       </physics>
     </joint>
