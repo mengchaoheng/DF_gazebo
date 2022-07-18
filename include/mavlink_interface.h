@@ -51,7 +51,7 @@
 #include <Eigen/Eigen>
 #include<Eigen/StdVector>
 
-#include <mavlink/v2.0/common/mavlink.h>
+#include <development/mavlink.h>
 #include "msgbuffer.h"
 
 static const uint32_t kDefaultMavlinkUdpPort = 14560;
@@ -152,6 +152,7 @@ public:
     void open();
     void close();
     void Load();
+    void SendHeartbeat();
     void SendSensorMessages(const uint64_t time_usec);
     void SendSensorMessages(const uint64_t time_usec, HILData &hil_data);
     void SendGpsMessages(const SensorData::Gps &data);
@@ -162,21 +163,24 @@ public:
     Eigen::VectorXd GetActuatorControls();
     bool GetArmedState();
     void onSigInt();
-    inline bool GetReceivedFirstActuator() {return received_first_actuator_;}
-    inline void SetBaudrate(int baudrate) {baudrate_ = baudrate;}
-    inline void SetSerialEnabled(bool serial_enabled) {serial_enabled_ = serial_enabled;}
-    inline void SetUseTcp(bool use_tcp) {use_tcp_ = use_tcp;}
-    inline void SetDevice(std::string device) {device_ = device;}
-    inline void SetEnableLockstep(bool enable_lockstep) {enable_lockstep_ = enable_lockstep;}
-    inline void SetMavlinkAddr(std::string mavlink_addr) {mavlink_addr_str_ = mavlink_addr;}
-    inline void SetMavlinkTcpPort(int mavlink_tcp_port) {mavlink_tcp_port_ = mavlink_tcp_port;}
-    inline void SetMavlinkUdpPort(int mavlink_udp_port) {mavlink_udp_port_ = mavlink_udp_port;}
-    inline void SetQgcAddr(std::string qgc_addr) {qgc_addr_ = qgc_addr;}
-    inline void SetQgcUdpPort(int qgc_udp_port) {qgc_udp_port_ = qgc_udp_port;}
-    inline void SetSdkAddr(std::string sdk_addr) {sdk_addr_ = sdk_addr;}
-    inline void SetSdkUdpPort(int sdk_udp_port) {sdk_udp_port_ = sdk_udp_port;}
-    inline void SetHILMode(bool hil_mode) {hil_mode_ = hil_mode;}
-    inline void SetHILStateLevel(bool hil_state_level) {hil_state_level_ = hil_state_level;}
+    bool GetReceivedFirstActuator() {return received_first_actuator_;}
+    void SetBaudrate(int baudrate) {baudrate_ = baudrate;}
+    void SetSerialEnabled(bool serial_enabled) {serial_enabled_ = serial_enabled;}
+    void SetUseTcp(bool use_tcp) {use_tcp_ = use_tcp;}
+    void SetDevice(std::string device) {device_ = device;}
+    void SetEnableLockstep(bool enable_lockstep) {enable_lockstep_ = enable_lockstep;}
+    void SetMavlinkAddr(std::string mavlink_addr) {mavlink_addr_str_ = mavlink_addr;}
+    void SetMavlinkTcpPort(int mavlink_tcp_port) {mavlink_tcp_port_ = mavlink_tcp_port;}
+    void SetMavlinkUdpPort(int mavlink_udp_port) {mavlink_udp_port_ = mavlink_udp_port;}
+    void SetQgcAddr(std::string qgc_addr) {qgc_addr_ = qgc_addr;}
+    void SetQgcUdpPort(int qgc_udp_port) {qgc_udp_port_ = qgc_udp_port;}
+    void SetSdkAddr(std::string sdk_addr) {sdk_addr_ = sdk_addr;}
+    void SetSdkUdpPort(int sdk_udp_port) {sdk_udp_port_ = sdk_udp_port;}
+    void SetHILMode(bool hil_mode) {hil_mode_ = hil_mode;}
+    void SetHILStateLevel(bool hil_state_level) {hil_state_level_ = hil_state_level;}
+
+    bool SerialEnabled() const { return serial_enabled_; }
+    bool ReceivedHeartbeats() const { return received_heartbeats_; }
 
 private:
     bool received_actuator_{false};
@@ -185,6 +189,8 @@ private:
     Eigen::VectorXd input_reference_;
 
     void handle_message(mavlink_message_t *msg);
+    void handle_heartbeat(mavlink_message_t *msg);
+    void handle_actuator_controls(mavlink_message_t *msg);
     void acceptConnections();
     void RegisterNewHILSensorInstance(int id);
 
@@ -268,4 +274,6 @@ private:
 
     std::vector<HILData, Eigen::aligned_allocator<HILData>> hil_data_;
     std::atomic<bool> gotSigInt_ {false};
+
+    bool received_heartbeats_ {false};
 };
