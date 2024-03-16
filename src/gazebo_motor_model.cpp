@@ -241,7 +241,9 @@ void GazeboMotorModel::UpdateForcesAndMoments() {
 #else
   ignition::math::Pose3d pose_difference = ignitionFromGazeboMath(link_->GetWorldCoGPose() - parent_links.at(0)->GetWorldCoGPose());
 #endif
-  ignition::math::Vector3d drag_torque(0, 0, -turning_direction_ * force * moment_constant_);
+  // ignition::math::Vector3d drag_torque(0, 0, -turning_direction_ * force * moment_constant_);
+  ignition::math::Vector3d drag_torque(0, 0, -0.17);
+  // gzdbg << "drag_torque: " << drag_torque << "\n";
   // Transforming the drag torque into the parent frame to handle arbitrary rotor orientations.
   ignition::math::Vector3d drag_torque_parent_frame = pose_difference.Rot().RotateVector(drag_torque);
   parent_links.at(0)->AddRelativeTorque(drag_torque_parent_frame);
