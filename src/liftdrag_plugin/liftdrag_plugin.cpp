@@ -283,8 +283,9 @@ void LiftDragPlugin::OnUpdate()
       // gzdbg << "before add wind: [" << vel<<"]\n";
       // gzdbg << "W_PI: [" << W_PI<<"]\n";
       ignition::math::Vector3d vel_b=pose.Rot().RotateVectorReverse(vel);
-      ignition::math::Vector3d wind_in_to_ductedfan_b = ignition::math::Vector3d(0, 0, vel_b.z());
-
+      // gzdbg << "vel_b: [" << vel_b<<"]\n";
+      ignition::math::Vector3d wind_in_to_ductedfan_b = ignition::math::Vector3d(0, 0, vel_b.Z());
+      // gzdbg << "wind_in_to_ductedfan_b: [" << wind_in_to_ductedfan_b<<"]\n";
       vel = pose.Rot().RotateVector(wind_in_to_ductedfan_b) + W_PI; // for ductedfan. ToDo: How to use vel?
     }
     else
