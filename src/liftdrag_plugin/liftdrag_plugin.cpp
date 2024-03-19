@@ -254,6 +254,12 @@ void LiftDragPlugin::OnUpdate()
 #else
   ignition::math::Vector3d vel = ignitionFromGazeboMath(this->link->GetWorldLinearVel(this->cp)) - wind_vel_;
 #endif
+  // pose of body
+#if GAZEBO_MAJOR_VERSION >= 9
+  ignition::math::Pose3d pose = this->link->WorldPose();
+#else
+  ignition::math::Pose3d pose = ignitionFromGazeboMath(this->link->GetWorldPose());
+#endif
   ignition::math::Vector3d W_PI = ignition::math::Vector3d(0, 0, 0);
   if(this->HasPropellerWind_)
   {
@@ -272,9 +278,19 @@ void LiftDragPlugin::OnUpdate()
       W_P = propeller_rotation * wind_by_propeller;
       W_PI += pose_propeller.Rot().RotateVector(W_P); // W_PI == velInLDPlane == speedInLDPlane == V_e
     }
-    //gzdbg << "before add wind: [" << vel<<"]\n";
-    //gzdbg << "W_PI: [" << W_PI<<"]\n";
-    vel += W_PI;
+    if(this->is_ductedfan_)
+    {
+      // gzdbg << "before add wind: [" << vel<<"]\n";
+      // gzdbg << "W_PI: [" << W_PI<<"]\n";
+      ignition::math::Vector3d vel_b=pose.Rot().RotateVectorReverse(vel);
+      ignition::math::Vector3d wind_in_to_ductedfan_b = ignition::math::Vector3d(0, 0, vel_b.z());
+
+      vel = pose.Rot().RotateVector(wind_in_to_ductedfan_b) + W_PI; // for ductedfan. ToDo: How to use vel?
+    }
+    else
+    {
+      vel += W_PI;
+    }
   }
   ignition::math::Vector3d velI = vel;
   velI.Normalize();
@@ -282,12 +298,6 @@ void LiftDragPlugin::OnUpdate()
   if (vel.Length() <= 0.01)
     return;
 
-  // pose of body
-#if GAZEBO_MAJOR_VERSION >= 9
-  ignition::math::Pose3d pose = this->link->WorldPose();
-#else
-  ignition::math::Pose3d pose = ignitionFromGazeboMath(this->link->GetWorldPose());
-#endif
 
   // rotate forward and upward vectors into inertial frame
   ignition::math::Vector3d forwardI = pose.Rot().RotateVector(this->forward);
@@ -415,6 +425,8 @@ void LiftDragPlugin::OnUpdate()
 
   // compute lift force at cp
   ignition::math::Vector3d lift = cl * q * this->area * liftI;
+  // gzdbg << "liftI: " << liftI << "\n";
+  // gzdbg << "B_k: " << (cl * q * this->area)/(controlAngle*speedInLDPlane * speedInLDPlane) << "\n"; // (cl * q * this->area)/(controlAngle*speedInLDPlane * speedInLDPlane) =0.00729995, (cl * q * this->area)/controlAngle=3
 
   // compute cd at cp, check for stall, correct for sweep
   double cd;
@@ -503,7 +515,7 @@ void LiftDragPlugin::OnUpdate()
           << cd << " cda: " << this->cda << "\n";
     gzdbg << "moment: " << moment << "\n";
     gzdbg << "force: " << force << "\n";
-    gzdbg << "moment: " << moment << "\n";
+    gzdbg << "W_PI: " << W_PI << "\n";
   }
 
   // Correct for nan or inf
