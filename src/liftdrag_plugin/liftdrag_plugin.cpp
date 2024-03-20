@@ -257,13 +257,10 @@ void LiftDragPlugin::OnUpdate()
   // pose of body
 #if GAZEBO_MAJOR_VERSION >= 9
   ignition::math::Pose3d pose = this->link->WorldPose();
-  // gzdbg << "=============>= 9================\n";
 #else
   ignition::math::Pose3d pose = ignitionFromGazeboMath(this->link->GetWorldPose());
-  // gzdbg << "=============< 9================\n";
 #endif
   ignition::math::Vector3d W_PI = ignition::math::Vector3d(0, 0, 0);
-  ignition::math::Vector3d W_P_all=ignition::math::Vector3d(0, 0, 0);
   if(this->HasPropellerWind_)
   {
     ignition::math::Vector3d W_P=ignition::math::Vector3d(0, 0, 0);
@@ -279,56 +276,9 @@ void LiftDragPlugin::OnUpdate()
       // gzdbg << "propeller_rotation: [" << propeller_rotation<<"]\n";
       double wind_by_propeller = this->propeller_wind_constant_[i] * std::abs(propellerRad); // V_e = k_v * Omega, propeller_wind_constant_ == k_v
       W_P = propeller_rotation * wind_by_propeller;
-      // physics::LinkPtr  parent_link = this->propeller_joint_[i]->GetParent();
-      // gzdbg << "parent_link: [" << parent_link->GetName()<< "]\n";
-      // gzdbg << "Link: [" << this->link->GetName()
-      //     << "] pose: [" << pose << "]\n";
-      // gzdbg << "parent_link: [" << parent_link->GetName()
-      //   << "] parent_link->WorldPose(): [" << parent_link->WorldPose() << "]\n";
-      // ignition::math::Pose3d pose_difference = this->link->WorldPose() - parent_link->WorldPose(); // 0
-      // ignition::math::Pose3d pose_difference = pose - pose_propeller; // 0.045 and yaw diff
-      // ignition::math::Vector3d W_P_base = pose_difference.Rot().RotateVector(W_P);
-
-
-
-
-
-
-
-
-      // gzdbg << "W_P_base: [" << W_P_base<<"]\n";
-      // gzdbg << "W_P: [" << W_P<<"]\n";
-      // gzdbg << "W_P_abs: [" << W_P.Length()<<"]\n";
-      // gzdbg << "pose_p: [" << pose_propeller<<"]\n";
-      // gzdbg << "pose_n: [" << pose<<"]\n";
-      // gzdbg << "pose_difference: [" << pose_difference<<"]\n";
-      // W_PI += pose_propeller.Rot().RotateVector(W_P); // W_PI == velInLDPlane == speedInLDPlane == V_e
-
-      W_P_all += W_P;
+      W_PI += pose_propeller.Rot().RotateVector(W_P); // W_PI == velInLDPlane == speedInLDPlane == V_e
       // W_PI += pose.Rot().RotateVector(W_P); // ToDo: diff is pose of joint and parent pose
-      // gzdbg << "error: [" << pose.Rot().RotateVector(W_P)-pose_propeller.Rot().RotateVector(W_P)<<"]\n";
-
-
-
-
     }
-    // gzdbg << "Link: [" << this->controlJoint->GetName()<<"]\n";
-    // ignition::math::Vector3d spanwise = this->forward.Cross(this->upward).Normalize();
-    // double tmp1=spanwise.Dot(W_P_all);
-    // gzdbg << "tmp1: [" << tmp1 <<"]\n";
-    // double tmp=this->forward.Dot(W_P_all);
-    W_PI=pose.Rot().RotateVector(W_P_all);
-    ignition::math::Vector3d forwardI = pose.Rot().RotateVector(this->forward);
-    ignition::math::Vector3d upwardI = pose.Rot().RotateVector(this->upward);
-    ignition::math::Vector3d spanwiseI = forwardI.Cross(upwardI).Normalize();
-    double tmp2=spanwiseI.Dot(W_PI);
-    // gzdbg << "tmp2: [" << tmp2 <<"]\n";
-    // ignition::math::Vector3d forwardI = pose.Rot().RotateVector(this->forward);
-    // double tmp1=forwardI.Dot(W_PI);
-    // gzdbg << "tmp: [" << tmp <<"]\n";
-    // gzdbg << "tmp1: [" << tmp1 <<"]\n";
-    // gzdbg << "error: [" << tmp1-tmp2 <<"]\n";
-
     if(this->is_wind_just_inside_)
     {
       // gzdbg << "before add wind: [" << vel<<"]\n";
@@ -342,12 +292,8 @@ void LiftDragPlugin::OnUpdate()
     }
     else
     {
-      gzdbg << "==============no wind_just_inside===============\n";
       vel += W_PI;
     }
-  }
-  else{
-    gzdbg << "=============no HasPropellerWind_================\n";
   }
   ignition::math::Vector3d velI = vel;
   velI.Normalize();
@@ -374,7 +320,6 @@ void LiftDragPlugin::OnUpdate()
   }
   else
   {
-    // gzdbg << "=============================\n";
     upwardI = pose.Rot().RotateVector(this->upward);
   }
 
@@ -388,28 +333,7 @@ void LiftDragPlugin::OnUpdate()
       spanwiseI.Dot(velI), minRatio, maxRatio);
 
   this->sweep = asin(sinSweepAngle);
-  // double tmp2=spanwiseI.Dot(velI.Normalize());
-  // gzdbg << "tmp2: [" << tmp2 <<"]\n";
   gzdbg << "sinSweepAngle: [" << sinSweepAngle <<"]\n";
-
-  ignition::math::Vector3d spanwise = this->forward.Cross(this->upward).Normalize();
-    double tmp1=spanwise.Dot(W_P_all);
-
-  // gzdbg << "Link: [" << this->controlJoint->GetName()
-          // << "] pose: [" << pose
-          // << "] sinSweepAngle: [" << spanwiseI.Dot(W_PI)<<"] tmp1: ["<< tmp1 <<"]\n";
-  ignition::math::Vector3d z_tmp_b = ignition::math::Vector3d(0, 0, 20);
-  // ignition::math::Vector3d spanwise = this->forward.Cross(this->upward).Normalize();
-  // double ang_before=spanwise.Dot(z_tmp_b);
-  // gzdbg << "ang_before: [" << ang_before<<"]\n";
-  // ignition::math::Vector3d z_tmp_I = pose.Rot().RotateVector(z_tmp_b);
-  // double ang_after=spanwiseI.Dot(z_tmp_I);
-  // gzdbg << "ang_after: [" << ang_after<<"]\n";
-
-
-
-
-
 
   // truncate sweep to within +/-90 deg
   while (fabs(this->sweep) > 0.5 * M_PI)
