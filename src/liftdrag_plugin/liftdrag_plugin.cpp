@@ -269,7 +269,7 @@ void LiftDragPlugin::OnUpdate()
     {
       ignition::math::Pose3d pose_propeller = this->propeller_joint_[i]->WorldPose();
       //if (i==1)
-        //gzdbg << "pose_propeller: [" << pose_propeller<<"]\n";
+        // gzdbg << "pose_propeller: [" << pose_propeller -pose<<"]\n";
       double propellerRad = this->propeller_joint_[i]->GetVelocity(0); // Multiply rotorVelocitySlowdownSim to get the real V
       //gzdbg << "propellerRad: [" << propellerRad<<"]\n";
       ignition::math::Vector3d propeller_rotation= this->propeller_joint_[i]->LocalAxis(0);//
@@ -288,6 +288,7 @@ void LiftDragPlugin::OnUpdate()
       ignition::math::Vector3d wind_in_to_ductedfan_b = ignition::math::Vector3d(0, 0, vel_b.Z());
       // gzdbg << "wind_in_to_ductedfan_b: [" << wind_in_to_ductedfan_b<<"]\n";
       // vel = pose.Rot().RotateVector(wind_in_to_ductedfan_b) + W_PI; // for ductedfan. ToDo: How to use vel?
+      // gzdbg << "wind_vel_: [" << wind_vel_<<"]\n";
       vel = W_PI;
     }
     else
@@ -333,7 +334,7 @@ void LiftDragPlugin::OnUpdate()
       spanwiseI.Dot(velI), minRatio, maxRatio);
 
   this->sweep = asin(sinSweepAngle);
-  gzdbg << "sinSweepAngle: [" << sinSweepAngle <<"]\n";
+  // gzdbg << "sinSweepAngle: [" << sinSweepAngle <<"]\n";
 
   // truncate sweep to within +/-90 deg
   while (fabs(this->sweep) > 0.5 * M_PI)
@@ -434,8 +435,8 @@ void LiftDragPlugin::OnUpdate()
   // gzdbg << "liftI: " << liftI << "\n";
   // gzdbg << "B_k: " << (cl * q * this->area)/(controlAngle*speedInLDPlane * speedInLDPlane) << "\n"; // (cl * q * this->area)/(controlAngle*speedInLDPlane * speedInLDPlane) =0.00729995, (cl * q * this->area)/controlAngle=3
   // gzdbg << "B_k1: " << (cl * q * this->area)/(controlAngle) << "\n";
-  ignition::math::Vector3d lift_b=pose.Rot().RotateVectorReverse(liftI);
-  // gzdbg << "lift_b: " << lift_b << "\n";
+  // ignition::math::Vector3d lift_b=pose.Rot().RotateVectorReverse(liftI);
+  // gzdbg << "Link: [" << this->controlJoint->GetName() << "] lift_b: " << lift_b << "\n";
   // compute cd at cp, check for stall, correct for sweep
   double cd;
   if (this->alpha > this->alphaStall)
