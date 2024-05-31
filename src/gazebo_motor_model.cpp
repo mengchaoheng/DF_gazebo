@@ -135,6 +135,7 @@ void GazeboMotorModel::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf) {
   getSdfParam<double>(_sdf, "timeConstantUp", time_constant_up_, time_constant_up_);
   getSdfParam<double>(_sdf, "timeConstantDown", time_constant_down_, time_constant_down_);
   getSdfParam<double>(_sdf, "rotorVelocitySlowdownSim", rotor_velocity_slowdown_sim_, 10);
+  fly=false;
 
   /*
   std::cout << "Subscribing to: " << motor_test_sub_topic_ << std::endl;
@@ -241,8 +242,24 @@ void GazeboMotorModel::UpdateForcesAndMoments() {
 #else
   ignition::math::Pose3d pose_difference = ignitionFromGazeboMath(link_->GetWorldCoGPose() - parent_links.at(0)->GetWorldCoGPose());
 #endif
-  ignition::math::Vector3d drag_torque(0, 0, -turning_direction_ * force * moment_constant_);
-  // ignition::math::Vector3d drag_torque(0, 0, -0.17);
+  // ignition::math::Vector3d drag_torque(0, 0, -turning_direction_ * force * moment_constant_);
+  ignition::math::Vector3d drag_torque(0, 0, 0);
+  if(real_motor_velocity>1250)
+  {
+    fly=true;
+  }
+  if(real_motor_velocity<500)
+  {
+    fly=false;
+  }
+  if(fly)
+  {
+    drag_torque[2]=-0.25;
+  }
+  else
+  {
+    drag_torque[2]= -turning_direction_ * force * moment_constant_;
+  }
   // gzdbg << "drag_torque: " << drag_torque << "\n";
   // Transforming the drag torque into the parent frame to handle arbitrary rotor orientations.
   ignition::math::Vector3d drag_torque_parent_frame = pose_difference.Rot().RotateVector(drag_torque);

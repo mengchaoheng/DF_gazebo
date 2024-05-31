@@ -138,6 +138,7 @@ class GazeboMotorModel : public MotorModel, public ModelPlugin {
   double time_constant_up_;
 
   bool reversible_;
+  bool fly;
 
   transport::NodePtr node_handle_;
   transport::PublisherPtr motor_velocity_pub_;
