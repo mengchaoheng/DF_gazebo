@@ -1108,6 +1108,7 @@ void GazeboMavlinkInterface::handle_actuator_controls() {
   input_reference_.resize(n_out_max);
 
   Eigen::VectorXd actuator_controls = mavlink_interface_->GetActuatorControls();
+  // gzdbg << "actuator_controls: " << actuator_controls << "\n";  // [-1, 1]
   if (actuator_controls.size() < n_out_max) return; //TODO: Handle this properly
   for (int i = 0; i < input_reference_.size(); i++) {
     if (armed) {

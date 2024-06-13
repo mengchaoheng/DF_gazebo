@@ -237,8 +237,8 @@ void LiftDragPlugin::Load(physics::ModelPtr _model,
     this->HasPropellerWind_=false;
   }
 
-  if (_sdf->HasElement("is_ductedfan"))
-    this->is_ductedfan_ = _sdf->Get<double>("is_ductedfan");
+  if (_sdf->HasElement("is_wind_just_inside"))
+    this->is_wind_just_inside_ = _sdf->Get<double>("is_wind_just_inside");
 
   if (_sdf->HasElement("control_joint_rad_to_cl"))
     this->controlJointRadToCL = _sdf->Get<double>("control_joint_rad_to_cl");
@@ -254,26 +254,62 @@ void LiftDragPlugin::OnUpdate()
 #else
   ignition::math::Vector3d vel = ignitionFromGazeboMath(this->link->GetWorldLinearVel(this->cp)) - wind_vel_;
 #endif
-  ignition::math::Vector3d velI = vel;
-  velI.Normalize();
-
-  //if (vel.Length() <= 0.01)
-  //  return;
-
   // pose of body
 #if GAZEBO_MAJOR_VERSION >= 9
   ignition::math::Pose3d pose = this->link->WorldPose();
 #else
   ignition::math::Pose3d pose = ignitionFromGazeboMath(this->link->GetWorldPose());
 #endif
+  ignition::math::Vector3d W_PI = ignition::math::Vector3d(0, 0, 0);
+  if(this->HasPropellerWind_)
+  {
+    ignition::math::Vector3d W_P=ignition::math::Vector3d(0, 0, 0);
+    // pose of body of propeller_link
+    for (int i=0;i<this->num_of_propeller_;++i)
+    {
+      ignition::math::Pose3d pose_propeller = this->propeller_joint_[i]->WorldPose();
+      //if (i==1)
+        // gzdbg << "pose_propeller: [" << pose_propeller -pose<<"]\n";
+      double propellerRad = this->propeller_joint_[i]->GetVelocity(0); // Multiply rotorVelocitySlowdownSim to get the real V
+      //gzdbg << "propellerRad: [" << propellerRad<<"]\n";
+      ignition::math::Vector3d propeller_rotation= this->propeller_joint_[i]->LocalAxis(0);//
+      // gzdbg << "propeller_rotation: [" << propeller_rotation<<"]\n";
+      double wind_by_propeller = this->propeller_wind_constant_[i] * std::abs(propellerRad); // V_e = k_v * Omega, propeller_wind_constant_ == k_v
+      W_P = propeller_rotation * wind_by_propeller;
+      W_PI += pose_propeller.Rot().RotateVector(W_P); // W_PI == velInLDPlane == speedInLDPlane == V_e
+      // W_PI += pose.Rot().RotateVector(W_P); // ToDo: diff is pose of joint and parent pose
+    }
+    if(this->is_wind_just_inside_)
+    {
+      // gzdbg << "before add wind: [" << vel<<"]\n";
+      // gzdbg << "W_PI: [" << W_PI<<"]\n";
+      ignition::math::Vector3d vel_b=pose.Rot().RotateVectorReverse(vel);
+      // gzdbg << "vel_b: [" << vel_b<<"]\n";
+      ignition::math::Vector3d wind_in_to_ductedfan_b = ignition::math::Vector3d(0, 0, vel_b.Z());
+      // gzdbg << "wind_in_to_ductedfan_b: [" << wind_in_to_ductedfan_b<<"]\n";
+      // vel = pose.Rot().RotateVector(wind_in_to_ductedfan_b) + W_PI; // for ductedfan. ToDo: How to use vel?
+      // gzdbg << "wind_vel_: [" << wind_vel_<<"]\n";
+      vel = W_PI;
+    }
+    else
+    {
+      vel += W_PI;
+    }
+  }
+  ignition::math::Vector3d velI = vel;
+  velI.Normalize();
+
+  if (vel.Length() <= 0.01)
+    return;
+
 
   // rotate forward and upward vectors into inertial frame
   ignition::math::Vector3d forwardI = pose.Rot().RotateVector(this->forward);
 
-  //if (forwardI.Dot(vel) <= 0.0){
+  if (forwardI.Dot(vel) <= 0.0){
     // Only calculate lift or drag if the wind relative velocity is in the same direction
-  //  return;
-  //}
+    return;
+  }
 
   ignition::math::Vector3d upwardI;
   if (this->radialSymmetry)
@@ -298,6 +334,7 @@ void LiftDragPlugin::OnUpdate()
       spanwiseI.Dot(velI), minRatio, maxRatio);
 
   this->sweep = asin(sinSweepAngle);
+  // gzdbg << "sinSweepAngle: [" << sinSweepAngle <<"]\n";
 
   // truncate sweep to within +/-90 deg
   while (fabs(this->sweep) > 0.5 * M_PI)
@@ -315,41 +352,7 @@ void LiftDragPlugin::OnUpdate()
   //
   // so,
   // removing spanwise velocity from vel
-  ignition::math::Vector3d W_PI = ignition::math::Vector3d(0, 0, 0);
-  ignition::math::Vector3d velInLDPlane = ignition::math::Vector3d(0, 0, 0);
-  if(this->HasPropellerWind_)
-  {
-    ignition::math::Vector3d W_P=ignition::math::Vector3d(0, 0, 0);
-    // pose of body of propeller_link
-    for (int i=0;i<this->num_of_propeller_;++i)
-    {
-      ignition::math::Pose3d pose_propeller = this->propeller_joint_[i]->WorldPose();
-      //if (i==1)
-        //gzdbg << "pose_propeller: [" << pose_propeller<<"]\n";
-      double propellerRad = this->propeller_joint_[i]->GetVelocity(0); // Multiply rotorVelocitySlowdownSim to get the real V
-      //gzdbg << "propellerRad: [" << propellerRad<<"]\n";
-      ignition::math::Vector3d propeller_rotation= this->propeller_joint_[i]->LocalAxis(0);//
-      //gzdbg << "propeller_rotation: [" << propeller_rotation<<"]\n";
-      double wind_by_propeller = this->propeller_wind_constant_[i] * std::abs(propellerRad); // V_e = k_v * Omega, propeller_wind_constant_ == k_v
-      W_P = propeller_rotation * wind_by_propeller;
-      W_PI += pose_propeller.Rot().RotateVector(W_P); // W_PI == velInLDPlane == speedInLDPlane == V_e
-    }
-
-    if(this->is_ductedfan_)
-    {
-      velInLDPlane = W_PI;
-      //gzdbg << "W_PI: [" << W_PI<<"]\n";
-    }
-    else
-    {
-      velInLDPlane = vel - vel.Dot(spanwiseI)*spanwiseI + W_PI;
-    }
-  }
-  else
-  {
-    velInLDPlane = vel - vel.Dot(spanwiseI)*spanwiseI;
-  }
-
+  ignition::math::Vector3d velInLDPlane = vel - vel.Dot(spanwiseI)*spanwiseI;
 
   // get direction of drag
   ignition::math::Vector3d dragDirection = -velInLDPlane;
@@ -385,6 +388,7 @@ void LiftDragPlugin::OnUpdate()
 
   // compute dynamic pressure
   double speedInLDPlane = velInLDPlane.Length();
+  // gzdbg << "speedInLDPlane: [" << speedInLDPlane<<"]\n";
   double q = 0.5 * this->rho * speedInLDPlane * speedInLDPlane;
   // (controlJointRadToCL * 0.5 * this->rho * area) * (speedInLDPlane * speedInLDPlane) * (controlAngle) == F,
   // (controlJointRadToCL * 0.5 * this->rho * area) == k_cv, controlJointRadToCL * 0.5 * 1.2041 * 0.0018 == 0.0073
@@ -427,8 +431,13 @@ void LiftDragPlugin::OnUpdate()
   }
 
   // compute lift force at cp
-  ignition::math::Vector3d lift = cl * q * this->area * liftI;
-
+  // ignition::math::Vector3d lift = cl * q * this->area * liftI;
+  ignition::math::Vector3d lift = 3.0 * controlAngle * liftI;
+  // gzdbg << "liftI: " << liftI << "\n";
+  // gzdbg << "B_k: " << (cl * q * this->area)/(controlAngle*speedInLDPlane * speedInLDPlane) << "\n"; // (cl * q * this->area)/(controlAngle*speedInLDPlane * speedInLDPlane) =0.00729995, (cl * q * this->area)/controlAngle=3
+  // gzdbg << "B_k1: " << (cl * q * this->area)/(controlAngle) << "\n";
+  // ignition::math::Vector3d lift_b=pose.Rot().RotateVectorReverse(liftI);
+  // gzdbg << "Link: [" << this->controlJoint->GetName() << "] lift_b: " << lift_b << "\n";
   // compute cd at cp, check for stall, correct for sweep
   double cd;
   if (this->alpha > this->alphaStall)
@@ -510,7 +519,7 @@ void LiftDragPlugin::OnUpdate()
           << cd << " cda: " << this->cda << "\n";
     gzdbg << "moment: " << moment << "\n";
     gzdbg << "force: " << force << "\n";
-    gzdbg << "moment: " << moment << "\n";
+    gzdbg << "W_PI: " << W_PI << "\n";
   }
 
   // Correct for nan or inf

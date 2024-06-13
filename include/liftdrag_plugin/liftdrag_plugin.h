@@ -149,7 +149,7 @@ namespace gazebo
 
     private: bool HasPropellerWind_;
 
-    private: bool is_ductedfan_;
+    private: bool is_wind_just_inside_;
 
     private: std::vector<physics::JointPtr> propeller_joint_;
 
