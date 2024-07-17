@@ -259,11 +259,6 @@ void GazeboMotorModel::UpdateForcesAndMoments() {
   // {
   //   drag_torque[2]= -turning_direction_ * force * moment_constant_;
   // }
-  // gzdbg << "drag_torque[2]: " << drag_torque[2] << "\n";
-  // gzdbg << "force * scalar: " << force * scalar << "\n";
-  // gzdbg << "real_motor_velocity: " << real_motor_velocity << "\n";
-  // gzdbg << "rotor_drag_coefficient_: " << rotor_drag_coefficient_ << "\n";
-  // gzdbg << "rolling_moment_coefficient_: " << rolling_moment_coefficient_ << "\n";
   // Transforming the drag torque into the parent frame to handle arbitrary rotor orientations.
   ignition::math::Vector3d drag_torque_parent_frame = pose_difference.Rot().RotateVector(drag_torque);
   parent_links.at(0)->AddRelativeTorque(drag_torque_parent_frame);
@@ -300,6 +295,21 @@ void GazeboMotorModel::UpdateForcesAndMoments() {
 #else
   joint_->SetVelocity(0, turning_direction_ * ref_motor_rot_vel / rotor_velocity_slowdown_sim_);
 #endif /* if 0 */
+  // debug
+  if (0)
+  {
+    gzdbg << "real_motor_velocity: " << real_motor_velocity << "\n";
+    gzdbg << "force * scalar: " << force * scalar << "\n";
+    gzdbg << "air_drag: " << air_drag << "\n";
+    gzdbg << "drag_torque: " << drag_torque << "\n";
+    gzdbg << "rolling_moment: " << rolling_moment << "\n";
+    gzdbg << "rolling_moment_coefficient_: " << rolling_moment_coefficient_ << "\n";
+    gzdbg << "rotor_drag_coefficient_: " << rotor_drag_coefficient_ << "\n";
+    gzdbg << "motor_constant_: " << motor_constant_ << "\n";
+    gzdbg << "moment_constant_: " << moment_constant_ << "\n";
+    gzdbg << "scalar: " << scalar << "\n";
+
+  }
 }
 
 void GazeboMotorModel::UpdateMotorFail() {
