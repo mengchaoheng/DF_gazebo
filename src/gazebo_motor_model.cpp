@@ -298,6 +298,7 @@ void GazeboMotorModel::UpdateForcesAndMoments() {
   // debug
   if (0)
   {
+    gzdbg << "motor_rot_vel_: " << motor_rot_vel_ << "\n";
     gzdbg << "real_motor_velocity: " << real_motor_velocity << "\n";
     gzdbg << "force * scalar: " << force * scalar << "\n";
     gzdbg << "air_drag: " << air_drag << "\n";
