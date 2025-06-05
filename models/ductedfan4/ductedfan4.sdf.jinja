@@ -1185,7 +1185,23 @@
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
 
+    <plugin name="torque_disturbance" filename="libtorque_disturbance_plugin.so">
+      <link_name>base_link</link_name>
+      <start_time>30.0</start_time>
 
+      <amplitude_x>0.</amplitude_x>
+      <frequency_x>0.2</frequency_x>
+      <bias_x>0.</bias_x>
+
+      <amplitude_y>0.0</amplitude_y>
+      <frequency_y>0.4</frequency_y>
+      <bias_y>0.</bias_y>
+
+      <amplitude_z>0</amplitude_z>
+      <frequency_z>0</frequency_z>
+      <bias_z>0.0</bias_z>
+
+    </plugin>
     <plugin name='rotor_plugin' filename='libgazebo_motor_model.so'>
       <robotNamespace></robotNamespace>
       <jointName>rotor_joint</jointName>

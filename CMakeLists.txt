@@ -345,6 +345,7 @@ add_library(sensor_msgs SHARED ${SEN_PROTO_SRCS})
 link_libraries(mav_msgs nav_msgs std_msgs sensor_msgs)
 link_libraries(physics_msgs)
 
+add_library(torque_disturbance_plugin SHARED src/torque_disturbance_plugin.cpp)
 add_library(gazebo_airspeed_plugin SHARED src/gazebo_airspeed_plugin.cpp)
 add_library(gazebo_camera_manager_plugin SHARED src/gazebo_camera_manager_plugin.cpp)
 add_library(gazebo_gps_plugin SHARED src/gazebo_gps_plugin.cpp)
@@ -372,6 +373,7 @@ add_library(gazebo_airship_dynamics_plugin SHARED src/gazebo_airship_dynamics_pl
 add_library(gazebo_drop_plugin SHARED src/gazebo_drop_plugin.cpp)
 
 set(plugins
+  torque_disturbance_plugin
   gazebo_airspeed_plugin
   gazebo_camera_manager_plugin
   gazebo_gps_plugin
