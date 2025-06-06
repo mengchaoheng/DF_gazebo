@@ -61,6 +61,11 @@ void TorqueDisturbancePlugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sd
   else
     this->start_time_sec_ = 0.0;  // 默认立即开始扰动
 
+  if (_sdf->HasElement("running_time"))
+    this->running_time_sec_ = _sdf->Get<double>("running_time");
+  else
+    this->running_time_sec_ = 0.1;
+
   this->link_ = this->model_->GetLink(this->link_name_);
   if (!this->link_)
   {
@@ -81,7 +86,7 @@ void TorqueDisturbancePlugin::OnUpdate()
   common::Time current_time = this->model_->GetWorld()->SimTime();
   double t = (current_time - this->start_time_).Double();
 
-  if (t < this->start_time_sec_)
+  if (t < this->start_time_sec_ || t > this->start_time_sec_ + this->running_time_sec_)
     return;
 
   // 打印仿真时间（调试用）

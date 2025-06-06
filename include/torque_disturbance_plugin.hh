@@ -29,6 +29,7 @@ private:
   double bias_x_, bias_y_, bias_z_;  // 新增：三轴常值偏置
   common::Time start_time_;
   double start_time_sec_;  // 新增：扰动开始时间（秒）
+  double running_time_sec_;
 };
 }
 
