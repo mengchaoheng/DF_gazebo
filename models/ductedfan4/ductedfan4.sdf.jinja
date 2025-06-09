@@ -1188,13 +1188,13 @@
     <plugin name="torque_disturbance" filename="libtorque_disturbance_plugin.so">
       <link_name>base_link</link_name>
       <start_time>30.0</start_time>
-      <running_time>100.0</running_time>
+      <running_time>200.0</running_time>
 
-      <amplitude_x>0.</amplitude_x>
+      <amplitude_x>0.1</amplitude_x>
       <frequency_x>0.2</frequency_x>
       <bias_x>0.</bias_x>
 
-      <amplitude_y>0.</amplitude_y>
+      <amplitude_y>0.1</amplitude_y>
       <frequency_y>0.4</frequency_y>
       <bias_y>0.</bias_y>
 
@@ -1230,8 +1230,8 @@
       <robotNamespace></robotNamespace>
       <linkName>ductedfan4/imu_link</linkName>
       <imuTopic>/imu</imuTopic>
-      <gyroscopeNoiseDensity>0.00018665</gyroscopeNoiseDensity>
-      <gyroscopeRandomWalk>3.8785e-05</gyroscopeRandomWalk>
+      <gyroscopeNoiseDensity>0.004</gyroscopeNoiseDensity>
+      <gyroscopeRandomWalk>3.8785e-04</gyroscopeRandomWalk>
       <gyroscopeBiasCorrelationTime>1000.0</gyroscopeBiasCorrelationTime>
       <gyroscopeTurnOnBiasSigma>0.0087</gyroscopeTurnOnBiasSigma>
       <accelerometerNoiseDensity>0.00186</accelerometerNoiseDensity>
@@ -1276,7 +1276,7 @@
       <sdk_udp_port>14540</sdk_udp_port>
       <hil_mode>{{ hil_mode }}</hil_mode>
       <hil_state_level>false</hil_state_level>
-      <enable_lockstep>false</enable_lockstep>
+      <enable_lockstep>true</enable_lockstep>
       <use_tcp>true</use_tcp>
       <motorSpeedCommandPubTopic>/gazebo/command/motor_speed</motorSpeedCommandPubTopic>
       <control_channels>
