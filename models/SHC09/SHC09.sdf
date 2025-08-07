@@ -405,7 +405,7 @@
           <iyz>0</iyz>
           <izz>0.000037</izz>
         </inertia>
-        <pose>-0.0 -0.0 -0.4250779552 0 -0 0</pose>
+        <pose>-0.0 -0.0 -0.04250779552 0 -0 0</pose>
       </inertial>
       <gravity>1</gravity>
       <self_collide>0</self_collide>
@@ -1382,7 +1382,7 @@
     <joint name='rotor_joint' type='revolute'>
       <parent>base_link</parent>
       <child>rotor</child>
-      <pose>0 0 -0.4 0 -0 0</pose>
+      <pose>0 0 -0.04 0 -0 0</pose>
       <axis>
         <xyz>0 0 1</xyz>
         <use_parent_model_frame>0</use_parent_model_frame>
