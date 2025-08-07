@@ -4,7 +4,7 @@
     <pose>0 0 0.5 0 0 0</pose>
     <link name='base_link'>
       <inertial>
-        <mass>1.954</mass>
+        <!-- <mass>1.954</mass>
         <inertia>
           <ixx>0.04384</ixx>
           <ixy>0</ixy>
@@ -12,7 +12,16 @@
           <iyy>0.043646</iyy>
           <iyz>0</iyz>
           <izz>0.005</izz>
-        </inertia>
+        </inertia> -->
+        <mass>1.29536</mass>
+          <inertia>
+            <ixx>0.00967</ixx>
+            <ixy>2.77142e-007</ixy>
+            <ixz>-0.00003</ixz>
+            <iyy>0.0097</iyy>
+            <iyz>1.31952e-006</iyz>
+            <izz>0.00448</izz>
+          </inertia>
         <pose>0.000163 -0.000084 0.117687 0 -0 0</pose>
       </inertial>
       <visual name='visual'>
@@ -495,6 +504,7 @@
           <iyz>0.0</iyz>
           <izz>0.000001</izz>
         </inertia>
+        <pose>0.073 0 -0.174479 0 -0 0</pose>
       </inertial>
 
       <visual name='visual'>
@@ -596,6 +606,7 @@
           <iyz>0.0</iyz>
           <izz>0.000001</izz>
         </inertia>
+        <pose>0.036849 -0.063825 -0.174479 0 -0 0</pose>
       </inertial>
 
       <visual name='visual'>
@@ -729,6 +740,7 @@
           <iyz>0.0</iyz>
           <izz>0.000001</izz>
         </inertia>
+        <pose>-0.036849 -0.063825 -0.174479 0 -0 0</pose>
       </inertial>
 
       <visual name='visual'>
@@ -930,6 +942,7 @@
           <iyz>0.0</iyz>
           <izz>0.000001</izz>
         </inertia>
+        <pose>-0.073699 0 -0.174479 0 -0 0</pose>
       </inertial>
 
       <visual name='visual'>
@@ -1097,6 +1110,7 @@
           <iyz>0.0</iyz>
           <izz>0.000001</izz>
         </inertia>
+        <pose>-0.036849 0.063825 -0.174479 0 -0 0</pose>
       </inertial>
 
       <visual name='visual'>
@@ -1231,7 +1245,9 @@
           <iyz>0.0</iyz>
           <izz>0.000001</izz>
         </inertia>
+        <pose>0.036849 0.063825 -0.174479 0 -0 0</pose>
       </inertial>
+
       <visual name='visual'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
@@ -1823,15 +1839,16 @@
     </link>
     <link name='rotor'>
       <inertial>
-        <mass>0.00000001</mass>
+        <mass>0.01836</mass>
         <inertia>
-          <ixx>0.000001</ixx>
-          <ixy>0.0</ixy>
-          <iyy>0.000001</iyy>
-          <ixz>0.0</ixz>
-          <iyz>0.0</iyz>
-          <izz>0.000001</izz>
+          <ixx>0.000019</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000019</iyy>
+          <iyz>0</iyz>
+          <izz>0.000037</izz>
         </inertia>
+        <pose>-0.0 -0.0 -0.4250779552 0 -0 0</pose>
       </inertial>
       <gravity>1</gravity>
       <self_collide>0</self_collide>
