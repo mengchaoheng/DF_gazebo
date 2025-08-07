@@ -33,9 +33,6 @@
             <normal_map>__default__</normal_map>
           </shader>
           <emissive>0 0 0 1</emissive>
-          <ambient>0.3 0.3 0.3 1</ambient>
-          <diffuse>0.7 0.7 0.7 1</diffuse>
-          <specular>0.01 0.01 0.01 1</specular>
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
@@ -1836,6 +1833,10 @@
           <izz>0.000001</izz>
         </inertia>
       </inertial>
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <enable_wind>0</enable_wind>
       <visual name='visual'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
@@ -1939,25 +1940,26 @@
       <pose>0 0 0 0 -0 0</pose>
 
     </joint>
-    <joint name='link_0_JOINT_12' type='revolute'>
+    <joint name='link_0_JOINT_12' type='fixed'>
       <parent>base_link</parent>
       <child>link_13</child>
       <pose>0.045 0 0.08 0 -0 0</pose>
-      <axis>
+      <!-- <axis>
         <xyz>0 -1 0</xyz>
+        <use_parent_model_frame>0</use_parent_model_frame>
         <limit>
-          <lower>-1e+16</lower>
-          <upper>1e+16</upper>
-          <effort>-1</effort>
-          <velocity>-1</velocity>
+          <lower>-0.35</lower>
+          <upper>0.35</upper>
         </limit>
         <dynamics>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-          <damping>0</damping>
-          <friction>0</friction>
+          <damping>0.001</damping>
         </dynamics>
       </axis>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics> -->
 
     </joint>
     <joint name='link_0_JOINT_13_0' type='fixed'>
@@ -2050,25 +2052,26 @@
       <pose>0 0 0 0 -0 0</pose>
 
     </joint>
-    <joint name='link_0_JOINT_18' type='revolute'>
+    <joint name='link_0_JOINT_18' type='fixed'>
       <parent>base_link</parent>
       <child>link_19</child>
       <pose>0.045 0 0.08 0 -0 0</pose>
-      <axis>
+      <!-- <axis>
         <xyz>0 1 0</xyz>
+        <use_parent_model_frame>0</use_parent_model_frame>
         <limit>
-          <lower>-1.79769e+308</lower>
-          <upper>1.79769e+308</upper>
-          <effort>-1</effort>
-          <velocity>-1</velocity>
+          <lower>-0.35</lower>
+          <upper>0.35</upper>
         </limit>
         <dynamics>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-          <damping>0</damping>
-          <friction>0</friction>
+          <damping>0.001</damping>
         </dynamics>
       </axis>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics> -->
 
     </joint>
     <joint name='CS6_joint' type='revolute'>
@@ -2326,7 +2329,7 @@
     <joint name='rotor_joint' type='revolute'>
       <parent>base_link</parent>
       <child>rotor</child>
-      <pose>0 0 -0.03 0 -0 0</pose>
+      <pose>0 0 -0.4 0 -0 0</pose>
       <axis>
         <xyz>0 0 1</xyz>
         <use_parent_model_frame>0</use_parent_model_frame>
@@ -2339,7 +2342,7 @@
         <dynamics>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
-          <damping>0.00001</damping>
+          <damping>0.0001</damping>
           <friction>0</friction>
         </dynamics>
       </axis>
@@ -2758,9 +2761,6 @@
 
       </control_channels>
     </plugin>
-
-
     <static>0</static>
-    <allow_auto_disable>1</allow_auto_disable>
   </model>
 </sdf>
