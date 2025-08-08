@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <sdf version='1.5'>
-  <model name='SHW09'>
+  <model name='SHW09_vtol'>
     <pose>0 0 0.5 0 0 0</pose>
     <link name='base_link'>
       <inertial>
@@ -28,7 +28,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/box up-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/box up-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -75,7 +75,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-l-1 servobox-l-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-l-1 servobox-l-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -108,7 +108,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/box up2-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/box up2-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -141,7 +141,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/tail-SHW09-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/tail-SHW09-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -175,7 +175,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-r-1 servobox-r-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-r-1 servobox-r-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -208,7 +208,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/tail-SHW09-2.STL</uri>
+            <uri>model://SHW09_vtol/meshes/tail-SHW09-2.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -242,7 +242,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-r-1 wing-r-p1-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-r-1 wing-r-p1-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -275,7 +275,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/tail-SHW09-3.STL</uri>
+            <uri>model://SHW09_vtol/meshes/tail-SHW09-3.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -309,7 +309,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-r-1 wing-r-p2-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-r-1 wing-r-p2-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -326,7 +326,7 @@
         <cast_shadows>1</cast_shadows>
       </visual>
     </link>
-    <link name='link_13'>
+    <link name='left_elevon'>
       <inertial>
         <mass>0.00000001</mass>
         <inertia>
@@ -336,13 +336,14 @@
           <ixz>0.0</ixz>
           <iyz>0.0</iyz>
           <izz>0.000001</izz>
+          <pose>0.045 -0.24 0.0925 0 -0 0</pose>
         </inertia>
       </inertial>
       <visual name='visual'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-l-1 aileron-l-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-l-1 aileron-l-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -376,7 +377,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/servo-KST-X08H-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/servo-KST-X08H-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -409,7 +410,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-l-1 wing-l-s1-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-l-1 wing-l-s1-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -443,7 +444,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/servo-KST-X08H-2.STL</uri>
+            <uri>model://SHW09_vtol/meshes/servo-KST-X08H-2.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -476,7 +477,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-l-1 wing-l-s3-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-l-1 wing-l-s3-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -511,7 +512,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/X08H-CS60-1-1 control surface-60-80-1-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/X08H-CS60-1-1 control surface-60-80-1-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -545,7 +546,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/X08H-CS60-1-1 servo-KST-X08H-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/X08H-CS60-1-1 servo-KST-X08H-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -578,7 +579,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-l-1 wing-l-s2-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-l-1 wing-l-s2-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -613,7 +614,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/X08H-CS60-1-2 control surface-60-80-1-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/X08H-CS60-1-2 control surface-60-80-1-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -646,7 +647,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-mid-SHW09-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-mid-SHW09-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -679,7 +680,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/X08H-CS60-1-2 servo-KST-X08H-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/X08H-CS60-1-2 servo-KST-X08H-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -696,7 +697,7 @@
         <cast_shadows>1</cast_shadows>
       </visual>
     </link>
-    <link name='link_19'>
+    <link name='right_elevon'>
       <inertial>
         <mass>0.00000001</mass>
         <inertia>
@@ -706,13 +707,14 @@
           <ixz>0.0</ixz>
           <iyz>0.0</iyz>
           <izz>0.000001</izz>
+          <pose>0.045 0.24 0.0925 0 -0 0</pose>
         </inertia>
       </inertial>
       <visual name='visual'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-r-1 aileron-r-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-r-1 aileron-r-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -747,7 +749,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/X08H-CS60-1-3 control surface-60-80-1-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/X08H-CS60-1-3 control surface-60-80-1-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -781,7 +783,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-l-1 wing-l-p1-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-l-1 wing-l-p1-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -814,7 +816,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/duct-b-SHW09-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/duct-b-SHW09-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -847,7 +849,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-l-1 wing-l-s4-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-l-1 wing-l-s4-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -881,7 +883,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/X08H-CS60-1-3 servo-KST-X08H-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/X08H-CS60-1-3 servo-KST-X08H-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -914,7 +916,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-r-1 wing-r-r1-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-r-1 wing-r-r1-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -949,7 +951,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/X08H-CS60-1-4 control surface-60-80-1-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/X08H-CS60-1-4 control surface-60-80-1-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -982,7 +984,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-r-1 wing-r-r2-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-r-1 wing-r-r2-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1015,7 +1017,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-r-1 wing-r-r3-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-r-1 wing-r-r3-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1049,7 +1051,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/X08H-CS60-1-4 servo-KST-X08H-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/X08H-CS60-1-4 servo-KST-X08H-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1082,7 +1084,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-r-1 wing-r-r4-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-r-1 wing-r-r4-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1117,7 +1119,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/X08H-CS60-1-5 control surface-60-80-1-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/X08H-CS60-1-5 control surface-60-80-1-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1150,7 +1152,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-r-1 wing-r-r5-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-r-1 wing-r-r5-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1184,7 +1186,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/X08H-CS60-1-5 servo-KST-X08H-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/X08H-CS60-1-5 servo-KST-X08H-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1217,7 +1219,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-r-1 wing-r-s1-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-r-1 wing-r-s1-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1252,7 +1254,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/X08H-CS60-1-6 control surface-60-80-1-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/X08H-CS60-1-6 control surface-60-80-1-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1285,7 +1287,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-r-1 wing-r-s2-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-r-1 wing-r-s2-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1318,7 +1320,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/X08H-CS60-1-6 servo-KST-X08H-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/X08H-CS60-1-6 servo-KST-X08H-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1351,7 +1353,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-r-1 wing-r-s3-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-r-1 wing-r-s3-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1384,7 +1386,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-r-1 wing-r-s4-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-r-1 wing-r-s4-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1418,7 +1420,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-l-1 wing-l-p2-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-l-1 wing-l-p2-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1451,7 +1453,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/duct-SH09-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/duct-SH09-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1487,7 +1489,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-l-1 wing-l-r1-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-l-1 wing-l-r1-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1520,7 +1522,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/duct-SH09-2.STL</uri>
+            <uri>model://SHW09_vtol/meshes/duct-SH09-2.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1553,7 +1555,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-l-1 wing-l-r2-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-l-1 wing-l-r2-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1586,7 +1588,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/duct-SH09-3.STL</uri>
+            <uri>model://SHW09_vtol/meshes/duct-SH09-3.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1620,7 +1622,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-l-1 wing-l-r3-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-l-1 wing-l-r3-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1653,7 +1655,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/fuselage-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/fuselage-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1686,7 +1688,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-l-1 wing-l-r4-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-l-1 wing-l-r4-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1719,7 +1721,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/headcover4-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/headcover4-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1753,7 +1755,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-l-1 wing-l-s5-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-l-1 wing-l-s5-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1786,7 +1788,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/motor-Sunnysky-X3520-7-780KV III-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/motor-Sunnysky-X3520-7-780KV III-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1820,7 +1822,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-r-1 wing-r-s5-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-r-1 wing-r-s5-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1858,7 +1860,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/Rotor-iflight-13inch-2-CW-cut9-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/Rotor-iflight-13inch-2-CW-cut9-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1892,7 +1894,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://SHW09/meshes/wing-l-1 wing-l-r5-1.STL</uri>
+            <uri>model://SHW09_vtol/meshes/wing-l-1 wing-l-r5-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1957,11 +1959,11 @@
       <pose>0 0 0 0 -0 0</pose>
 
     </joint>
-    <joint name='link_0_JOINT_12' type='fixed'>
+    <joint name='left_elevon_joint' type='revolute'>
       <parent>base_link</parent>
-      <child>link_13</child>
-      <pose>0.045 0 0.08 0 -0 0</pose>
-      <!-- <axis>
+      <child>left_elevon</child>
+      <pose>0.045 -0.21 0.0925 0 -0 0</pose>
+      <axis>
         <xyz>0 -1 0</xyz>
         <use_parent_model_frame>0</use_parent_model_frame>
         <limit>
@@ -1976,7 +1978,7 @@
         <ode>
           <implicit_spring_damper>1</implicit_spring_damper>
         </ode>
-      </physics> -->
+      </physics>
 
     </joint>
     <joint name='link_0_JOINT_13_0' type='fixed'>
@@ -2069,11 +2071,11 @@
       <pose>0 0 0 0 -0 0</pose>
 
     </joint>
-    <joint name='link_0_JOINT_18' type='fixed'>
+    <joint name='right_elevon_joint' type='revolute'>
       <parent>base_link</parent>
-      <child>link_19</child>
-      <pose>0.045 0 0.08 0 -0 0</pose>
-      <!-- <axis>
+      <child>right_elevon</child>
+      <pose>0.045 0.21 0.0925 0 -0 0</pose>
+      <axis>
         <xyz>0 1 0</xyz>
         <use_parent_model_frame>0</use_parent_model_frame>
         <limit>
@@ -2088,7 +2090,7 @@
         <ode>
           <implicit_spring_damper>1</implicit_spring_damper>
         </ode>
-      </physics> -->
+      </physics>
 
     </joint>
     <joint name='CS6_joint' type='revolute'>
@@ -2434,124 +2436,7 @@
       <parent>base_link</parent>
     </joint>
     <plugin name="CS1_plugin" filename="libLiftDragPlugin.so">
-      <is_wind_just_inside>1</is_wind_just_inside>
-      <num_of_propeller>1</num_of_propeller>
-      <wind_from_propeller>
-        <propeller name="up_propeller">
-          <propeller_index>0</propeller_index>
-          <propeller_joint>rotor_joint</propeller_joint>
-          <propeller_wind_constant>0.169</propeller_wind_constant>
-        </propeller>
-      </wind_from_propeller>
-      <a0>0</a0>
-      <cla>0</cla>
-      <cda>0</cda>
-      <cma>0</cma>
-      <alpha_stall>0.6</alpha_stall>
-      <cla_stall>0</cla_stall>
-      <cda_stall>0.0</cda_stall>
-      <cma_stall>0</cma_stall>
-      <cp>0.073699 0 -0.174479</cp>
-      <area>0.0018</area>
-      <air_density>1.2041</air_density>
-      <forward>0 0 1</forward>
-      <upward>0 -1 0</upward>
-      <link_name>base_link</link_name>
-      <control_joint_name>CS1_joint</control_joint_name>
-      <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
-      <robotNamespace></robotNamespace>
-      <windSubTopic>world_wind</windSubTopic>
-    </plugin>
-    <plugin name="CS6_plugin" filename="libLiftDragPlugin.so">
-      <is_wind_just_inside>1</is_wind_just_inside>
-      <num_of_propeller>1</num_of_propeller>
-      <wind_from_propeller>
-        <propeller name="up_propeller">
-          <propeller_index>0</propeller_index>
-          <propeller_joint>rotor_joint</propeller_joint>
-          <propeller_wind_constant>0.169</propeller_wind_constant>
-        </propeller>
-      </wind_from_propeller>
-      <a0>0</a0>
-      <cla>0</cla>
-      <cda>0</cda>
-      <cma>0</cma>
-      <alpha_stall>0.6</alpha_stall>
-      <cla_stall>0</cla_stall>
-      <cda_stall>0.0</cda_stall>
-      <cma_stall>0</cma_stall>
-      <cp>0.036849 0.063825 -0.174479</cp>
-      <area>0.0018</area>
-      <air_density>1.2041</air_density>
-      <forward>0 0 1</forward>
-      <upward>0.866 -0.5 0</upward>
-      <link_name>base_link</link_name>
-      <control_joint_name>CS6_joint</control_joint_name>
-      <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
-      <robotNamespace></robotNamespace>
-      <windSubTopic>world_wind</windSubTopic>
-    </plugin>
-    <plugin name="CS3_plugin" filename="libLiftDragPlugin.so">
-      <is_wind_just_inside>1</is_wind_just_inside>
-      <num_of_propeller>1</num_of_propeller>
-      <wind_from_propeller>
-        <propeller name="up_propeller">
-          <propeller_index>0</propeller_index>
-          <propeller_joint>rotor_joint</propeller_joint>
-          <propeller_wind_constant>0.169</propeller_wind_constant>
-        </propeller>
-      </wind_from_propeller>
-      <a0>0</a0>
-      <cla>0</cla>
-      <cda>0</cda>
-      <cma>0</cma>
-      <alpha_stall>0.6</alpha_stall>
-      <cla_stall>0</cla_stall>
-      <cda_stall>0.0</cda_stall>
-      <cma_stall>0</cma_stall>
-      <cp>-0.036849 -0.063825 -0.174479</cp>
-      <area>0.0018</area>
-      <air_density>1.2041</air_density>
-      <forward>0 0 1</forward>
-      <upward>-0.866 0.5 0</upward>
-      <link_name>base_link</link_name>
-      <control_joint_name>CS3_joint</control_joint_name>
-      <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
-      <robotNamespace></robotNamespace>
-      <windSubTopic>world_wind</windSubTopic>
-    </plugin>
-    <plugin name="CS2_plugin" filename="libLiftDragPlugin.so">
-      <is_wind_just_inside>1</is_wind_just_inside>
-      <num_of_propeller>1</num_of_propeller>
-      <wind_from_propeller>
-        <propeller name="up_propeller">
-          <propeller_index>0</propeller_index>
-          <propeller_joint>rotor_joint</propeller_joint>
-          <propeller_wind_constant>0.169</propeller_wind_constant>
-        </propeller>
-      </wind_from_propeller>
-      <a0>0</a0>
-      <cla>0</cla>
-      <cda>0</cda>
-      <cma>0</cma>
-      <alpha_stall>0.6</alpha_stall>
-      <cla_stall>0</cla_stall>
-      <cda_stall>0.0</cda_stall>
-      <cma_stall>0</cma_stall>
-      <cp>0.036849 -0.063825 -0.174479</cp>
-      <area>0.0018</area>
-      <air_density>1.2041</air_density>
-      <forward>0 0 1</forward>
-      <upward>-0.866 -0.5 0</upward>
-      <link_name>base_link</link_name>
-      <control_joint_name>CS2_joint</control_joint_name>
-      <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
-      <robotNamespace></robotNamespace>
-      <windSubTopic>world_wind</windSubTopic>
-    </plugin>
-
-    <plugin name="CS4_plugin" filename="libLiftDragPlugin.so">
-      <is_wind_just_inside>1</is_wind_just_inside>
+      <is_wind_just_inside>0</is_wind_just_inside>
       <num_of_propeller>1</num_of_propeller>
       <wind_from_propeller>
         <propeller name="up_propeller">
@@ -2574,13 +2459,71 @@
       <forward>0 0 1</forward>
       <upward>0 1 0</upward>
       <link_name>base_link</link_name>
-      <control_joint_name>CS4_joint</control_joint_name>
+      <control_joint_name>CS1_joint</control_joint_name>
       <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
-    <plugin name="CS5_plugin" filename="libLiftDragPlugin.so">
-      <is_wind_just_inside>1</is_wind_just_inside>
+    <plugin name="CS6_plugin" filename="libLiftDragPlugin.so">
+      <is_wind_just_inside>0</is_wind_just_inside>
+      <num_of_propeller>1</num_of_propeller>
+      <wind_from_propeller>
+        <propeller name="up_propeller">
+          <propeller_index>0</propeller_index>
+          <propeller_joint>rotor_joint</propeller_joint>
+          <propeller_wind_constant>0.169</propeller_wind_constant>
+        </propeller>
+      </wind_from_propeller>
+      <a0>0</a0>
+      <cla>0</cla>
+      <cda>0</cda>
+      <cma>0</cma>
+      <alpha_stall>0.6</alpha_stall>
+      <cla_stall>0</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>-0.036849 -0.063825 -0.174479</cp>
+      <area>0.0018</area>
+      <air_density>1.2041</air_density>
+      <forward>0 0 1</forward>
+      <upward>-0.866 0.5 0</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>CS6_joint</control_joint_name>
+      <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+    <plugin name="CS3_plugin" filename="libLiftDragPlugin.so">
+      <is_wind_just_inside>0</is_wind_just_inside>
+      <num_of_propeller>1</num_of_propeller>
+      <wind_from_propeller>
+        <propeller name="up_propeller">
+          <propeller_index>0</propeller_index>
+          <propeller_joint>rotor_joint</propeller_joint>
+          <propeller_wind_constant>0.169</propeller_wind_constant>
+        </propeller>
+      </wind_from_propeller>
+      <a0>0</a0>
+      <cla>0</cla>
+      <cda>0</cda>
+      <cma>0</cma>
+      <alpha_stall>0.6</alpha_stall>
+      <cla_stall>0</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>0.036849 0.063825 -0.174479</cp>
+      <area>0.0018</area>
+      <air_density>1.2041</air_density>
+      <forward>0 0 1</forward>
+      <upward>0.866 -0.5 0</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>CS3_joint</control_joint_name>
+      <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+    <plugin name="CS2_plugin" filename="libLiftDragPlugin.so">
+      <is_wind_just_inside>0</is_wind_just_inside>
       <num_of_propeller>1</num_of_propeller>
       <wind_from_propeller>
         <propeller name="up_propeller">
@@ -2602,6 +2545,65 @@
       <air_density>1.2041</air_density>
       <forward>0 0 1</forward>
       <upward>0.866 0.5 0</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>CS2_joint</control_joint_name>
+      <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+
+    <plugin name="CS4_plugin" filename="libLiftDragPlugin.so">
+      <is_wind_just_inside>0</is_wind_just_inside>
+      <num_of_propeller>1</num_of_propeller>
+      <wind_from_propeller>
+        <propeller name="up_propeller">
+          <propeller_index>0</propeller_index>
+          <propeller_joint>rotor_joint</propeller_joint>
+          <propeller_wind_constant>0.169</propeller_wind_constant>
+        </propeller>
+      </wind_from_propeller>
+      <a0>0</a0>
+      <cla>0</cla>
+      <cda>0</cda>
+      <cma>0</cma>
+      <alpha_stall>0.6</alpha_stall>
+      <cla_stall>0</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>0.073699 0 -0.174479</cp>
+      <area>0.0018</area>
+      <air_density>1.2041</air_density>
+      <forward>0 0 1</forward>
+      <upward>0 -1 0</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>CS4_joint</control_joint_name>
+      <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+    <plugin name="CS5_plugin" filename="libLiftDragPlugin.so">
+      <is_wind_just_inside>0</is_wind_just_inside>
+      <num_of_propeller>1</num_of_propeller>
+      <wind_from_propeller>
+        <propeller name="up_propeller">
+          <propeller_index>0</propeller_index>
+          <propeller_joint>rotor_joint</propeller_joint>
+          <propeller_wind_constant>0.169</propeller_wind_constant>
+        </propeller>
+      </wind_from_propeller>
+      <a0>0</a0>
+      <cla>0</cla>
+      <cda>0</cda>
+      <cma>0</cma>
+      <alpha_stall>0.6</alpha_stall>
+      <cla_stall>0</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>0.036849 -0.063825 -0.174479</cp>
+      <area>0.0018</area>
+      <air_density>1.2041</air_density>
+      <forward>0 0 1</forward>
+      <upward>-0.866 -0.5 0</upward>
       <link_name>base_link</link_name>
       <control_joint_name>CS5_joint</control_joint_name>
       <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
@@ -2747,7 +2749,24 @@
           <joint_control_type>position_kinematic</joint_control_type>
           <joint_name>CS6_joint</joint_name>
         </channel>
-
+        <channel name="left_elevon">
+          <input_index>10</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>1</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>0</zero_position_armed>
+          <joint_control_type>position_kinematic</joint_control_type>
+          <joint_name>left_elevon_joint</joint_name>
+        </channel>
+        <channel name="right_elevon">
+          <input_index>11</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>1</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>0</zero_position_armed>
+          <joint_control_type>position_kinematic</joint_control_type>
+          <joint_name>right_elevon_joint</joint_name>
+        </channel>
       </control_channels>
     </plugin>
     <static>0</static>

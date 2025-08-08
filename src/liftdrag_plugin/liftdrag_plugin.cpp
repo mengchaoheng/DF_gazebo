@@ -431,8 +431,8 @@ void LiftDragPlugin::OnUpdate()
   }
 
   // compute lift force at cp
-  // ignition::math::Vector3d lift = cl * q * this->area * liftI;
-  ignition::math::Vector3d lift = 3.0 * controlAngle * liftI;
+  ignition::math::Vector3d lift = cl * q * this->area * liftI;
+  // ignition::math::Vector3d lift = 3.0 * controlAngle * liftI;
   // gzdbg << "liftI: " << liftI << "\n";
   // gzdbg << "B_k: " << (cl * q * this->area)/(controlAngle*speedInLDPlane * speedInLDPlane) << "\n"; // (cl * q * this->area)/(controlAngle*speedInLDPlane * speedInLDPlane) =0.00729995, (cl * q * this->area)/controlAngle=3
   // gzdbg << "B_k1: " << (cl * q * this->area)/(controlAngle) << "\n";
