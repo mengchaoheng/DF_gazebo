@@ -149,6 +149,15 @@ namespace gazebo
     private: std::string namespace_;
     private: std::string wind_sub_topic_ = "world_wind";
     private: ignition::math::Vector3d wind_vel_;
+    private: bool HasPropellerWind_;
+
+    private: bool is_wind_just_inside_;
+
+    private: std::vector<physics::JointPtr> propeller_joint_;
+
+    private: std::vector<double> propeller_wind_constant_;
+
+    private: int num_of_propeller_;
   };
 }
 #endif

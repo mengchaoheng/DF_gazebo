@@ -963,7 +963,7 @@ void GazeboMavlinkInterface::IRLockCallback(IRLockPtr& irlock_message) {
 }
 
 void GazeboMavlinkInterface::targetReleativeCallback(TargetRelativePtr& targetRelative_message) {
-  
+
   mavlink_target_relative_t sensor_msg;
   sensor_msg.timestamp = targetRelative_message->time_usec();
   sensor_msg.x = targetRelative_message->pos_x();
@@ -1184,6 +1184,7 @@ void GazeboMavlinkInterface::handle_actuator_controls() {
   input_reference_.resize(n_out_max);
 
   Eigen::VectorXd actuator_controls = mavlink_interface_->GetActuatorControls();
+  // gzdbg << "actuator_controls: "<< "\n" << actuator_controls << "\n";
   if (actuator_controls.size() < n_out_max) return; //TODO: Handle this properly
   for (int i = 0; i < input_reference_.size(); i++) {
     if (armed) {

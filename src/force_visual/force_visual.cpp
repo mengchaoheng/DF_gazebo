@@ -32,7 +32,44 @@ void ForceVisualPlugin::Init()
       gzdbg << "Subscribing on ~/" << lift_force_topic << std::endl;
   }
 
-  auto forceVector = this->visual->CreateDynamicLine(rendering::RENDERING_LINE_LIST);
+  if (this->sdf->HasElement("scale")) {
+    try { this->forceScale = this->sdf->Get<double>("scale"); }
+    catch (...) { this->forceScale = 1.0; }
+  }
+  // Read link_name (used to attach the line to a specified link's Visual)
+  if (this->sdf->HasElement("link_name")) {
+    this->frameLinkName = this->sdf->Get<std::string>("link_name");
+  }
+
+
+  this->host.reset();
+  {
+    auto scene = this->visual->GetScene();
+    std::string visName = this->visual->Name(); // 形如 "model::link::visual"
+    std::string modelName;
+    auto pos = visName.find("::");
+    if (pos != std::string::npos) {
+      modelName = visName.substr(0, pos);
+    }
+
+    if (!this->frameLinkName.empty()) {
+      if (!modelName.empty()) {
+        auto v = scene->GetVisual(modelName + std::string("::") + this->frameLinkName);
+        if (v) this->host = v;
+      }
+      if (!this->host) {
+        auto v = scene->GetVisual(this->frameLinkName);
+        if (v) this->host = v;
+      }
+    }
+
+    if (!this->host) {
+      this->host = this->visual;
+    }
+  }
+
+  auto forceVector = this->host->CreateDynamicLine(rendering::RENDERING_LINE_LIST);
+
   this->forceVector.reset(forceVector);
   this->forceVector->setVisibilityFlags(GZ_VISIBILITY_GUI);
 
@@ -68,8 +105,9 @@ void ForceVisualPlugin::OnUpdate(ConstForcePtr& force_msg)
   // the actual joint (which will look weird).
   // I am not sure what happens if both the visual and the joint are scaled,
   // but I don't see a reason for doing that, like, ever.
-  const auto scale = this->visual->Scale();
-  center = center / scale;
+  // No scaling correction. Because the force is applied to the "link_name" cp point, and is not affected by the current visual tag.
+  // Visualize scaling of force length (<scale>)
+  force *= this->forceScale;
 
   this->UpdateVector(center, force);
 }

@@ -31,3 +31,7 @@ models/standard_vtol_drop/standard_vtol_drop.sdf
 models/tailsitter/tailsitter.sdf
 models/advanced_plane/advanced_plane.sdf
 models/quadtailsitter/quadtailsitter.sdf
+models/plane_df/plane_df.sdf
+models/ductedfan4/ductedfan4.sdf
+models/SHW09_vtol/SHW09_vtol.sdf
+models/ductedfan6/ductedfan6.sdf
