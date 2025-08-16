@@ -4,26 +4,25 @@
     <pose>0 0 0.5 0 0 0</pose>
     <link name='base_link'>
       <inertial>
-        <!-- <mass>1.954</mass>
+        <pose>0 0 0.0 0 0 0</pose>
+        <mass>1.6</mass>
         <inertia>
-          <ixx>0.04384</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.043646</iyy>
-          <iyz>0</iyz>
-          <izz>0.005</izz>
-        </inertia> -->
-        <mass>1.29536</mass>
-          <inertia>
-            <ixx>0.00967</ixx>
-            <ixy>2.77142e-007</ixy>
-            <ixz>-0.00003</ixz>
-            <iyy>0.0097</iyy>
-            <iyz>1.31952e-006</iyz>
-            <izz>0.00448</izz>
+            <ixx>0.01149</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.01153</iyy>
+            <iyz>0</iyz>
+            <izz>0.004865</izz>
           </inertia>
-        <pose>0.0 -0.0 0.017 0 -0 0</pose>
       </inertial>
+      <collision name='base_link_collision'>
+        <pose>0 0 -0.0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.25 0.25 0.52</size>
+          </box>
+        </geometry>
+      </collision>
       <visual name='visual'>
         <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
@@ -46,19 +45,11 @@
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
       </visual>
-      <collision name='collision'>
-        <pose>0.0 -0.0 0.07 0 -0 0</pose>
-        <geometry>
-          <box>
-            <size>0.3 0.3 0.6</size>
-          </box>
-        </geometry>
-      </collision>
       <gravity>1</gravity>
       <velocity_decay/>
       <self_collide>0</self_collide>
     </link>
-    <link name='link_0_0'>
+    <!-- <link name='link_0_0'>
       <inertial>
         <mass>0.00000001</mass>
         <inertia>
@@ -1870,21 +1861,70 @@
       <child>link_10</child>
       <pose>0 0 0 0 -0 0</pose>
     </joint>
-
-
-
-    <link name='rotor'>
+ -->
+    <link name='SHW09_vtol/imu_link'>
+      <pose>0 0 0.0 0 0 0</pose>
       <inertial>
-        <mass>0.01836</mass>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.015</mass>
         <inertia>
-          <ixx>0.000019</ixx>
+          <ixx>1e-05</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.000019</iyy>
+          <iyy>1e-05</iyy>
           <iyz>0</iyz>
-          <izz>0.000037</izz>
+          <izz>1e-05</izz>
         </inertia>
-        <pose>-0.0 -0.0 -0.04250779552 0 -0 0</pose>
+      </inertial>
+    </link>
+    <joint name='SHW09_vtol/imu_joint' type='revolute'>
+      <child>SHW09_vtol/imu_link</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <include>
+      <uri>model://airspeed</uri>
+      <pose>0 0 0.0 0 -1.57 0</pose>
+      <name>airspeed</name>
+    </include>
+    <joint name='airspeed_joint' type='fixed'>
+      <child>airspeed::link</child>
+      <parent>base_link</parent>
+    </joint>
+    <include>
+      <uri>model://gps</uri>
+      <pose>0 0 0.0 0 -1.57 0</pose>
+      <name>gps</name>
+    </include>
+    <joint name='gps_joint' type='fixed'>
+      <child>gps::link</child>
+      <parent>base_link</parent>
+    </joint>
+    <link name='rotor'>
+      <inertial>
+        <mass>0.02</mass>
+        <inertia>
+          <ixx>9.75e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000166704</iyy>
+          <iyz>0</iyz>
+          <izz>0.000167604</izz>
+        </inertia>
+        <pose>-0.0 -0.0 -0.0 0 -0 0</pose>
       </inertial>
       <gravity>1</gravity>
       <self_collide>0</self_collide>
@@ -1914,7 +1954,7 @@
     <joint name='rotor_joint' type='revolute'>
       <parent>base_link</parent>
       <child>rotor</child>
-      <pose>0 0 -0.04 0 -0 0</pose>
+      <!-- <pose>0 0 -0.04 0 -0 0</pose> -->
       <axis>
         <xyz>0 0 1</xyz>
         <use_parent_model_frame>0</use_parent_model_frame>
@@ -2219,7 +2259,7 @@
           <topic_name>lift_force/left_elevon</topic_name>
           <link_name>base_link</link_name>
           <color>Gazebo/Red</color>
-          <scale>0.1</scale>
+          <scale>0.06</scale>
         </plugin> -->
       </visual>
     </link>
@@ -2259,7 +2299,7 @@
           <topic_name>lift_force/right_elevon</topic_name>
           <link_name>base_link</link_name>
           <color>Gazebo/Red</color>
-          <scale>0.1</scale>
+          <scale>0.06</scale>
         </plugin> -->
       </visual>
     </link>
@@ -2401,7 +2441,7 @@
           <upper>0.5</upper>
         </limit>
         <dynamics>
-          <damping>0.001</damping>
+          <damping>1.000</damping>
         </dynamics>
       </axis>
       <physics>
@@ -2423,7 +2463,7 @@
           <upper>0.5</upper>
         </limit>
         <dynamics>
-          <damping>0.001</damping>
+          <damping>1.000</damping>
         </dynamics>
       </axis>
       <physics>
@@ -2431,44 +2471,6 @@
           <implicit_spring_damper>1</implicit_spring_damper>
         </ode>
       </physics>
-
-    </joint>
-    <link name='SHW09_vtol/imu_link'>
-      <pose>0 0 0.02 0 0 0</pose>
-      <inertial>
-        <pose>0 0 0 0 0 0</pose>
-        <mass>0.00001</mass>
-        <inertia>
-          <ixx>1e-05</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>1e-05</iyy>
-          <iyz>0</iyz>
-          <izz>1e-05</izz>
-        </inertia>
-      </inertial>
-    </link>
-    <joint name='SHW09_vtol/imu_joint' type='fixed'>
-      <child>SHW09_vtol/imu_link</child>
-      <parent>base_link</parent>
-    </joint>
-    <include>
-      <uri>model://airspeed</uri>
-      <pose>0 0 0.1 0 0 0</pose>
-      <name>airspeed</name>
-    </include>
-    <joint name='airspeed_joint' type='fixed'>
-      <child>airspeed::link</child>
-      <parent>base_link</parent>
-    </joint>
-    <include>
-      <uri>model://gps</uri>
-      <pose>0 0 0.05 0 0 0</pose>
-      <name>gps</name>
-    </include>
-    <joint name='gps_joint' type='fixed'>
-      <child>gps::link</child>
-      <parent>base_link</parent>
     </joint>
     <plugin name="CS1_plugin" filename="libLiftDragPlugin.so">
       <is_wind_just_inside>1</is_wind_just_inside>
@@ -2652,7 +2654,7 @@
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
 
-    <!-- <plugin name="left_wing" filename="libLiftDragPlugin.so">
+   <plugin name="left_wing" filename="libLiftDragPlugin.so">
       <a0>0.05984281113</a0>
       <cla>4.752798721</cla>
       <cda>0.6417112299</cda>
@@ -2699,7 +2701,7 @@
       <control_joint_rad_to_cl>-0.5</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
-    </plugin> -->
+    </plugin>
     <plugin name='rotor_plugin' filename='libgazebo_motor_model.so'>
       <robotNamespace></robotNamespace>
       <jointName>rotor_joint</jointName>
@@ -2707,9 +2709,9 @@
       <turningDirection>ccw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>2450</maxRotVelocity>
+      <maxRotVelocity>1200</maxRotVelocity>
       <!-- Lift Force T -->
-      <motorConstant>1.405e-05</motorConstant>
+      <motorConstant>3.305e-05</motorConstant>
       <!-- The Drag moment generated by the rotation of the rotor (the same as T) -->
       <momentConstant>2.35e-05</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
@@ -2776,7 +2778,7 @@
           <input_index>0</input_index>
           <input_offset>0</input_offset>
           <!-- Construct a gain to cancel the link from pwm to motor speed. -->
-          <input_scaling>2450</input_scaling>
+          <input_scaling>1200</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>velocity</joint_control_type>
