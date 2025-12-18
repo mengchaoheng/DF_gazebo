@@ -12,6 +12,7 @@
     <include>
       <uri>model://asphalt_plane</uri>
     </include>
+    <!-- For temporary testing -->
     <gui fullscreen='0'>
       <camera name="user_camera">
         <pose>0.443464 1.078665 0.481317 0 0.332 -0.258815</pose>
