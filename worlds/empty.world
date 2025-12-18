@@ -12,6 +12,18 @@
     <include>
       <uri>model://asphalt_plane</uri>
     </include>
+    <gui fullscreen='0'>
+      <camera name="user_camera">
+        <pose>0.443464 1.078665 0.481317 0 0.332 -0.258815</pose>
+        <track_visual>
+          <name>ductedfan4</name>
+          <static>true</static>
+          <xyz>0.6 0 0.2</xyz>
+          <min_dist>0.1</min_dist>
+          <max_dist>2</max_dist>
+        </track_visual>
+      </camera>
+    </gui>
     <physics name='default_physics' default='0' type='ode'>
       <gravity>0 0 -9.8066</gravity>
       <ode>
