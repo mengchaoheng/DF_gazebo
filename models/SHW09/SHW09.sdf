@@ -1,31 +1,30 @@
-<?xml version='1.0'?>
+<?xml version="1.0"?>
 <sdf version='1.5'>
   <model name='SHW09'>
     <pose>0 0 0.5 0 0 0</pose>
     <link name='base_link'>
       <inertial>
-        <mass>1.954</mass>
+        <pose>0 0 0.0 0 0 0</pose>
+        <mass>1.6</mass>
         <inertia>
-          <ixx>0.04384</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.043646</iyy>
-          <iyz>0</iyz>
-          <izz>0.005</izz>
-        </inertia>
-        <!-- <mass>1.29536</mass>
-          <inertia>
-            <ixx>0.00967</ixx>
-            <ixy>2.77142e-007</ixy>
-            <ixz>-0.00003</ixz>
-            <iyy>0.0097</iyy>
-            <iyz>1.31952e-006</iyz>
-            <izz>0.00448</izz>
-          </inertia> -->
-        <pose>0.000163 -0.000084 0.117687 0 -0 0</pose>
+            <ixx>0.01149</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.01153</iyy>
+            <iyz>0</iyz>
+            <izz>0.004865</izz>
+          </inertia>
       </inertial>
+      <collision name='base_link_collision'>
+        <pose>0 0 -0.0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.25 0.25 0.52</size>
+          </box>
+        </geometry>
+      </collision>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/box up-1.STL</uri>
@@ -46,14 +45,6 @@
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
       </visual>
-      <collision name='collision'>
-        <pose>0.0 -0.0 0.07 0 -0 0</pose>
-        <geometry>
-          <box>
-            <size>0.25 0.25 0.6</size>
-          </box>
-        </geometry>
-      </collision>
       <gravity>1</gravity>
       <velocity_decay/>
       <self_collide>0</self_collide>
@@ -72,7 +63,7 @@
       </inertial>
 
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/wing-l-1 servobox-l-1.STL</uri>
@@ -105,7 +96,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/box up2-1.STL</uri>
@@ -138,7 +129,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/tail-SHW09-1.STL</uri>
@@ -172,7 +163,7 @@
       </inertial>
 
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/wing-r-1 servobox-r-1.STL</uri>
@@ -205,7 +196,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/tail-SHW09-2.STL</uri>
@@ -239,7 +230,7 @@
       </inertial>
 
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/wing-r-1 wing-r-p1-1.STL</uri>
@@ -272,7 +263,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/tail-SHW09-3.STL</uri>
@@ -306,7 +297,7 @@
       </inertial>
 
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/wing-r-1 wing-r-p2-1.STL</uri>
@@ -318,39 +309,6 @@
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
             <name>Gazebo/White</name>
-          </script>
-          <shader type='pixel'/>
-          <emissive>0 0 0 1</emissive>
-        </material>
-        <transparency>0</transparency>
-        <cast_shadows>1</cast_shadows>
-      </visual>
-    </link>
-    <link name='link_13'>
-      <inertial>
-        <mass>0.00000001</mass>
-        <inertia>
-          <ixx>0.000001</ixx>
-          <ixy>0.0</ixy>
-          <iyy>0.000001</iyy>
-          <ixz>0.0</ixz>
-          <iyz>0.0</iyz>
-          <izz>0.000001</izz>
-        </inertia>
-      </inertial>
-      <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://SHW09/meshes/wing-l-1 aileron-l-1.STL</uri>
-            <scale>1 1 1</scale>
-          </mesh>
-        </geometry>
-        <material>
-          <lighting>1</lighting>
-          <script>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Black</name>
           </script>
           <shader type='pixel'/>
           <emissive>0 0 0 1</emissive>
@@ -373,7 +331,7 @@
       </inertial>
 
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/servo-KST-X08H-1.STL</uri>
@@ -384,7 +342,7 @@
           <lighting>1</lighting>
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Red</name>
+            <name>Gazebo/Blue</name>
           </script>
           <shader type='pixel'/>
           <emissive>0 0 0 1</emissive>
@@ -406,7 +364,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/wing-l-1 wing-l-s1-1.STL</uri>
@@ -440,7 +398,7 @@
       </inertial>
 
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/servo-KST-X08H-2.STL</uri>
@@ -451,7 +409,7 @@
           <lighting>1</lighting>
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Red</name>
+            <name>Gazebo/Blue</name>
           </script>
           <shader type='pixel'/>
           <emissive>0 0 0 1</emissive>
@@ -473,7 +431,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/wing-l-1 wing-l-s3-1.STL</uri>
@@ -485,41 +443,6 @@
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
             <name>Gazebo/White</name>
-          </script>
-          <shader type='pixel'/>
-          <emissive>0 0 0 1</emissive>
-        </material>
-        <transparency>0</transparency>
-        <cast_shadows>1</cast_shadows>
-      </visual>
-    </link>
-    <link name='CS4'>
-      <inertial>
-        <mass>0.00000001</mass>
-        <inertia>
-          <ixx>0.000001</ixx>
-          <ixy>0.0</ixy>
-          <iyy>0.000001</iyy>
-          <ixz>0.0</ixz>
-          <iyz>0.0</iyz>
-          <izz>0.000001</izz>
-        </inertia>
-        <pose>0.073 0 -0.174479 0 -0 0</pose>
-      </inertial>
-
-      <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://SHW09/meshes/X08H-CS60-1-1 control surface-60-80-1-1.STL</uri>
-            <scale>1 1 1</scale>
-          </mesh>
-        </geometry>
-        <material>
-          <lighting>1</lighting>
-          <script>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Grey</name>
           </script>
           <shader type='pixel'/>
           <emissive>0 0 0 1</emissive>
@@ -542,7 +465,7 @@
       </inertial>
 
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/X08H-CS60-1-1 servo-KST-X08H-1.STL</uri>
@@ -553,7 +476,7 @@
           <lighting>1</lighting>
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Red</name>
+            <name>Gazebo/Blue</name>
           </script>
           <shader type='pixel'/>
           <emissive>0 0 0 1</emissive>
@@ -575,7 +498,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/wing-l-1 wing-l-s2-1.STL</uri>
@@ -587,41 +510,6 @@
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
             <name>Gazebo/White</name>
-          </script>
-          <shader type='pixel'/>
-          <emissive>0 0 0 1</emissive>
-        </material>
-        <transparency>0</transparency>
-        <cast_shadows>1</cast_shadows>
-      </visual>
-    </link>
-    <link name='CS5'>
-      <inertial>
-        <mass>0.00000001</mass>
-        <inertia>
-          <ixx>0.000001</ixx>
-          <ixy>0.0</ixy>
-          <iyy>0.000001</iyy>
-          <ixz>0.0</ixz>
-          <iyz>0.0</iyz>
-          <izz>0.000001</izz>
-        </inertia>
-        <pose>0.036849 -0.063825 -0.174479 0 -0 0</pose>
-      </inertial>
-
-      <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://SHW09/meshes/X08H-CS60-1-2 control surface-60-80-1-1.STL</uri>
-            <scale>1 1 1</scale>
-          </mesh>
-        </geometry>
-        <material>
-          <lighting>1</lighting>
-          <script>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Grey</name>
           </script>
           <shader type='pixel'/>
           <emissive>0 0 0 1</emissive>
@@ -643,7 +531,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/wing-mid-SHW09-1.STL</uri>
@@ -676,7 +564,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/X08H-CS60-1-2 servo-KST-X08H-1.STL</uri>
@@ -687,75 +575,7 @@
           <lighting>1</lighting>
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Red</name>
-          </script>
-          <shader type='pixel'/>
-          <emissive>0 0 0 1</emissive>
-        </material>
-        <transparency>0</transparency>
-        <cast_shadows>1</cast_shadows>
-      </visual>
-    </link>
-    <link name='link_19'>
-      <inertial>
-        <mass>0.00000001</mass>
-        <inertia>
-          <ixx>0.000001</ixx>
-          <ixy>0.0</ixy>
-          <iyy>0.000001</iyy>
-          <ixz>0.0</ixz>
-          <iyz>0.0</iyz>
-          <izz>0.000001</izz>
-        </inertia>
-      </inertial>
-      <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://SHW09/meshes/wing-r-1 aileron-r-1.STL</uri>
-            <scale>1 1 1</scale>
-          </mesh>
-        </geometry>
-        <material>
-          <lighting>1</lighting>
-          <script>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Black</name>
-          </script>
-          <shader type='pixel'/>
-          <emissive>0 0 0 1</emissive>
-        </material>
-        <transparency>0</transparency>
-        <cast_shadows>1</cast_shadows>
-      </visual>
-    </link>
-    <link name='CS6'>
-      <inertial>
-        <mass>0.00000001</mass>
-        <inertia>
-          <ixx>0.000001</ixx>
-          <ixy>0.0</ixy>
-          <iyy>0.000001</iyy>
-          <ixz>0.0</ixz>
-          <iyz>0.0</iyz>
-          <izz>0.000001</izz>
-        </inertia>
-        <pose>-0.036849 -0.063825 -0.174479 0 -0 0</pose>
-      </inertial>
-
-      <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://SHW09/meshes/X08H-CS60-1-3 control surface-60-80-1-1.STL</uri>
-            <scale>1 1 1</scale>
-          </mesh>
-        </geometry>
-        <material>
-          <lighting>1</lighting>
-          <script>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Grey</name>
+            <name>Gazebo/Blue</name>
           </script>
           <shader type='pixel'/>
           <emissive>0 0 0 1</emissive>
@@ -778,7 +598,7 @@
       </inertial>
 
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/wing-l-1 wing-l-p1-1.STL</uri>
@@ -811,7 +631,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/duct-b-SHW09-1.STL</uri>
@@ -844,7 +664,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/wing-l-1 wing-l-s4-1.STL</uri>
@@ -878,7 +698,7 @@
       </inertial>
 
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/X08H-CS60-1-3 servo-KST-X08H-1.STL</uri>
@@ -889,7 +709,7 @@
           <lighting>1</lighting>
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Red</name>
+            <name>Gazebo/Blue</name>
           </script>
           <shader type='pixel'/>
           <emissive>0 0 0 1</emissive>
@@ -911,7 +731,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/wing-r-1 wing-r-r1-1.STL</uri>
@@ -923,41 +743,6 @@
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
             <name>Gazebo/White</name>
-          </script>
-          <shader type='pixel'/>
-          <emissive>0 0 0 1</emissive>
-        </material>
-        <transparency>0</transparency>
-        <cast_shadows>1</cast_shadows>
-      </visual>
-    </link>
-    <link name='CS1'>
-      <inertial>
-        <mass>0.00000001</mass>
-        <inertia>
-          <ixx>0.000001</ixx>
-          <ixy>0.0</ixy>
-          <iyy>0.000001</iyy>
-          <ixz>0.0</ixz>
-          <iyz>0.0</iyz>
-          <izz>0.000001</izz>
-        </inertia>
-        <pose>-0.073699 0 -0.174479 0 -0 0</pose>
-      </inertial>
-
-      <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://SHW09/meshes/X08H-CS60-1-4 control surface-60-80-1-1.STL</uri>
-            <scale>1 1 1</scale>
-          </mesh>
-        </geometry>
-        <material>
-          <lighting>1</lighting>
-          <script>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Grey</name>
           </script>
           <shader type='pixel'/>
           <emissive>0 0 0 1</emissive>
@@ -979,7 +764,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/wing-r-1 wing-r-r2-1.STL</uri>
@@ -1012,7 +797,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/wing-r-1 wing-r-r3-1.STL</uri>
@@ -1046,7 +831,7 @@
       </inertial>
 
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/X08H-CS60-1-4 servo-KST-X08H-1.STL</uri>
@@ -1057,7 +842,7 @@
           <lighting>1</lighting>
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Red</name>
+            <name>Gazebo/Blue</name>
           </script>
           <shader type='pixel'/>
           <emissive>0 0 0 1</emissive>
@@ -1079,7 +864,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/wing-r-1 wing-r-r4-1.STL</uri>
@@ -1091,41 +876,6 @@
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
             <name>Gazebo/White</name>
-          </script>
-          <shader type='pixel'/>
-          <emissive>0 0 0 1</emissive>
-        </material>
-        <transparency>0</transparency>
-        <cast_shadows>1</cast_shadows>
-      </visual>
-    </link>
-    <link name='CS2'>
-     <inertial>
-        <mass>0.00000001</mass>
-        <inertia>
-          <ixx>0.000001</ixx>
-          <ixy>0.0</ixy>
-          <iyy>0.000001</iyy>
-          <ixz>0.0</ixz>
-          <iyz>0.0</iyz>
-          <izz>0.000001</izz>
-        </inertia>
-        <pose>-0.036849 0.063825 -0.174479 0 -0 0</pose>
-      </inertial>
-
-      <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://SHW09/meshes/X08H-CS60-1-5 control surface-60-80-1-1.STL</uri>
-            <scale>1 1 1</scale>
-          </mesh>
-        </geometry>
-        <material>
-          <lighting>1</lighting>
-          <script>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Grey</name>
           </script>
           <shader type='pixel'/>
           <emissive>0 0 0 1</emissive>
@@ -1147,7 +897,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/wing-r-1 wing-r-r5-1.STL</uri>
@@ -1181,7 +931,7 @@
       </inertial>
 
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/X08H-CS60-1-5 servo-KST-X08H-1.STL</uri>
@@ -1192,7 +942,7 @@
           <lighting>1</lighting>
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Red</name>
+            <name>Gazebo/Blue</name>
           </script>
           <shader type='pixel'/>
           <emissive>0 0 0 1</emissive>
@@ -1214,7 +964,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/wing-r-1 wing-r-s1-1.STL</uri>
@@ -1226,41 +976,6 @@
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
             <name>Gazebo/White</name>
-          </script>
-          <shader type='pixel'/>
-          <emissive>0 0 0 1</emissive>
-        </material>
-        <transparency>0</transparency>
-        <cast_shadows>1</cast_shadows>
-      </visual>
-    </link>
-    <link name='CS3'>
-      <inertial>
-        <mass>0.00000001</mass>
-        <inertia>
-          <ixx>0.000001</ixx>
-          <ixy>0.0</ixy>
-          <iyy>0.000001</iyy>
-          <ixz>0.0</ixz>
-          <iyz>0.0</iyz>
-          <izz>0.000001</izz>
-        </inertia>
-        <pose>0.036849 0.063825 -0.174479 0 -0 0</pose>
-      </inertial>
-
-      <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://SHW09/meshes/X08H-CS60-1-6 control surface-60-80-1-1.STL</uri>
-            <scale>1 1 1</scale>
-          </mesh>
-        </geometry>
-        <material>
-          <lighting>1</lighting>
-          <script>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Grey</name>
           </script>
           <shader type='pixel'/>
           <emissive>0 0 0 1</emissive>
@@ -1282,7 +997,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/wing-r-1 wing-r-s2-1.STL</uri>
@@ -1315,7 +1030,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/X08H-CS60-1-6 servo-KST-X08H-1.STL</uri>
@@ -1326,7 +1041,7 @@
           <lighting>1</lighting>
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Red</name>
+            <name>Gazebo/Blue</name>
           </script>
           <shader type='pixel'/>
           <emissive>0 0 0 1</emissive>
@@ -1348,7 +1063,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/wing-r-1 wing-r-s3-1.STL</uri>
@@ -1381,7 +1096,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/wing-r-1 wing-r-s4-1.STL</uri>
@@ -1415,7 +1130,7 @@
       </inertial>
 
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/wing-l-1 wing-l-p2-1.STL</uri>
@@ -1448,7 +1163,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/duct-SH09-1.STL</uri>
@@ -1484,7 +1199,7 @@
       </inertial>
 
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/wing-l-1 wing-l-r1-1.STL</uri>
@@ -1517,7 +1232,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/duct-SH09-2.STL</uri>
@@ -1550,7 +1265,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/wing-l-1 wing-l-r2-1.STL</uri>
@@ -1583,7 +1298,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/duct-SH09-3.STL</uri>
@@ -1617,7 +1332,7 @@
       </inertial>
 
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/wing-l-1 wing-l-r3-1.STL</uri>
@@ -1650,7 +1365,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/fuselage-1.STL</uri>
@@ -1683,7 +1398,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/wing-l-1 wing-l-r4-1.STL</uri>
@@ -1704,7 +1419,7 @@
       </visual>
     </link>
     <link name='link_7'>
-    <inertial>
+      <inertial>
         <mass>0.00000001</mass>
         <inertia>
           <ixx>0.000001</ixx>
@@ -1716,7 +1431,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/headcover4-1.STL</uri>
@@ -1750,7 +1465,7 @@
       </inertial>
 
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/wing-l-1 wing-l-s5-1.STL</uri>
@@ -1783,7 +1498,7 @@
         </inertia>
       </inertial>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/motor-Sunnysky-X3520-7-780KV III-1.STL</uri>
@@ -1817,82 +1532,10 @@
       </inertial>
 
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://SHW09/meshes/wing-r-1 wing-r-s5-1.STL</uri>
-            <scale>1 1 1</scale>
-          </mesh>
-        </geometry>
-        <material>
-          <lighting>1</lighting>
-          <script>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/White</name>
-          </script>
-          <shader type='pixel'/>
-          <emissive>0 0 0 1</emissive>
-        </material>
-        <transparency>0</transparency>
-        <cast_shadows>1</cast_shadows>
-      </visual>
-    </link>
-    <link name='rotor'>
-      <inertial>
-        <mass>0.01836</mass>
-        <inertia>
-          <ixx>0.000019</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.000019</iyy>
-          <iyz>0</iyz>
-          <izz>0.000037</izz>
-        </inertia>
-        <pose>-0.0 -0.0 -0.04250779552 0 -0 0</pose>
-      </inertial>
-      <gravity>1</gravity>
-      <self_collide>0</self_collide>
-      <kinematic>0</kinematic>
-      <enable_wind>0</enable_wind>
-      <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://SHW09/meshes/Rotor-iflight-13inch-2-CW-cut9-1.STL</uri>
-            <scale>1 1 1</scale>
-          </mesh>
-        </geometry>
-        <material>
-          <lighting>1</lighting>
-          <script>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Grey</name>
-          </script>
-          <shader type='pixel'/>
-          <emissive>0 0 0 1</emissive>
-        </material>
-        <transparency>0</transparency>
-        <cast_shadows>1</cast_shadows>
-      </visual>
-    </link>
-    <link name='link_9_0'>
-      <inertial>
-        <mass>0.00000001</mass>
-        <inertia>
-          <ixx>0.000001</ixx>
-          <ixy>0.0</ixy>
-          <iyy>0.000001</iyy>
-          <ixz>0.0</ixz>
-          <iyz>0.0</iyz>
-          <izz>0.000001</izz>
-        </inertia>
-      </inertial>
-
-      <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://SHW09/meshes/wing-l-1 wing-l-r5-1.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -1957,28 +1600,6 @@
       <pose>0 0 0 0 -0 0</pose>
 
     </joint>
-    <joint name='link_0_JOINT_12' type='fixed'>
-      <parent>base_link</parent>
-      <child>link_13</child>
-      <pose>0.045 0 0.08 0 -0 0</pose>
-      <!-- <axis>
-        <xyz>0 -1 0</xyz>
-        <use_parent_model_frame>0</use_parent_model_frame>
-        <limit>
-          <lower>-0.35</lower>
-          <upper>0.35</upper>
-        </limit>
-        <dynamics>
-          <damping>0.001</damping>
-        </dynamics>
-      </axis>
-      <physics>
-        <ode>
-          <implicit_spring_damper>1</implicit_spring_damper>
-        </ode>
-      </physics> -->
-
-    </joint>
     <joint name='link_0_JOINT_13_0' type='fixed'>
       <parent>base_link</parent>
       <child>link_13_0</child>
@@ -2003,27 +1624,6 @@
       <pose>0 0 0 0 -0 0</pose>
 
     </joint>
-    <joint name='CS4_joint' type='revolute'>
-      <parent>base_link</parent>
-      <child>CS4</child>
-      <pose>0 0 -0.158 0 -0 0</pose>
-      <axis>
-        <xyz>1 0 0</xyz>
-        <limit>
-          <lower>-0.35</lower>
-          <upper>0.35</upper>
-        </limit>
-        <dynamics>
-          <damping>0.001</damping>
-        </dynamics>
-      </axis>
-      <physics>
-        <ode>
-          <implicit_spring_damper>1</implicit_spring_damper>
-        </ode>
-      </physics>
-
-    </joint>
     <joint name='link_0_JOINT_16_0' type='fixed'>
       <parent>base_link</parent>
       <child>link_16</child>
@@ -2036,27 +1636,40 @@
       <pose>0 0 0 0 -0 0</pose>
 
     </joint>
-    <joint name='CS5_joint' type='revolute'>
-      <parent>base_link</parent>
-      <child>CS5</child>
-      <pose>0 0 -0.158 0 0 -1.0472</pose>
-      <axis>
-        <xyz>1 0 0</xyz>
-        <limit>
-          <lower>-0.35</lower>
-          <upper>0.35</upper>
-        </limit>
-        <dynamics>
-          <damping>0.001</damping>
-        </dynamics>
-      </axis>
-      <physics>
-        <ode>
-          <implicit_spring_damper>1</implicit_spring_damper>
-        </ode>
-      </physics>
+    <link name='link_9_0'>
+      <inertial>
+        <mass>0.00000001</mass>
+        <inertia>
+          <ixx>0.000001</ixx>
+          <ixy>0.0</ixy>
+          <iyy>0.000001</iyy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>0.000001</izz>
+        </inertia>
+      </inertial>
 
-    </joint>
+      <visual name='visual'>
+        <pose>0 0 0 0 -0 3.1415926</pose>
+        <geometry>
+          <mesh>
+            <uri>model://SHW09/meshes/wing-l-1 wing-l-r5-1.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/White</name>
+          </script>
+          <shader type='pixel'/>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
     <joint name='link_0_JOINT_17' type='fixed'>
       <parent>base_link</parent>
       <child>link_18</child>
@@ -2067,49 +1680,6 @@
       <parent>base_link</parent>
       <child>link_18_0</child>
       <pose>0 0 0 0 -0 0</pose>
-
-    </joint>
-    <joint name='link_0_JOINT_18' type='fixed'>
-      <parent>base_link</parent>
-      <child>link_19</child>
-      <pose>0.045 0 0.08 0 -0 0</pose>
-      <!-- <axis>
-        <xyz>0 1 0</xyz>
-        <use_parent_model_frame>0</use_parent_model_frame>
-        <limit>
-          <lower>-0.35</lower>
-          <upper>0.35</upper>
-        </limit>
-        <dynamics>
-          <damping>0.001</damping>
-        </dynamics>
-      </axis>
-      <physics>
-        <ode>
-          <implicit_spring_damper>1</implicit_spring_damper>
-        </ode>
-      </physics> -->
-
-    </joint>
-    <joint name='CS6_joint' type='revolute'>
-      <parent>base_link</parent>
-      <child>CS6</child>
-      <pose>0 0 -0.158 0 0 -2.0944</pose>
-      <axis>
-        <xyz>1 0 0</xyz>
-        <limit>
-          <lower>-0.35</lower>
-          <upper>0.35</upper>
-        </limit>
-        <dynamics>
-          <damping>0.001</damping>
-        </dynamics>
-      </axis>
-      <physics>
-        <ode>
-          <implicit_spring_damper>1</implicit_spring_damper>
-        </ode>
-      </physics>
 
     </joint>
     <joint name='link_0_JOINT_1_0' type='fixed'>
@@ -2136,27 +1706,6 @@
       <pose>0 0 0 0 -0 0</pose>
 
     </joint>
-    <joint name='CS1_joint' type='revolute'>
-      <parent>base_link</parent>
-      <child>CS1</child>
-      <pose>0 0 -0.158 0 0 -3.14159</pose>
-      <axis>
-        <xyz>1 0 0</xyz>
-        <limit>
-          <lower>-0.35</lower>
-          <upper>0.35</upper>
-        </limit>
-        <dynamics>
-          <damping>0.001</damping>
-        </dynamics>
-      </axis>
-      <physics>
-        <ode>
-          <implicit_spring_damper>1</implicit_spring_damper>
-        </ode>
-      </physics>
-
-    </joint>
     <joint name='link_0_JOINT_21' type='fixed'>
       <parent>base_link</parent>
       <child>link_21</child>
@@ -2181,27 +1730,6 @@
       <pose>0 0 0 0 -0 0</pose>
 
     </joint>
-    <joint name='CS2_joint' type='revolute'>
-      <parent>base_link</parent>
-      <child>CS2</child>
-      <pose>0 0 -0.158 0 -0 2.0944</pose>
-      <axis>
-        <xyz>1 0 0</xyz>
-        <limit>
-          <lower>-0.35</lower>
-          <upper>0.35</upper>
-        </limit>
-        <dynamics>
-          <damping>0.001</damping>
-        </dynamics>
-      </axis>
-      <physics>
-        <ode>
-          <implicit_spring_damper>1</implicit_spring_damper>
-        </ode>
-      </physics>
-
-    </joint>
     <joint name='link_0_JOINT_24' type='fixed'>
       <parent>base_link</parent>
       <child>link_24</child>
@@ -2218,27 +1746,6 @@
       <parent>base_link</parent>
       <child>link_25</child>
       <pose>0 0 0 0 -0 0</pose>
-
-    </joint>
-    <joint name='CS3_joint' type='revolute'>
-      <parent>base_link</parent>
-      <child>CS3</child>
-      <pose>0 0 -0.158 0 -0 1.0472</pose>
-      <axis>
-        <xyz>1 0 0</xyz>
-        <limit>
-          <lower>-0.35</lower>
-          <upper>0.35</upper>
-        </limit>
-        <dynamics>
-          <damping>0.001</damping>
-        </dynamics>
-      </axis>
-      <physics>
-        <ode>
-          <implicit_spring_damper>1</implicit_spring_damper>
-        </ode>
-      </physics>
 
     </joint>
     <joint name='link_0_JOINT_26' type='fixed'>
@@ -2343,32 +1850,6 @@
       <pose>0 0 0 0 -0 0</pose>
 
     </joint>
-    <joint name='rotor_joint' type='revolute'>
-      <parent>base_link</parent>
-      <child>rotor</child>
-      <pose>0 0 -0.04 0 -0 0</pose>
-      <axis>
-        <xyz>0 0 1</xyz>
-        <use_parent_model_frame>0</use_parent_model_frame>
-        <limit>
-          <lower>-1e+16</lower>
-          <upper>1e+16</upper>
-          <effort>-1</effort>
-          <velocity>-1</velocity>
-        </limit>
-        <dynamics>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-          <damping>0.00000001</damping>
-          <friction>0</friction>
-        </dynamics>
-      </axis>
-      <physics>
-        <ode>
-          <implicit_spring_damper>1</implicit_spring_damper>
-        </ode>
-      </physics>
-    </joint>
     <joint name='link_0_JOINT_9_0' type='fixed'>
       <parent>base_link</parent>
       <child>link_9_0</child>
@@ -2379,11 +1860,10 @@
       <parent>base_link</parent>
       <child>link_10</child>
       <pose>0 0 0 0 -0 0</pose>
-
     </joint>
 
     <link name='SHW09/imu_link'>
-      <pose>0 0 0 0 0 0</pose>
+      <pose>0 0 0.0 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.015</mass>
@@ -2417,7 +1897,7 @@
     </joint>
     <include>
       <uri>model://airspeed</uri>
-      <pose>0 0 0 0 -1.57 0</pose>
+      <pose>0 0 0.0 0 -1.57 0</pose>
       <name>airspeed</name>
     </include>
     <joint name='airspeed_joint' type='fixed'>
@@ -2426,23 +1906,529 @@
     </joint>
     <include>
       <uri>model://gps</uri>
-      <pose>0 0 0 0 0 0</pose>
+      <pose>0 0 0.0 0 -1.57 0</pose>
       <name>gps</name>
     </include>
     <joint name='gps_joint' type='fixed'>
       <child>gps::link</child>
       <parent>base_link</parent>
     </joint>
+    <link name='rotor'>
+      <inertial>
+        <mass>0.02</mass>
+        <inertia>
+          <ixx>9.75e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000166704</iyy>
+          <iyz>0</iyz>
+          <izz>0.000167604</izz>
+        </inertia>
+        <pose>-0.0 -0.0 -0.1 0 -0 0</pose>
+      </inertial>
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <enable_wind>0</enable_wind>
+      <visual name='visual'>
+        <pose>0 0 0 0 -0 3.1415926</pose>
+        <geometry>
+          <mesh>
+            <uri>model://SHW09/meshes/Rotor-iflight-13inch-2-CW-cut9-1.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'/>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <joint name='rotor_joint' type='revolute'>
+      <parent>base_link</parent>
+      <child>rotor</child>
+      <pose>0 0 -0.1 0 -0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <use_parent_model_frame>0</use_parent_model_frame>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+          <damping>0.0001</damping>
+          <friction>0</friction>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+    </joint>
+    <link name='CS1'>
+      <inertial>
+        <mass>0.00000001</mass>
+        <inertia>
+          <ixx>0.000001</ixx>
+          <ixy>0.0</ixy>
+          <iyy>0.000001</iyy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>0.000001</izz>
+        </inertia>
+        <pose>0.073699 0 -0.174479 0 -0 0</pose>
+      </inertial>
+
+      <visual name='visual'>
+        <pose>0 0 0 0 -0 3.1415926</pose>
+        <geometry>
+          <mesh>
+            <uri>model://SHW09/meshes/X08H-CS60-1-4 control surface-60-80-1-1.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'/>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='CS2'>
+     <inertial>
+        <mass>0.00000001</mass>
+        <inertia>
+          <ixx>0.000001</ixx>
+          <ixy>0.0</ixy>
+          <iyy>0.000001</iyy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>0.000001</izz>
+        </inertia>
+        <pose>0.036849 -0.063825 -0.174479 0 -0 0</pose>
+      </inertial>
+
+      <visual name='visual'>
+        <pose>0 0 0 0 -0 3.1415926</pose>
+        <geometry>
+          <mesh>
+            <uri>model://SHW09/meshes/X08H-CS60-1-5 control surface-60-80-1-1.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'/>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='CS3'>
+      <inertial>
+        <mass>0.00000001</mass>
+        <inertia>
+          <ixx>0.000001</ixx>
+          <ixy>0.0</ixy>
+          <iyy>0.000001</iyy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>0.000001</izz>
+        </inertia>
+        <pose>-0.036849 -0.063825 -0.174479 0 -0 0</pose>
+      </inertial>
+
+      <visual name='visual'>
+        <pose>0 0 0 0 -0 3.1415926</pose>
+        <geometry>
+          <mesh>
+            <uri>model://SHW09/meshes/X08H-CS60-1-6 control surface-60-80-1-1.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'/>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='CS4'>
+      <inertial>
+        <mass>0.00000001</mass>
+        <inertia>
+          <ixx>0.000001</ixx>
+          <ixy>0.0</ixy>
+          <iyy>0.000001</iyy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>0.000001</izz>
+        </inertia>
+        <pose>-0.073699 0 -0.174479 0 -0 0</pose>
+      </inertial>
+
+      <visual name='visual'>
+        <pose>0 0 0 0 -0 3.1415926</pose>
+        <geometry>
+          <mesh>
+            <uri>model://SHW09/meshes/X08H-CS60-1-1 control surface-60-80-1-1.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'/>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='CS5'>
+      <inertial>
+        <mass>0.00000001</mass>
+        <inertia>
+          <ixx>0.000001</ixx>
+          <ixy>0.0</ixy>
+          <iyy>0.000001</iyy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>0.000001</izz>
+        </inertia>
+        <pose>-0.036849 0.063825 -0.174479 0 -0 0</pose>
+      </inertial>
+
+      <visual name='visual'>
+        <pose>0 0 0 0 -0 3.1415926</pose>
+        <geometry>
+          <mesh>
+            <uri>model://SHW09/meshes/X08H-CS60-1-2 control surface-60-80-1-1.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'/>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='CS6'>
+      <inertial>
+        <mass>0.00000001</mass>
+        <inertia>
+          <ixx>0.000001</ixx>
+          <ixy>0.0</ixy>
+          <iyy>0.000001</iyy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>0.000001</izz>
+        </inertia>
+        <pose>0.036849 0.063825 -0.174479 0 -0 0</pose>
+      </inertial>
+
+      <visual name='visual'>
+        <pose>0 0 0 0 -0 3.1415926</pose>
+        <geometry>
+          <mesh>
+            <uri>model://SHW09/meshes/X08H-CS60-1-3 control surface-60-80-1-1.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'/>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='left_elevon'>
+      <inertial>
+        <mass>0.00000001</mass>
+        <inertia>
+          <ixx>0.000001</ixx>
+          <ixy>0.0</ixy>
+          <iyy>0.000001</iyy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>0.000001</izz>
+        </inertia>
+        <pose>-0.045 0.27 0.0925 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose>0 0 0 0 -0 3.1415926</pose>
+        <geometry>
+          <mesh>
+            <uri>model://SHW09/meshes/wing-l-1 aileron-l-1.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Black</name>
+          </script>
+          <shader type='pixel'/>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='right_elevon'>
+      <inertial>
+        <mass>0.00000001</mass>
+        <inertia>
+          <ixx>0.000001</ixx>
+          <ixy>0.0</ixy>
+          <iyy>0.000001</iyy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>0.000001</izz>
+        </inertia>
+        <pose>-0.045 -0.27 0.0925 0 -0 0</pose>
+      </inertial>
+      <visual name='visual'>
+        <pose>0 0 0 0 -0 3.1415926</pose>
+        <geometry>
+          <mesh>
+            <uri>model://SHW09/meshes/wing-r-1 aileron-r-1.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Black</name>
+          </script>
+          <shader type='pixel'/>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <joint name='CS1_joint' type='revolute'>
+      <parent>base_link</parent>
+      <child>CS1</child>
+      <pose>0 0 -0.158 0 0 0</pose>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.5</lower>
+          <upper>0.5</upper>
+        </limit>
+        <dynamics>
+          <damping>0.001</damping>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+
+    </joint>
+    <joint name='CS2_joint' type='revolute'>
+      <parent>base_link</parent>
+      <child>CS2</child>
+      <pose>0 0 -0.158 0 -0 -1.0472</pose>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.5</lower>
+          <upper>0.5</upper>
+        </limit>
+        <dynamics>
+          <damping>0.001</damping>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+
+    </joint>
+    <joint name='CS3_joint' type='revolute'>
+      <parent>base_link</parent>
+      <child>CS3</child>
+      <pose>0 0 -0.158 0 -0 -2.0944</pose>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.5</lower>
+          <upper>0.5</upper>
+        </limit>
+        <dynamics>
+          <damping>0.001</damping>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+
+    </joint>
+    <joint name='CS4_joint' type='revolute'>
+      <parent>base_link</parent>
+      <child>CS4</child>
+      <pose>0 0 -0.158 0 -0 -3.1415</pose>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.5</lower>
+          <upper>0.5</upper>
+        </limit>
+        <dynamics>
+          <damping>0.001</damping>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+
+    </joint>
+    <joint name='CS5_joint' type='revolute'>
+      <parent>base_link</parent>
+      <child>CS5</child>
+      <pose>0 0 -0.158 0 0 2.0944</pose>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.5</lower>
+          <upper>0.5</upper>
+        </limit>
+        <dynamics>
+          <damping>0.001</damping>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+
+    </joint>
+    <joint name='CS6_joint' type='revolute'>
+      <parent>base_link</parent>
+      <child>CS6</child>
+      <pose>0 0 -0.158 0 0 1.0472</pose>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.5</lower>
+          <upper>0.5</upper>
+        </limit>
+        <dynamics>
+          <damping>0.001</damping>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+
+    </joint>
+    <joint name='left_elevon_joint' type='revolute'>
+      <parent>base_link</parent>
+      <child>left_elevon</child>
+      <pose>-0.045 0.21 0.0925 0 -0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <use_parent_model_frame>0</use_parent_model_frame>
+        <limit>
+          <lower>-0.5</lower>
+          <upper>0.5</upper>
+        </limit>
+        <dynamics>
+          <damping>1.000</damping>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+
+    </joint>
+    <joint name='right_elevon_joint' type='revolute'>
+      <parent>base_link</parent>
+      <child>right_elevon</child>
+      <pose>-0.045 -0.21 0.0925 0 -0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <use_parent_model_frame>0</use_parent_model_frame>
+        <limit>
+          <lower>-0.5</lower>
+          <upper>0.5</upper>
+        </limit>
+        <dynamics>
+          <damping>1.000</damping>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+    </joint>
     <plugin name="CS1_plugin" filename="libLiftDragPlugin.so">
-      <is_wind_just_inside>1</is_wind_just_inside>
-      <num_of_propeller>1</num_of_propeller>
-      <wind_from_propeller>
-        <propeller name="up_propeller">
-          <propeller_index>0</propeller_index>
-          <propeller_joint>rotor_joint</propeller_joint>
-          <propeller_wind_constant>0.169</propeller_wind_constant>
-        </propeller>
-      </wind_from_propeller>
+      <propeller_wind_map>
+        <propeller joint="rotor_joint" k_v="0.01" rotorVelocitySlowdownSim="10" />
+        <wash_only>false</wash_only>
+      </propeller_wind_map>
       <a0>0</a0>
       <cla>0</cla>
       <cda>0</cda>
@@ -2462,74 +2448,11 @@
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
-    <plugin name="CS6_plugin" filename="libLiftDragPlugin.so">
-      <is_wind_just_inside>1</is_wind_just_inside>
-      <num_of_propeller>1</num_of_propeller>
-      <wind_from_propeller>
-        <propeller name="up_propeller">
-          <propeller_index>0</propeller_index>
-          <propeller_joint>rotor_joint</propeller_joint>
-          <propeller_wind_constant>0.169</propeller_wind_constant>
-        </propeller>
-      </wind_from_propeller>
-      <a0>0</a0>
-      <cla>0</cla>
-      <cda>0</cda>
-      <cma>0</cma>
-      <alpha_stall>0.6</alpha_stall>
-      <cla_stall>0</cla_stall>
-      <cda_stall>0.0</cda_stall>
-      <cma_stall>0</cma_stall>
-      <cp>0.036849 0.063825 -0.174479</cp>
-      <area>0.0018</area>
-      <air_density>1.2041</air_density>
-      <forward>0 0 1</forward>
-      <upward>0.866 -0.5 0</upward>
-      <link_name>base_link</link_name>
-      <control_joint_name>CS6_joint</control_joint_name>
-      <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
-      <robotNamespace></robotNamespace>
-      <windSubTopic>world_wind</windSubTopic>
-    </plugin>
-    <plugin name="CS3_plugin" filename="libLiftDragPlugin.so">
-      <is_wind_just_inside>1</is_wind_just_inside>
-      <num_of_propeller>1</num_of_propeller>
-      <wind_from_propeller>
-        <propeller name="up_propeller">
-          <propeller_index>0</propeller_index>
-          <propeller_joint>rotor_joint</propeller_joint>
-          <propeller_wind_constant>0.169</propeller_wind_constant>
-        </propeller>
-      </wind_from_propeller>
-      <a0>0</a0>
-      <cla>0</cla>
-      <cda>0</cda>
-      <cma>0</cma>
-      <alpha_stall>0.6</alpha_stall>
-      <cla_stall>0</cla_stall>
-      <cda_stall>0.0</cda_stall>
-      <cma_stall>0</cma_stall>
-      <cp>-0.036849 -0.063825 -0.174479</cp>
-      <area>0.0018</area>
-      <air_density>1.2041</air_density>
-      <forward>0 0 1</forward>
-      <upward>-0.866 0.5 0</upward>
-      <link_name>base_link</link_name>
-      <control_joint_name>CS3_joint</control_joint_name>
-      <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
-      <robotNamespace></robotNamespace>
-      <windSubTopic>world_wind</windSubTopic>
-    </plugin>
     <plugin name="CS2_plugin" filename="libLiftDragPlugin.so">
-      <is_wind_just_inside>1</is_wind_just_inside>
-      <num_of_propeller>1</num_of_propeller>
-      <wind_from_propeller>
-        <propeller name="up_propeller">
-          <propeller_index>0</propeller_index>
-          <propeller_joint>rotor_joint</propeller_joint>
-          <propeller_wind_constant>0.169</propeller_wind_constant>
-        </propeller>
-      </wind_from_propeller>
+      <propeller_wind_map>
+        <propeller joint="rotor_joint" k_v="0.01" rotorVelocitySlowdownSim="10" />
+        <wash_only>false</wash_only>
+      </propeller_wind_map>
       <a0>0</a0>
       <cla>0</cla>
       <cda>0</cda>
@@ -2549,17 +2472,36 @@
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
+    <plugin name="CS3_plugin" filename="libLiftDragPlugin.so">
+      <propeller_wind_map>
+        <propeller joint="rotor_joint" k_v="0.01" rotorVelocitySlowdownSim="10" />
+        <wash_only>false</wash_only>
+      </propeller_wind_map>
+      <a0>0</a0>
+      <cla>0</cla>
+      <cda>0</cda>
+      <cma>0</cma>
+      <alpha_stall>0.6</alpha_stall>
+      <cla_stall>0</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>-0.036849 -0.063825 -0.174479</cp>
+      <area>0.0018</area>
+      <air_density>1.2041</air_density>
+      <forward>0 0 1</forward>
+      <upward>-0.866 0.5 0</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>CS3_joint</control_joint_name>
+      <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
 
     <plugin name="CS4_plugin" filename="libLiftDragPlugin.so">
-      <is_wind_just_inside>1</is_wind_just_inside>
-      <num_of_propeller>1</num_of_propeller>
-      <wind_from_propeller>
-        <propeller name="up_propeller">
-          <propeller_index>0</propeller_index>
-          <propeller_joint>rotor_joint</propeller_joint>
-          <propeller_wind_constant>0.169</propeller_wind_constant>
-        </propeller>
-      </wind_from_propeller>
+      <propeller_wind_map>
+        <propeller joint="rotor_joint" k_v="0.01" rotorVelocitySlowdownSim="10" />
+        <wash_only>false</wash_only>
+      </propeller_wind_map>
       <a0>0</a0>
       <cla>0</cla>
       <cda>0</cda>
@@ -2580,15 +2522,10 @@
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name="CS5_plugin" filename="libLiftDragPlugin.so">
-      <is_wind_just_inside>1</is_wind_just_inside>
-      <num_of_propeller>1</num_of_propeller>
-      <wind_from_propeller>
-        <propeller name="up_propeller">
-          <propeller_index>0</propeller_index>
-          <propeller_joint>rotor_joint</propeller_joint>
-          <propeller_wind_constant>0.169</propeller_wind_constant>
-        </propeller>
-      </wind_from_propeller>
+      <propeller_wind_map>
+        <propeller joint="rotor_joint" k_v="0.01" rotorVelocitySlowdownSim="10" />
+        <wash_only>false</wash_only>
+      </propeller_wind_map>
       <a0>0</a0>
       <cla>0</cla>
       <cda>0</cda>
@@ -2608,6 +2545,30 @@
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
+    <plugin name="CS6_plugin" filename="libLiftDragPlugin.so">
+      <propeller_wind_map>
+        <propeller joint="rotor_joint" k_v="0.01" rotorVelocitySlowdownSim="10" />
+        <wash_only>false</wash_only>
+      </propeller_wind_map>
+      <a0>0</a0>
+      <cla>0</cla>
+      <cda>0</cda>
+      <cma>0</cma>
+      <alpha_stall>0.6</alpha_stall>
+      <cla_stall>0</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>0.036849 0.063825 -0.174479</cp>
+      <area>0.0018</area>
+      <air_density>1.2041</air_density>
+      <forward>0 0 1</forward>
+      <upward>0.866 -0.5 0</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>CS6_joint</control_joint_name>
+      <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
 
 
     <plugin name='rotor_plugin' filename='libgazebo_motor_model.so'>
@@ -2617,22 +2578,21 @@
       <turningDirection>ccw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>2450</maxRotVelocity>
+      <maxRotVelocity>1200</maxRotVelocity>
       <!-- Lift Force T -->
-      <motorConstant>1.405e-05</motorConstant>
+      <motorConstant>3.4e-05</motorConstant>
       <!-- The Drag moment generated by the rotation of the rotor (the same as T) -->
       <momentConstant>2.35e-05</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>0</motorNumber>
       <!-- Air Drag Force H acting on rotor due to relative wind vel-->
-      <rotorDragCoefficient>0</rotorDragCoefficient>
+      <rotorDragCoefficient>3.2e-4</rotorDragCoefficient>
       <!-- Rolling moment due to air drag Force H -->
-      <rollingMomentCoefficient>0</rollingMomentCoefficient>
+      <rollingMomentCoefficient>4e-06</rollingMomentCoefficient>
       <motorSpeedPubTopic>/motor_speed/0</motorSpeedPubTopic>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
       <robotNamespace></robotNamespace>
     </plugin>
-
     <plugin name='gazebo_imu_plugin' filename='libgazebo_imu_plugin.so'>
       <robotNamespace></robotNamespace>
       <linkName>SHW09/imu_link</linkName>
@@ -2696,7 +2656,7 @@
         <channel name="1">
           <input_index>4</input_index>
           <input_offset>0</input_offset>
-          <input_scaling>0.35</input_scaling>
+          <input_scaling>0.5</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position_kinematic</joint_control_type>
@@ -2705,7 +2665,7 @@
         <channel name="2">
           <input_index>5</input_index>
           <input_offset>0</input_offset>
-          <input_scaling>0.35</input_scaling>
+          <input_scaling>0.5</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position_kinematic</joint_control_type>
@@ -2714,7 +2674,7 @@
         <channel name="3">
           <input_index>6</input_index>
           <input_offset>0</input_offset>
-          <input_scaling>0.35</input_scaling>
+          <input_scaling>0.5</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position_kinematic</joint_control_type>
@@ -2723,7 +2683,7 @@
         <channel name="4">
           <input_index>7</input_index>
           <input_offset>0</input_offset>
-          <input_scaling>0.35</input_scaling>
+          <input_scaling>0.5</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position_kinematic</joint_control_type>
@@ -2732,7 +2692,7 @@
         <channel name="5">
           <input_index>8</input_index>
           <input_offset>0</input_offset>
-          <input_scaling>0.35</input_scaling>
+          <input_scaling>0.5</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position_kinematic</joint_control_type>
@@ -2741,7 +2701,7 @@
         <channel name="6">
           <input_index>9</input_index>
           <input_offset>0</input_offset>
-          <input_scaling>0.35</input_scaling>
+          <input_scaling>0.5</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position_kinematic</joint_control_type>

@@ -13,7 +13,19 @@
       <uri>model://asphalt_plane</uri>
     </include>
     <!-- For temporary testing -->
-    <gui fullscreen='0'>
+    <gui>
+      <camera name="user_camera">
+        <track_visual>
+          <static>false</static>
+          <use_model_frame>true</use_model_frame>
+          <xyz>-5 0 0.5</xyz>
+          <!-- Optional: When static=false, you can also control the following distance using <min_dist> and <max_dist> -->
+          <min_dist>0.001</min_dist>
+          <max_dist>8.0</max_dist>
+        </track_visual>
+      </camera>
+    </gui>
+    <!-- <gui fullscreen='0'>
       <camera name="user_camera">
         <pose>0.443464 1.078665 0.481317 0 0.332 -0.258815</pose>
         <track_visual>
@@ -24,7 +36,7 @@
           <max_dist>2</max_dist>
         </track_visual>
       </camera>
-    </gui>
+    </gui> -->
     <physics name='default_physics' default='0' type='ode'>
       <gravity>0 0 -9.8066</gravity>
       <ode>

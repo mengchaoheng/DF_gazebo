@@ -1184,15 +1184,10 @@
       <parent>base_link</parent>
     </joint>
     <plugin name="cs1_plugin" filename="libLiftDragPlugin.so">
-      <is_wind_just_inside>1</is_wind_just_inside>
-      <num_of_propeller>1</num_of_propeller>
-      <wind_from_propeller>
-        <propeller name="up_propeller">
-          <propeller_index>0</propeller_index>
-          <propeller_joint>rotor_joint</propeller_joint>
-          <propeller_wind_constant>0.169</propeller_wind_constant>
-        </propeller>
-      </wind_from_propeller>
+      <propeller_wind_map>
+        <propeller joint="rotor_joint" k_v="0.01" rotorVelocitySlowdownSim="10" />
+        <wash_only>false</wash_only>
+      </propeller_wind_map>
       <a0>0</a0>
       <cla>0</cla>
       <cda>0</cda>
@@ -1213,15 +1208,10 @@
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name="cs11_plugin" filename="libLiftDragPlugin.so">
-      <is_wind_just_inside>1</is_wind_just_inside>
-      <num_of_propeller>1</num_of_propeller>
-      <wind_from_propeller>
-        <propeller name="up_propeller">
-          <propeller_index>0</propeller_index>
-          <propeller_joint>rotor_joint</propeller_joint>
-          <propeller_wind_constant>0.169</propeller_wind_constant>
-        </propeller>
-      </wind_from_propeller>
+      <propeller_wind_map>
+        <propeller joint="rotor_joint" k_v="0.01" rotorVelocitySlowdownSim="10" />
+        <wash_only>false</wash_only>
+      </propeller_wind_map>
       <a0>0</a0>
       <cla>0</cla>
       <cda>0</cda>
@@ -1242,15 +1232,10 @@
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name="cs22_plugin" filename="libLiftDragPlugin.so">
-      <is_wind_just_inside>1</is_wind_just_inside>
-      <num_of_propeller>1</num_of_propeller>
-      <wind_from_propeller>
-        <propeller name="up_propeller">
-          <propeller_index>0</propeller_index>
-          <propeller_joint>rotor_joint</propeller_joint>
-          <propeller_wind_constant>0.169</propeller_wind_constant>
-        </propeller>
-      </wind_from_propeller>
+      <propeller_wind_map>
+        <propeller joint="rotor_joint" k_v="0.01" rotorVelocitySlowdownSim="10" />
+        <wash_only>false</wash_only>
+      </propeller_wind_map>
       <a0>0</a0>
       <cla>0</cla>
       <cda>0</cda>
@@ -1271,15 +1256,10 @@
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name="cs2_plugin" filename="libLiftDragPlugin.so">
-      <is_wind_just_inside>1</is_wind_just_inside>
-      <num_of_propeller>1</num_of_propeller>
-      <wind_from_propeller>
-        <propeller name="up_propeller">
-          <propeller_index>0</propeller_index>
-          <propeller_joint>rotor_joint</propeller_joint>
-          <propeller_wind_constant>0.169</propeller_wind_constant>
-        </propeller>
-      </wind_from_propeller>
+      <propeller_wind_map>
+        <propeller joint="rotor_joint" k_v="0.01" rotorVelocitySlowdownSim="10" />
+        <wash_only>false</wash_only>
+      </propeller_wind_map>
       <a0>0</a0>
       <cla>0</cla>
       <cda>0</cda>
@@ -1301,15 +1281,10 @@
     </plugin>
 
     <plugin name="cs3_plugin" filename="libLiftDragPlugin.so">
-      <is_wind_just_inside>1</is_wind_just_inside>
-      <num_of_propeller>1</num_of_propeller>
-      <wind_from_propeller>
-        <propeller name="up_propeller">
-          <propeller_index>0</propeller_index>
-          <propeller_joint>rotor_joint</propeller_joint>
-          <propeller_wind_constant>0.169</propeller_wind_constant>
-        </propeller>
-      </wind_from_propeller>
+      <propeller_wind_map>
+        <propeller joint="rotor_joint" k_v="0.01" rotorVelocitySlowdownSim="10" />
+        <wash_only>false</wash_only>
+      </propeller_wind_map>
       <a0>0</a0>
       <cla>0</cla>
       <cda>0</cda>
@@ -1330,15 +1305,10 @@
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name="cs4_plugin" filename="libLiftDragPlugin.so">
-      <is_wind_just_inside>1</is_wind_just_inside>
-      <num_of_propeller>1</num_of_propeller>
-      <wind_from_propeller>
-        <propeller name="up_propeller">
-          <propeller_index>0</propeller_index>
-          <propeller_joint>rotor_joint</propeller_joint>
-          <propeller_wind_constant>0.169</propeller_wind_constant>
-        </propeller>
-      </wind_from_propeller>
+      <propeller_wind_map>
+        <propeller joint="rotor_joint" k_v="0.01" rotorVelocitySlowdownSim="10" />
+        <wash_only>false</wash_only>
+      </propeller_wind_map>
       <a0>0</a0>
       <cla>0</cla>
       <cda>0</cda>
