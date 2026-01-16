@@ -4,13 +4,12 @@
   <gui>
   <camera name="user_camera">
     <track_visual>
-      <name>plane</name>          <!-- 要跟随的对象 -->
-      <static>true</static>            <!-- 位置固定、只旋转跟随；若想“追随”距离变化可设 false -->
+      <static>false</static>            <!-- 位置固定、只旋转跟随；若想“追随”距离变化可设 false -->
       <use_model_frame>true</use_model_frame>
-      <xyz>-0.7 0.7 0.7</xyz>                <!-- 相机相对目标的位置偏移 -->
+      <xyz>1 2 1</xyz>                <!-- 相机相对目标的位置偏移 -->
       <!-- 可选：当 static=false 时，还能用 <min_dist> 与 <max_dist> 控制跟随距离 -->
-      <min_dist>0.5</min_dist>
-      <max_dist>2.0</max_dist>
+      <min_dist>0.0001</min_dist>
+      <max_dist>8.0</max_dist>
     </track_visual>
   </camera>
 </gui>
