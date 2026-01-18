@@ -3,14 +3,15 @@
   <model name='SHW09_vtol'>
     <pose>0 0 0.5 0 0 0</pose>
     <link name='base_link'>
+      <pose>0 0 0.0 0 0 0</pose>
       <inertial>
-        <pose>0 0 0.0 0 0 0</pose>
+        <pose>0 0 0.1 0 0 0</pose>
         <mass>1.6</mass>
         <inertia>
-            <ixx>0.1</ixx>
+            <ixx>0.08</ixx>
             <ixy>0</ixy>
             <ixz>0</ixz>
-            <iyy>0.03</iyy>
+            <iyy>0.08</iyy>
             <iyz>0</iyz>
             <izz>0.06</izz>
           </inertia>
@@ -44,6 +45,12 @@
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
+        <plugin name="adv_liftdrag_visual" filename="libForceVisual.so">
+          <link_name>base_link</link_name>
+          <topic_name>lift_force/lumped_force</topic_name>
+          <color>Gazebo/Green</color>
+          <scale>0.2</scale>
+        </plugin>
       </visual>
       <gravity>1</gravity>
       <velocity_decay/>
@@ -2014,7 +2021,7 @@
           <topic_name>lift_force/cs1</topic_name>
           <link_name>base_link</link_name>
           <color>Gazebo/Red</color>
-          <scale>1</scale>
+          <scale>0.2</scale>
         </plugin>
       </visual>
     </link>
@@ -2055,7 +2062,7 @@
           <topic_name>lift_force/cs2</topic_name>
           <link_name>base_link</link_name>
           <color>Gazebo/Red</color>
-          <scale>1</scale>
+          <scale>0.2</scale>
         </plugin>
       </visual>
     </link>
@@ -2096,7 +2103,7 @@
           <topic_name>lift_force/cs3</topic_name>
           <link_name>base_link</link_name>
           <color>Gazebo/Red</color>
-          <scale>1</scale>
+          <scale>0.2</scale>
         </plugin>
       </visual>
     </link>
@@ -2137,7 +2144,7 @@
           <topic_name>lift_force/cs4</topic_name>
           <link_name>base_link</link_name>
           <color>Gazebo/Red</color>
-          <scale>1</scale>
+          <scale>0.2</scale>
         </plugin>
       </visual>
     </link>
@@ -2178,7 +2185,7 @@
           <topic_name>lift_force/cs5</topic_name>
           <link_name>base_link</link_name>
           <color>Gazebo/Red</color>
-          <scale>1</scale>
+          <scale>0.2</scale>
         </plugin>
       </visual>
     </link>
@@ -2219,7 +2226,7 @@
           <topic_name>lift_force/cs6</topic_name>
           <link_name>base_link</link_name>
           <color>Gazebo/Red</color>
-          <scale>1</scale>
+          <scale>0.2</scale>
         </plugin>
       </visual>
     </link>
@@ -2255,12 +2262,12 @@
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
-        <plugin name="left_elevon_lift_visual" filename="libForceVisual.so">
+        <!-- <plugin name="left_elevon_lift_visual" filename="libForceVisual.so">
           <topic_name>lift_force/left_elevon</topic_name>
           <link_name>base_link</link_name>
-          <color>Gazebo/Red</color>
+          <color>Gazebo/Green</color>
           <scale>0.06</scale>
-        </plugin>
+        </plugin> -->
       </visual>
     </link>
     <link name='right_elevon'>
@@ -2295,12 +2302,12 @@
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
-        <plugin name="right_elevon_lift_visual" filename="libForceVisual.so">
+        <!-- <plugin name="right_elevon_lift_visual" filename="libForceVisual.so">
           <topic_name>lift_force/right_elevon</topic_name>
           <link_name>base_link</link_name>
-          <color>Gazebo/Red</color>
+          <color>Gazebo/Green</color>
           <scale>0.06</scale>
-        </plugin>
+        </plugin> -->
       </visual>
     </link>
     <joint name='CS1_joint' type='revolute'>
@@ -2491,7 +2498,7 @@
       <forward>0 0 1</forward>
       <upward>0 -1 0</upward>
       <link_name>base_link</link_name>
-      <!-- <topic_name>lift_force/cs1</topic_name> -->
+      <topic_name>lift_force/cs1</topic_name>
       <control_joint_name>CS1_joint</control_joint_name>
       <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
@@ -2516,7 +2523,7 @@
       <forward>0 0 1</forward>
       <upward>-0.866 -0.5 0</upward>
       <link_name>base_link</link_name>
-      <!-- <topic_name>lift_force/cs2</topic_name> -->
+      <topic_name>lift_force/cs2</topic_name>
       <control_joint_name>CS2_joint</control_joint_name>
       <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
@@ -2541,7 +2548,7 @@
       <forward>0 0 1</forward>
       <upward>-0.866 0.5 0</upward>
       <link_name>base_link</link_name>
-      <!-- <topic_name>lift_force/cs3</topic_name> -->
+      <topic_name>lift_force/cs3</topic_name>
       <control_joint_name>CS3_joint</control_joint_name>
       <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
@@ -2567,7 +2574,7 @@
       <forward>0 0 1</forward>
       <upward>0 1 0</upward>
       <link_name>base_link</link_name>
-      <!-- <topic_name>lift_force/cs4</topic_name> -->
+      <topic_name>lift_force/cs4</topic_name>
       <control_joint_name>CS4_joint</control_joint_name>
       <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
@@ -2592,7 +2599,7 @@
       <forward>0 0 1</forward>
       <upward>0.866 0.5 0</upward>
       <link_name>base_link</link_name>
-      <!-- <topic_name>lift_force/cs5</topic_name> -->
+      <topic_name>lift_force/cs5</topic_name>
       <control_joint_name>CS5_joint</control_joint_name>
       <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
@@ -2617,60 +2624,13 @@
       <forward>0 0 1</forward>
       <upward>0.866 -0.5 0</upward>
       <link_name>base_link</link_name>
-      <!-- <topic_name>lift_force/cs6</topic_name> -->
+      <topic_name>lift_force/cs6</topic_name>
       <control_joint_name>CS6_joint</control_joint_name>
       <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
-
     <!-- <plugin name="left_wing" filename="libLiftDragPlugin.so">
-      <a0>0.05984281113</a0>
-      <cla>4.752798721</cla>
-      <cda>0.6417112299</cda>
-      <cma>0.0</cma>
-      <alpha_stall>0.3391428111</alpha_stall>
-      <cla_stall>-3.85</cla_stall>
-      <cda_stall>-0.9233984055</cda_stall>
-      <cma_stall>0</cma_stall>
-      <cp>-0.05 0.45 0.05</cp>
-      <area>0.6</area>
-      <air_density>1.2041</air_density>
-      <forward>0 0 1</forward>
-      <upward>-1 0 0</upward>
-      <link_name>base_link</link_name>
-      <topic_name>lift_force/left_elevon</topic_name>
-      <control_joint_name>
-        left_elevon_joint
-      </control_joint_name>
-      <control_joint_rad_to_cl>-0.3</control_joint_rad_to_cl>
-      <robotNamespace></robotNamespace>
-      <windSubTopic>world_wind</windSubTopic>
-    </plugin>
-    <plugin name="right_wing" filename="libLiftDragPlugin.so">
-      <a0>0.05984281113</a0>
-      <cla>4.752798721</cla>
-      <cda>0.6417112299</cda>
-      <cma>0.0</cma>
-      <alpha_stall>0.3391428111</alpha_stall>
-      <cla_stall>-3.85</cla_stall>
-      <cda_stall>-0.9233984055</cda_stall>
-      <cma_stall>0</cma_stall>
-      <cp>-0.05 -0.45 0.05</cp>
-      <area>0.6</area>
-      <air_density>1.2041</air_density>
-      <forward>0 0 1</forward>
-      <upward>-1 0 0</upward>
-      <link_name>base_link</link_name>
-      <topic_name>lift_force/right_elevon</topic_name>
-      <control_joint_name>
-        right_elevon_joint
-      </control_joint_name>
-      <control_joint_rad_to_cl>-0.3</control_joint_rad_to_cl>
-      <robotNamespace></robotNamespace>
-      <windSubTopic>world_wind</windSubTopic>
-    </plugin> -->
-    <plugin name="left_wing" filename="libLiftDragPlugin.so">
       <a0>0.05984281113</a0>
       <cla>2.0</cla>
       <cda>0.6</cda>
@@ -2686,7 +2646,6 @@
       <forward>0 0 1</forward>
       <upward>-1 0 0</upward>
       <link_name>base_link</link_name>
-      <!-- This reduces the real-time performance (Real Time Factor) of the simulation -->
       <topic_name>lift_force/left_elevon</topic_name>
       <control_joint_name>
         left_elevon_joint
@@ -2711,12 +2670,79 @@
       <forward>0 0 1</forward>
       <upward>-1 0 0</upward>
       <link_name>base_link</link_name>
-      <!-- This reduces the real-time performance (Real Time Factor) of the simulation -->
       <topic_name>lift_force/right_elevon</topic_name>
       <control_joint_name>
         right_elevon_joint
       </control_joint_name>
       <control_joint_rad_to_cl>-0.3</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin> -->
+    <plugin name="aircraft" filename="libAdvancedLiftDragPlugin.so">
+      <a0>0.0</a0>
+      <CL0>0.15</CL0>
+      <AR>6.5</AR>
+      <eff>0.97</eff>
+      <CLa>4.0</CLa>
+      <CD0>0.018</CD0>
+      <Cem0>0.0</Cem0>
+      <Cema>-0.2</Cema>
+      <CYb>-0.258244</CYb>
+      <Cellb>-0.039250</Cellb>
+      <Cenb>0.100826</Cenb>
+      <CDp>0.0</CDp>
+      <CYp>0.065861</CYp>
+      <CLp>0.0</CLp>
+      <Cellp>-0.487407</Cellp>
+      <Cemp>0.0</Cemp>
+      <Cenp>-0.040416</Cenp>
+      <CDq>0.055166</CDq>
+      <CYq>0.0</CYq>
+      <CLq>10.0</CLq>
+      <Cellq>0.0</Cellq>
+      <Cemq>-6.0</Cemq>
+      <Cenq>0.0</Cenq>
+      <CDr>0.0</CDr>
+      <CYr>0.230299</CYr>
+      <CLr>0.0</CLr>
+      <Cellr>0.078165</Cellr>
+      <Cemr>0.0</Cemr>
+      <Cenr>-0.089947</Cenr>
+      <alpha_stall>0.4</alpha_stall>
+      <CLa_stall>-3.85</CLa_stall>
+      <CDa_stall>-0.3</CDa_stall>
+      <Cema_stall>0</Cema_stall>
+      <ref_pt>0 0.0 -0.</ref_pt>
+      <area>0.34</area>
+      <mac>0.22</mac>
+      <air_density>1.2041</air_density>
+      <forward>0 0 1</forward>
+      <upward>-1 0 0</upward>
+      <link_name>base_link</link_name>
+      <topic_name>lift_force/lumped_force</topic_name>
+      <num_ctrl_surfaces>2</num_ctrl_surfaces>
+      <control_surface>
+        <name>left_elevon_joint</name>
+        <index>0</index>
+        <direction>1</direction>
+        <CD_ctrl>0.0002</CD_ctrl>
+        <CY_ctrl>0.015</CY_ctrl>
+        <CL_ctrl>-0.15</CL_ctrl>
+        <Cell_ctrl>-0.007</Cell_ctrl>
+        <Cem_ctrl>0.0008</Cem_ctrl>
+        <Cen_ctrl>-0.000057</Cen_ctrl>
+      </control_surface>
+      <control_surface>
+        <name>right_elevon_joint</name>
+        <direction>1</direction>
+        <index>1</index>
+        <CD_ctrl>0.0002</CD_ctrl>
+        <CY_ctrl>-0.015</CY_ctrl>
+        <CL_ctrl>-0.15</CL_ctrl>
+        <Cell_ctrl>0.007</Cell_ctrl>
+        <Cem_ctrl>0.0008</Cem_ctrl>
+        <Cen_ctrl>0.000057</Cen_ctrl>
+      </control_surface>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
