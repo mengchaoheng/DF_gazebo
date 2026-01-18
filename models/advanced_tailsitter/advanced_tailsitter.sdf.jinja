@@ -43,7 +43,7 @@
           <link_name>base_link</link_name>
           <topic_name>force/adv_liftdrag</topic_name>
           <color>Gazebo/Red</color>
-          <scale>0.1</scale>
+          <scale>0.2</scale>
         </plugin>
       </visual>
       <gravity>1</gravity>
@@ -237,6 +237,12 @@
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
+        <plugin name="left_wing_lift_visual" filename="libForceVisual.so">
+          <topic_name>lift_force/left_wing</topic_name>
+          <link_name>base_link</link_name>
+          <color>Gazebo/Green</color>
+          <scale>0.2</scale>
+        </plugin>
       </visual>
     </link>
     <link name="right_elevon_link">
@@ -266,6 +272,12 @@
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
+        <plugin name="right_wing_lift_visual" filename="libForceVisual.so">
+          <topic_name>lift_force/right_wing</topic_name>
+          <link_name>base_link</link_name>
+          <color>Gazebo/Green</color>
+          <scale>0.2</scale>
+        </plugin>
       </visual>
     </link>
 
@@ -324,47 +336,50 @@
     <plugin name="left_wing" filename="libLiftDragPlugin.so">
       <propeller_wind_map>
         <propeller joint="rotor_0_joint" k_v="0.01" rotorVelocitySlowdownSim="10" />
-        <wash_only>false</wash_only>
+        <wash_only>true</wash_only>
       </propeller_wind_map>
       <alpha_stall>0.6391428111</alpha_stall>
       <cla_stall>-1.7</cla_stall>
       <cda_stall>-0.45</cda_stall>
       <cma_stall>0</cma_stall>
-      <cm_delta>0.1</cm_delta>
-      <cp>0 0.3 0.0</cp>
+      <cm_delta>0</cm_delta>
+      <cp>0 0.3 -0.3</cp>
       <area>0.15</area>
       <air_density>1.2041</air_density>
       <forward>0 0 1</forward>
       <upward>-1 0 0</upward>
       <link_name>base_link</link_name>
+      <!-- This reduces the real-time performance (Real Time Factor) of the simulation -->
+      <topic_name>lift_force/left_wing</topic_name>
       <control_joint_name>
         left_elevon_joint
       </control_joint_name>
-      <control_joint_rad_to_cl>-0.3</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>-1</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name="right_wing" filename="libLiftDragPlugin.so">
       <propeller_wind_map>
         <propeller joint="rotor_1_joint" k_v="0.01" rotorVelocitySlowdownSim="10" />
-        <wash_only>false</wash_only>
+        <wash_only>true</wash_only>
       </propeller_wind_map>
-      <cma>0.0</cma>
       <alpha_stall>0.6391428111</alpha_stall>
       <cla_stall>-1.7</cla_stall>
       <cda_stall>-0.45</cda_stall>
       <cma_stall>0</cma_stall>
-      <cm_delta>0.1</cm_delta>
-      <cp>0 -0.3 -0.0</cp>
+      <cm_delta>0</cm_delta>
+      <cp>0 -0.3 -0.3</cp>
       <area>0.15</area>
       <air_density>1.2041</air_density>
       <forward>0 0 1</forward>
       <upward>-1 0 0</upward>
       <link_name>base_link</link_name>
+      <!-- This reduces the real-time performance (Real Time Factor) of the simulation -->
+      <topic_name>lift_force/right_wing</topic_name>
       <control_joint_name>
         right_elevon_joint
       </control_joint_name>
-      <control_joint_rad_to_cl>-0.3</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>-1</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
@@ -402,7 +417,7 @@
       <CLa_stall>-3.85</CLa_stall>
       <CDa_stall>-0.9233984055</CDa_stall>
       <Cema_stall>0</Cema_stall>
-      <ref_pt>0 0 -0.1</ref_pt>
+      <ref_pt>0 0 0</ref_pt>
       <area>0.34</area>
       <mac>0.22</mac>
       <air_density>1.2041</air_density>
