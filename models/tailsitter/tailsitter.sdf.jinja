@@ -24,7 +24,7 @@
           </box>
         </geometry>
       </collision>
-      <!-- This reduces the real-time performance (Real Time Factor) of the simulation -->
+      <!-- The settings of this meshes file will reduce the real-time performance of the simulation (real-time factor) -->
       <visual name='base_link_visual'>
         <pose>0 0 0.2 0 -1.57075 3.14</pose>
         <geometry>
@@ -333,8 +333,8 @@
         <wash_only>false</wash_only>
       </propeller_wind_map>
       <a0>0.05984281113</a0>
-      <cla>2.0</cla>
-      <cda>0.3</cda>
+      <cla>4.0</cla>
+      <cda>0.2</cda>
       <cma>0.0</cma>
       <alpha_stall>0.6391428111</alpha_stall>
       <cla_stall>-1.7</cla_stall>
@@ -347,7 +347,7 @@
       <forward>0 0 1</forward>
       <upward>-1 0 0</upward>
       <link_name>base_link</link_name>
-      <!-- This reduces the real-time performance (Real Time Factor) of the simulation -->
+      <!-- Visualization of forces will reduce the real-time performance of the simulation (real-time factor) -->
       <!-- <topic_name>lift_force/left_wing</topic_name> -->
       <control_joint_name>
         left_elevon_joint
@@ -362,8 +362,8 @@
         <wash_only>false</wash_only>
       </propeller_wind_map>
       <a0>0.05984281113</a0>
-      <cla>2.0</cla>
-      <cda>0.3</cda>
+      <cla>4.0</cla>
+      <cda>0.2</cda>
       <cma>0.0</cma>
       <alpha_stall>0.6391428111</alpha_stall>
       <cla_stall>-1.7</cla_stall>
@@ -376,7 +376,7 @@
       <forward>0 0 1</forward>
       <upward>-1 0 0</upward>
       <link_name>base_link</link_name>
-      <!-- This reduces the real-time performance (Real Time Factor) of the simulation -->
+      <!-- Visualization of forces will reduce the real-time performance of the simulation (real-time factor) -->
       <!-- <topic_name>lift_force/right_wing</topic_name> -->
       <control_joint_name>
         right_elevon_joint
@@ -398,8 +398,8 @@
       <turningDirection>cw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>2000</maxRotVelocity>
-      <motorConstant>1e-05</motorConstant>
+      <maxRotVelocity>1500</maxRotVelocity>
+      <motorConstant>1.0e-05</motorConstant>
       <momentConstant>0.06</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>0</motorNumber>
@@ -415,8 +415,8 @@
       <turningDirection>ccw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>2000</maxRotVelocity>
-      <motorConstant>1e-05</motorConstant>
+      <maxRotVelocity>1500</maxRotVelocity>
+      <motorConstant>1.0e-05</motorConstant>
       <momentConstant>0.06</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>1</motorNumber>
@@ -478,7 +478,7 @@
         <channel name="rotor_0_channel">
           <input_index>0</input_index>
           <input_offset>0</input_offset>
-          <input_scaling>2000</input_scaling>
+          <input_scaling>1500</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>velocity</joint_control_type>
@@ -487,7 +487,7 @@
         <channel name="rotor_1_channel">
           <input_index>1</input_index>
           <input_offset>0</input_offset>
-          <input_scaling>2000</input_scaling>
+          <input_scaling>1500</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>velocity</joint_control_type>

@@ -45,7 +45,7 @@ void ForceVisualPlugin::Init()
   this->host.reset();
   {
     auto scene = this->visual->GetScene();
-    std::string visName = this->visual->Name(); // 形如 "model::link::visual"
+    std::string visName = this->visual->Name();
     std::string modelName;
     auto pos = visName.find("::");
     if (pos != std::string::npos) {
@@ -100,12 +100,7 @@ void ForceVisualPlugin::OnUpdate(ConstForcePtr& force_msg)
   auto force_center_msg = force_msg->center();
   center.Set(force_center_msg.x(), force_center_msg.y(), force_center_msg.z());
 
-  // Note that if the visual is scaled, the center needs to be scaled, too,
-  // such that the force appears on the visual surface control and not on
-  // the actual joint (which will look weird).
-  // I am not sure what happens if both the visual and the joint are scaled,
-  // but I don't see a reason for doing that, like, ever.
-  // No scaling correction. Because the force is applied to the "link_name" cp point, and is not affected by the current visual tag.
+  // The force is applied to the cp point of "link_name", and is not affected by the current visual tag.
   // Visualize scaling of force length (<scale>)
   force *= this->forceScale;
 
