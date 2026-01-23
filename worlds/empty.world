@@ -1,6 +1,20 @@
 <?xml version="1.0" ?>
 <sdf version="1.5">
   <world name="default">
+    <gui>
+      <camera name="user_camera">
+        <track_visual>
+          <!-- Set fixed view perspective or not. -->
+          <static>false</static>
+          <use_model_frame>true</use_model_frame>
+          <!-- Camera position offset relative to the target when <static> is set to true -->
+          <xyz>-4 0 1</xyz>
+          <!-- Optional: When static=false, you can also use <min_dist> and <max_dist> to control the follow distance -->
+          <min_dist>0.0001</min_dist>
+          <max_dist>15.0</max_dist>
+        </track_visual>
+      </camera>
+    </gui>
     <!-- A global light source -->
     <include>
       <uri>model://sun</uri>

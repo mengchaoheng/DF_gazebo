@@ -234,18 +234,18 @@ void AdvancedLiftDragPlugin::Load(physics::ModelPtr _model,
   {
     gzdbg << "Control surface \n";
     sdf::ElementPtr curr_ctrl_surface = _sdf->GetElement("control_surface");
-    gzdbg << ((curr_ctrl_surface->GetElement("name"))) << "\n";
-    std::string ctrl_surface_name = ((curr_ctrl_surface->GetElement("name"))->GetValue())->GetAsString();
+    std::string ctrl_surface_name = curr_ctrl_surface->Get<std::string>("name");
+    gzdbg << "Control surface name: " << ctrl_surface_name << "\n";
 
 
     this->controlJoints.push_back(this->model->GetJoint(ctrl_surface_name));
-    this->ctrl_surface_direction.push_back(std::stod(((curr_ctrl_surface->GetElement("direction"))->GetValue())->GetAsString()));
-    this->CD_ctrl.push_back(std::stod(((curr_ctrl_surface->GetElement("CD_ctrl"))->GetValue())->GetAsString()));
-    this->CY_ctrl.push_back(std::stod(((curr_ctrl_surface->GetElement("CY_ctrl"))->GetValue())->GetAsString()));
-    this->CL_ctrl.push_back(std::stod(((curr_ctrl_surface->GetElement("CL_ctrl"))->GetValue())->GetAsString()));
-    this->Cell_ctrl.push_back(std::stod(((curr_ctrl_surface->GetElement("Cell_ctrl"))->GetValue())->GetAsString()));
-    this->Cem_ctrl.push_back(std::stod(((curr_ctrl_surface->GetElement("Cem_ctrl"))->GetValue())->GetAsString()));
-    this->Cen_ctrl.push_back(std::stod(((curr_ctrl_surface->GetElement("Cen_ctrl"))->GetValue())->GetAsString()));
+    this->ctrl_surface_direction.push_back(curr_ctrl_surface->Get<double>("direction"));
+    this->CD_ctrl.push_back(curr_ctrl_surface->Get<double>("CD_ctrl"));
+    this->CY_ctrl.push_back(curr_ctrl_surface->Get<double>("CY_ctrl"));
+    this->CL_ctrl.push_back(curr_ctrl_surface->Get<double>("CL_ctrl"));
+    this->Cell_ctrl.push_back(curr_ctrl_surface->Get<double>("Cell_ctrl"));
+    this->Cem_ctrl.push_back(curr_ctrl_surface->Get<double>("Cem_ctrl"));
+    this->Cen_ctrl.push_back(curr_ctrl_surface->Get<double>("Cen_ctrl"));
 
     _sdf->RemoveChild(curr_ctrl_surface);
 
@@ -562,7 +562,7 @@ CL_poststall = 2*(this->alpha/abs(this->alpha))*pow(sinAlpha,2.0)*cosAlpha
   this->link->AddForceAtRelativePosition(force, this->ref_pt);
   this->link->AddTorque(moment);
 
-  auto relative_center = this->link->RelativePose().Pos() + this->ref_pt;
+  auto relative_center = this->ref_pt;
 
   // Publish force and center of pressure for potential visual plugin.
   // - dt is used to control the rate at which the force is published
