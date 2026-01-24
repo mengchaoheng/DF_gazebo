@@ -1081,7 +1081,15 @@
         </ode>
       </physics>
     </joint>
-
+    <include>
+      <uri>model://gps</uri>
+      <pose>0.0 0 0.04 0 0 0</pose>
+      <name>gps0</name>
+    </include>
+    <joint name='gps0_joint' type='fixed'>
+      <child>gps0::link</child>
+      <parent>base_link</parent>
+    </joint>
     <plugin name="cs1_plugin" filename="libLiftDragPlugin.so">
       <propeller_wind_map>
         <propeller joint="rotor_joint" k_v="0.01" rotorVelocitySlowdownSim="10" />
@@ -1207,15 +1215,19 @@
       <robotNamespace></robotNamespace>
     </plugin>
 
-     <include>
-      <uri>model://gps</uri>
-      <pose>0.0 0 0.04 0 0 0</pose>
-      <name>gps0</name>
-    </include>
-    <joint name='gps0_joint' type='fixed'>
-      <child>gps0::link</child>
-      <parent>base_link</parent>
-    </joint>
+    <plugin name='gazebo_imu_plugin' filename='libgazebo_imu_plugin.so'>
+      <robotNamespace></robotNamespace>
+      <linkName>ductedfan4/imu_link</linkName>
+      <imuTopic>/imu</imuTopic>
+      <gyroscopeNoiseDensity>0.00018665</gyroscopeNoiseDensity>
+      <gyroscopeRandomWalk>3.8785e-05</gyroscopeRandomWalk>
+      <gyroscopeBiasCorrelationTime>1000.0</gyroscopeBiasCorrelationTime>
+      <gyroscopeTurnOnBiasSigma>0.0087</gyroscopeTurnOnBiasSigma>
+      <accelerometerNoiseDensity>0.00186</accelerometerNoiseDensity>
+      <accelerometerRandomWalk>0.006</accelerometerRandomWalk>
+      <accelerometerBiasCorrelationTime>300.0</accelerometerBiasCorrelationTime>
+      <accelerometerTurnOnBiasSigma>0.196</accelerometerTurnOnBiasSigma>
+    </plugin>
     <plugin name='groundtruth_plugin' filename='libgazebo_groundtruth_plugin.so'>
       <robotNamespace/>
     </plugin>
@@ -1302,18 +1314,5 @@
       </control_channels>
     </plugin>
     <static>0</static>
-    <plugin name='gazebo_imu_plugin' filename='libgazebo_imu_plugin.so'>
-      <robotNamespace></robotNamespace>
-      <linkName>ductedfan4/imu_link</linkName>
-      <imuTopic>/imu</imuTopic>
-      <gyroscopeNoiseDensity>0.00018665</gyroscopeNoiseDensity>
-      <gyroscopeRandomWalk>3.8785e-05</gyroscopeRandomWalk>
-      <gyroscopeBiasCorrelationTime>1000.0</gyroscopeBiasCorrelationTime>
-      <gyroscopeTurnOnBiasSigma>0.0087</gyroscopeTurnOnBiasSigma>
-      <accelerometerNoiseDensity>0.00186</accelerometerNoiseDensity>
-      <accelerometerRandomWalk>0.006</accelerometerRandomWalk>
-      <accelerometerBiasCorrelationTime>300.0</accelerometerBiasCorrelationTime>
-      <accelerometerTurnOnBiasSigma>0.196</accelerometerTurnOnBiasSigma>
-    </plugin>
   </model>
 </sdf>
