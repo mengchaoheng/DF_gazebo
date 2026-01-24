@@ -1099,16 +1099,6 @@
       </physics>
     </joint>
 
-
-    <include>
-      <uri>model://gps</uri>
-      <pose>0 0 0 0 0 0</pose>
-      <name>gps</name>
-    </include>
-    <joint name='gps_joint' type='fixed'>
-      <child>gps::link</child>
-      <parent>base_link</parent>
-    </joint>
     <plugin name="cs1_plugin" filename="libLiftDragPlugin.so">
       <propeller_wind_map>
         <propeller joint="rotor_joint" k_v="0.01" rotorVelocitySlowdownSim="10" />
@@ -1235,7 +1225,24 @@
       <robotNamespace></robotNamespace>
       <linkName>ductedfan_mini/imu_link</linkName>
       <imuTopic>/imu</imuTopic>
+      <gyroscopeNoiseDensity>0.0003394</gyroscopeNoiseDensity>
+      <gyroscopeRandomWalk>3.8785e-05</gyroscopeRandomWalk>
+      <gyroscopeBiasCorrelationTime>1000.0</gyroscopeBiasCorrelationTime>
+      <gyroscopeTurnOnBiasSigma>0.0087</gyroscopeTurnOnBiasSigma>
+      <accelerometerNoiseDensity>0.004</accelerometerNoiseDensity>
+      <accelerometerRandomWalk>0.006</accelerometerRandomWalk>
+      <accelerometerBiasCorrelationTime>300.0</accelerometerBiasCorrelationTime>
+      <accelerometerTurnOnBiasSigma>0.196</accelerometerTurnOnBiasSigma>
     </plugin>
+    <include>
+      <uri>model://gps</uri>
+      <pose>0.0 0 0.0 0 0 0</pose>
+      <name>gps0</name>
+    </include>
+    <joint name='gps0_joint' type='fixed'>
+      <child>gps0::link</child>
+      <parent>base_link</parent>
+    </joint>
     <plugin name='groundtruth_plugin' filename='libgazebo_groundtruth_plugin.so'>
       <robotNamespace/>
     </plugin>
@@ -1251,13 +1258,10 @@
       <robotNamespace/>
       <pubRate>50</pubRate>
       <baroTopic>/baro</baroTopic>
+      <baroDriftPaPerSec>0</baroDriftPaPerSec>
     </plugin>
-    <!--plugin name='airspeed_plugin' filename='libgazebo_airspeed_plugin.so'>
-      <robotNamespace/>
-      <linkName>ductedfan4/airspeed_link</linkName>
-    </plugin-->
     <plugin name='mavlink_interface' filename='libgazebo_mavlink_interface.so'>
-      <robotNamespace></robotNamespace>
+      <robotNamespace/>
       <imuSubTopic>/imu</imuSubTopic>
       <magSubTopic>/mag</magSubTopic>
       <baroSubTopic>/baro</baroSubTopic>
@@ -1272,9 +1276,11 @@
       <sdk_addr>INADDR_ANY</sdk_addr>
       <sdk_udp_port>14540</sdk_udp_port>
       <hil_mode>{{ hil_mode }}</hil_mode>
-      <hil_state_level>false</hil_state_level>
-      <enable_lockstep>true</enable_lockstep>
-      <use_tcp>true</use_tcp>
+      <hil_state_level>0</hil_state_level>
+      <send_vision_estimation>0</send_vision_estimation>
+      <send_odometry>1</send_odometry>
+      <enable_lockstep>1</enable_lockstep>
+      <use_tcp>1</use_tcp>
       <motorSpeedCommandPubTopic>/gazebo/command/motor_speed</motorSpeedCommandPubTopic>
       <control_channels>
         <channel name="up_rotor">

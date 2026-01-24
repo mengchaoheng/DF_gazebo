@@ -1207,12 +1207,7 @@
       <robotNamespace></robotNamespace>
     </plugin>
 
-    <plugin name='rotors_gazebo_imu_plugin' filename='libgazebo_imu_plugin.so'>
-      <robotNamespace/>
-      <linkName>ductedfan4/imu_link</linkName>
-      <imuTopic>/imu</imuTopic>
-    </plugin>
-    <include>
+     <include>
       <uri>model://gps</uri>
       <pose>0.0 0 0.04 0 0 0</pose>
       <name>gps0</name>
@@ -1307,5 +1302,18 @@
       </control_channels>
     </plugin>
     <static>0</static>
+    <plugin name='gazebo_imu_plugin' filename='libgazebo_imu_plugin.so'>
+      <robotNamespace></robotNamespace>
+      <linkName>ductedfan4/imu_link</linkName>
+      <imuTopic>/imu</imuTopic>
+      <gyroscopeNoiseDensity>0.0003394</gyroscopeNoiseDensity>
+      <gyroscopeRandomWalk>3.8785e-05</gyroscopeRandomWalk>
+      <gyroscopeBiasCorrelationTime>1000.0</gyroscopeBiasCorrelationTime>
+      <gyroscopeTurnOnBiasSigma>0.0087</gyroscopeTurnOnBiasSigma>
+      <accelerometerNoiseDensity>0.004</accelerometerNoiseDensity>
+      <accelerometerRandomWalk>0.006</accelerometerRandomWalk>
+      <accelerometerBiasCorrelationTime>300.0</accelerometerBiasCorrelationTime>
+      <accelerometerTurnOnBiasSigma>0.196</accelerometerTurnOnBiasSigma>
+    </plugin>
   </model>
 </sdf>
