@@ -32,7 +32,9 @@ models/tailsitter/tailsitter.sdf
 models/advanced_tailsitter/advanced_tailsitter.sdf
 models/advanced_plane/advanced_plane.sdf
 models/quadtailsitter/quadtailsitter.sdf
+models/ductedfan2/ductedfan2.sdf
 models/ductedfan4/ductedfan4.sdf
-models/SHW09_vtol/SHW09_vtol.sdf
 models/ductedfan6/ductedfan6.sdf
+models/ductedfan_mini/ductedfan_mini.sdf
 models/SHC09/SHC09.sdf
+models/SHW09_vtol/SHW09_vtol.sdf
