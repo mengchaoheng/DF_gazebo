@@ -5,7 +5,7 @@
     <link name='base_link'>
       <pose>0 0 0.0 0 0 0</pose>
       <inertial>
-        <pose>0 0 0.1 0 0 0</pose>
+        <pose>0 0 0.12 0 0 0</pose>
         <mass>1.6</mass>
         <inertia>
             <ixx>0.08</ixx>
@@ -13,7 +13,7 @@
             <ixz>0</ixz>
             <iyy>0.08</iyy>
             <iyz>0</iyz>
-            <izz>0.06</izz>
+            <izz>0.03</izz>
           </inertia>
       </inertial>
       <collision name='base_link_collision'>
@@ -2262,12 +2262,12 @@
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
-        <!-- <plugin name="left_elevon_lift_visual" filename="libForceVisual.so">
+        <plugin name="left_elevon_lift_visual" filename="libForceVisual.so">
           <topic_name>lift_force/left_elevon</topic_name>
           <link_name>base_link</link_name>
           <color>Gazebo/Green</color>
-          <scale>0.06</scale>
-        </plugin> -->
+          <scale>0.2</scale>
+        </plugin>
       </visual>
     </link>
     <link name='right_elevon'>
@@ -2302,12 +2302,12 @@
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
-        <!-- <plugin name="right_elevon_lift_visual" filename="libForceVisual.so">
+        <plugin name="right_elevon_lift_visual" filename="libForceVisual.so">
           <topic_name>lift_force/right_elevon</topic_name>
           <link_name>base_link</link_name>
           <color>Gazebo/Green</color>
-          <scale>0.06</scale>
-        </plugin> -->
+          <scale>0.2</scale>
+        </plugin>
       </visual>
     </link>
     <joint name='CS1_joint' type='revolute'>
@@ -2481,7 +2481,7 @@
     </joint>
     <plugin name="CS1_plugin" filename="libLiftDragPlugin.so">
       <propeller_wind_map>
-        <propeller joint="rotor_joint" k_v="0.05" rotorVelocitySlowdownSim="10" />
+        <propeller joint="rotor_joint" k_v="0.04" rotorVelocitySlowdownSim="10" />
         <wash_only>false</wash_only>
       </propeller_wind_map>
       <a0>0</a0>
@@ -2506,7 +2506,7 @@
     </plugin>
     <plugin name="CS2_plugin" filename="libLiftDragPlugin.so">
       <propeller_wind_map>
-        <propeller joint="rotor_joint" k_v="0.05" rotorVelocitySlowdownSim="10" />
+        <propeller joint="rotor_joint" k_v="0.04" rotorVelocitySlowdownSim="10" />
         <wash_only>false</wash_only>
       </propeller_wind_map>
       <a0>0</a0>
@@ -2531,7 +2531,7 @@
     </plugin>
     <plugin name="CS3_plugin" filename="libLiftDragPlugin.so">
       <propeller_wind_map>
-        <propeller joint="rotor_joint" k_v="0.05" rotorVelocitySlowdownSim="10" />
+        <propeller joint="rotor_joint" k_v="0.04" rotorVelocitySlowdownSim="10" />
         <wash_only>false</wash_only>
       </propeller_wind_map>
       <a0>0</a0>
@@ -2557,7 +2557,7 @@
 
     <plugin name="CS4_plugin" filename="libLiftDragPlugin.so">
       <propeller_wind_map>
-        <propeller joint="rotor_joint" k_v="0.05" rotorVelocitySlowdownSim="10" />
+        <propeller joint="rotor_joint" k_v="0.04" rotorVelocitySlowdownSim="10" />
         <wash_only>false</wash_only>
       </propeller_wind_map>
       <a0>0</a0>
@@ -2582,7 +2582,7 @@
     </plugin>
     <plugin name="CS5_plugin" filename="libLiftDragPlugin.so">
      <propeller_wind_map>
-        <propeller joint="rotor_joint" k_v="0.05" rotorVelocitySlowdownSim="10" />
+        <propeller joint="rotor_joint" k_v="0.04" rotorVelocitySlowdownSim="10" />
         <wash_only>false</wash_only>
       </propeller_wind_map>
       <a0>0</a0>
@@ -2607,7 +2607,7 @@
     </plugin>
     <plugin name="CS6_plugin" filename="libLiftDragPlugin.so">
       <propeller_wind_map>
-        <propeller joint="rotor_joint" k_v="0.05" rotorVelocitySlowdownSim="10" />
+        <propeller joint="rotor_joint" k_v="0.04" rotorVelocitySlowdownSim="10" />
         <wash_only>false</wash_only>
       </propeller_wind_map>
       <a0>0</a0>
@@ -2630,7 +2630,7 @@
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
-    <!-- <plugin name="left_wing" filename="libLiftDragPlugin.so">
+    <plugin name="left_wing" filename="libLiftDragPlugin.so">
       <a0>0.05984281113</a0>
       <cla>2.0</cla>
       <cda>0.6</cda>
@@ -2640,7 +2640,7 @@
       <cda_stall>-0.45</cda_stall>
       <cma_stall>0</cma_stall>
       <cm_delta>0</cm_delta>
-      <cp>0 0.3 0.0</cp>
+      <cp>0 0.4 0.</cp>
       <area>0.15</area>
       <air_density>1.2041</air_density>
       <forward>0 0 1</forward>
@@ -2650,7 +2650,7 @@
       <control_joint_name>
         left_elevon_joint
       </control_joint_name>
-      <control_joint_rad_to_cl>-0.3</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>-0.1</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
@@ -2664,7 +2664,7 @@
       <cda_stall>-0.45</cda_stall>
       <cma_stall>0</cma_stall>
       <cm_delta>0</cm_delta>
-      <cp>0 -0.3 -0.0</cp>
+      <cp>0 -0.4 0.</cp>
       <area>0.15</area>
       <air_density>1.2041</air_density>
       <forward>0 0 1</forward>
@@ -2674,11 +2674,11 @@
       <control_joint_name>
         right_elevon_joint
       </control_joint_name>
-      <control_joint_rad_to_cl>-0.3</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>-0.1</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
-    </plugin> -->
-    <plugin name="aircraft" filename="libAdvancedLiftDragPlugin.so">
+    </plugin>
+    <!-- <plugin name="aircraft" filename="libAdvancedLiftDragPlugin.so">
       <a0>0.0</a0>
       <CL0>0.15</CL0>
       <AR>6.5</AR>
@@ -2687,11 +2687,11 @@
       <CD0>0.028</CD0>
       <Cem0>0.0</Cem0>
       <Cema>-0.2</Cema>
-      <!-- <CYb>-0.258244</CYb> -->
+      <CYb>-0.0</CYb>
       <Cellb>-0.039250</Cellb>
       <Cenb>0.100826</Cenb>
       <CDp>0.01</CDp>
-      <!-- <CYp>0.065861</CYp> -->
+      <CYp>0.0</CYp>
       <CLp>0.0</CLp>
       <Cellp>-0.487407</Cellp>
       <Cemp>0.0</Cemp>
@@ -2703,7 +2703,7 @@
       <Cemq>-6.0</Cemq>
       <Cenq>0.0</Cenq>
       <CDr>0.0</CDr>
-      <!-- <CYr>0.230299</CYr> -->
+      <CYr>0.0</CYr>
       <CLr>0.0</CLr>
       <Cellr>0.078165</Cellr>
       <Cemr>0.0</Cemr>
@@ -2726,7 +2726,7 @@
         <index>0</index>
         <direction>1</direction>
         <CD_ctrl>0.0002</CD_ctrl>
-        <!-- <CY_ctrl>0.015</CY_ctrl> -->
+        <CY_ctrl>0.0</CY_ctrl>
         <CL_ctrl>-0.15</CL_ctrl>
         <Cell_ctrl>-0.007</Cell_ctrl>
         <Cem_ctrl>0.0008</Cem_ctrl>
@@ -2737,7 +2737,7 @@
         <direction>1</direction>
         <index>1</index>
         <CD_ctrl>0.0002</CD_ctrl>
-        <!-- <CY_ctrl>-0.015</CY_ctrl> -->
+        <CY_ctrl>-0.0</CY_ctrl>
         <CL_ctrl>-0.15</CL_ctrl>
         <Cell_ctrl>0.007</Cell_ctrl>
         <Cem_ctrl>0.0008</Cem_ctrl>
@@ -2745,7 +2745,7 @@
       </control_surface>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
-    </plugin>
+    </plugin> -->
     <plugin name='rotor_plugin' filename='libgazebo_motor_model.so'>
       <robotNamespace></robotNamespace>
       <jointName>rotor_joint</jointName>
