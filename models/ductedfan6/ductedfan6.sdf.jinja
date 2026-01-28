@@ -5,16 +5,16 @@
     <link name='base_link'>
       <pose>0 0 0 0 0 0</pose>
       <inertial>
-          <mass>1.29536</mass>
+          <mass>1.372</mass>
           <inertia>
-            <ixx>0.00967</ixx>
-            <ixy>2.77142e-007</ixy>
-            <ixz>-0.00003</ixz>
-            <iyy>0.0097</iyy>
-            <iyz>1.31952e-006</iyz>
-            <izz>0.00448</izz>
+            <ixx>0.01149</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.01153</iyy>
+            <iyz>0</iyz>
+            <izz>0.004865</izz>
           </inertia>
-          <pose>0 0 0.01899931 0 -0 0</pose>
+          <pose>0 0 0.011 0 -0 0</pose>
       </inertial>
       <collision name='base_link_collision'>
         <geometry>
@@ -795,14 +795,10 @@
         </inertia>
         <pose>0.0 0 -0.0 0 -0 0</pose>
       </inertial>
-      <pose>0.06976717442 0 -0.14877551654 0 -0 0</pose>
+      <pose>0.06976717442 0 -0.178 0 -0 0</pose>
       <visual name='visual'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
-          <!-- <mesh>
-            <uri>model://ductedfan6/meshes/cs11.STL</uri>
-            <scale>1 1 1</scale>
-          </mesh> -->
           <box>
             <size>0.085 0.005 0.05</size>
           </box>
@@ -815,9 +811,15 @@
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
+        <plugin name="cs1_lift_visual" filename="libForceVisual.so">
+          <topic_name>lift_force/cs1</topic_name>
+          <link_name>base_link</link_name>
+          <color>Gazebo/Red</color>
+          <scale>1</scale>
+        </plugin>
       </visual>
     </link>
-    <link name='cs11'>
+    <link name='cs6'>
       <inertial>
         <mass>0.00000001</mass>
         <inertia>
@@ -830,7 +832,7 @@
         </inertia>
         <pose>0.0 0 -0.0 0 -0 0</pose>
       </inertial>
-      <pose>0.03488 0.06042 -0.14877551654 0 -0 1.046</pose>
+      <pose>0.03488 0.06042 -0.178 0 -0 1.046</pose>
       <visual name='visual'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
@@ -846,9 +848,15 @@
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
+        <plugin name="cs6_lift_visual" filename="libForceVisual.so">
+          <topic_name>lift_force/cs6</topic_name>
+          <link_name>base_link</link_name>
+          <color>Gazebo/Red</color>
+          <scale>1</scale>
+        </plugin>
       </visual>
     </link>
-    <link name='cs22'>
+    <link name='cs3'>
       <inertial>
         <mass>0.00000001</mass>
         <inertia>
@@ -861,7 +869,7 @@
         </inertia>
         <pose>0.0 0 -0.0 0 -0 0</pose>
       </inertial>
-      <pose>-0.03488 -0.06042 -0.14877551654 0 -0 1.046</pose>
+      <pose>-0.03488 -0.06042 -0.178 0 -0 1.046</pose>
       <visual name='visual'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
@@ -877,6 +885,12 @@
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
+        <plugin name="cs3_lift_visual" filename="libForceVisual.so">
+          <topic_name>lift_force/cs3</topic_name>
+          <link_name>base_link</link_name>
+          <color>Gazebo/Red</color>
+          <scale>1</scale>
+        </plugin>
       </visual>
     </link>
     <link name='cs2'>
@@ -911,7 +925,7 @@
       </visual>
     </link>
 
-	  <link name='cs3'>
+	  <link name='cs4'>
       <inertial>
         <mass>0.00000001</mass>
         <inertia>
@@ -924,14 +938,10 @@
         </inertia>
         <pose>-0.0 0 -0.0 0 -0 0</pose>
       </inertial>
-      <pose>-0.06976717442 0 -0.14877551654 0 -0 0</pose>
+      <pose>-0.06976717442 0 -0.178 0 -0 0</pose>
       <visual name='visual'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
-          <!-- <mesh>
-            <uri>model://ductedfan6/meshes/cs33.STL</uri>
-            <scale>1 1 1</scale>
-          </mesh> -->
           <box>
             <size>0.085 0.005 0.05</size>
           </box>
@@ -944,9 +954,15 @@
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
+        <plugin name="cs4_lift_visual" filename="libForceVisual.so">
+          <topic_name>lift_force/cs4</topic_name>
+          <link_name>base_link</link_name>
+          <color>Gazebo/Red</color>
+          <scale>1</scale>
+        </plugin>
       </visual>
     </link>
-    <link name='cs4'>
+    <link name='cs5'>
       <inertial>
         <mass>0.00000001</mass>
         <inertia>
@@ -963,10 +979,6 @@
       <visual name='visual'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
-          <!-- <mesh>
-            <uri>model://ductedfan6/meshes/cs4.STL</uri>
-            <scale>1 1 1</scale>
-          </mesh> -->
           <box>
             <size>0.005 0.085 0.05</size>
           </box>
@@ -979,6 +991,12 @@
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
+        <plugin name="cs5_lift_visual" filename="libForceVisual.so">
+          <topic_name>lift_force/cs5</topic_name>
+          <link_name>base_link</link_name>
+          <color>Gazebo/Red</color>
+          <scale>1</scale>
+        </plugin>
       </visual>
     </link>
 
@@ -1040,9 +1058,9 @@
         </ode>
       </physics>
     </joint>
-    <joint name='cs11_joint' type='revolute'>
+    <joint name='cs6_joint' type='revolute'>
       <parent>base_link</parent>
-      <child>cs11</child>
+      <child>cs6</child>
        <pose frame=''>0 0 -0.0 0 -0 0</pose>
       <axis>
         <xyz>1 0 0</xyz>
@@ -1061,9 +1079,9 @@
         </ode>
       </physics>
     </joint>
-    <joint name='cs22_joint' type='revolute'>
+    <joint name='cs3_joint' type='revolute'>
       <parent>base_link</parent>
-      <child>cs22</child>
+      <child>cs3</child>
        <pose frame=''>0 0 -0.0 0 -0 0</pose>
       <axis>
         <xyz>-1 0 0</xyz>
@@ -1104,9 +1122,9 @@
       </physics>
     </joint>
 
-    <joint name='cs3_joint' type='revolute'>
+    <joint name='cs4_joint' type='revolute'>
       <parent>base_link</parent>
-      <child>cs3</child>
+      <child>cs4</child>
        <pose frame=''>0 0 -0.0 0 -0 0</pose>
       <axis>
         <xyz>-1 0 0</xyz>
@@ -1125,9 +1143,9 @@
         </ode>
       </physics>
     </joint>
-    <joint name='cs4_joint' type='revolute'>
+    <joint name='cs5_joint' type='revolute'>
       <parent>base_link</parent>
-      <child>cs4</child>
+      <child>cs5</child>
       <pose frame=''>0 0 -0.0 0 -0 0</pose>
       <axis>
         <xyz>0 1 0</xyz>
@@ -1202,12 +1220,13 @@
       <forward>0 0 1</forward>
       <upward>0 -1 0</upward>
       <link_name>base_link</link_name>
+      <topic_name>lift_force/cs1</topic_name>
       <control_joint_name>cs1_joint</control_joint_name>
       <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
-    <plugin name="cs11_plugin" filename="libLiftDragPlugin.so">
+    <plugin name="cs6_plugin" filename="libLiftDragPlugin.so">
       <propeller_wind_map>
         <propeller joint="rotor_joint" k_v="0.01" rotorVelocitySlowdownSim="10" />
         <wash_only>false</wash_only>
@@ -1220,18 +1239,19 @@
       <cla_stall>0</cla_stall>
       <cda_stall>0.0</cda_stall>
       <cma_stall>0</cma_stall>
-      <cp>0.03488 0.06042 -0.14877551654</cp>
+      <cp>0.03488 0.06042 -0.178</cp>
       <area>0.0018</area>
       <air_density>1.2041</air_density>
       <forward>0 0 1</forward>
       <upward>0.866 -0.5 0</upward>
       <link_name>base_link</link_name>
-      <control_joint_name>cs11_joint</control_joint_name>
+      <topic_name>lift_force/cs6</topic_name>
+      <control_joint_name>cs6_joint</control_joint_name>
       <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
-    <plugin name="cs22_plugin" filename="libLiftDragPlugin.so">
+    <plugin name="cs3_plugin" filename="libLiftDragPlugin.so">
       <propeller_wind_map>
         <propeller joint="rotor_joint" k_v="0.01" rotorVelocitySlowdownSim="10" />
         <wash_only>false</wash_only>
@@ -1244,13 +1264,14 @@
       <cla_stall>0</cla_stall>
       <cda_stall>0.0</cda_stall>
       <cma_stall>0</cma_stall>
-      <cp>-0.03488 -0.06042 -0.14877551654</cp>
+      <cp>-0.03488 -0.06042 -0.178</cp>
       <area>0.0018</area>
       <air_density>1.2041</air_density>
       <forward>0 0 1</forward>
       <upward>-0.866 0.5 0</upward>
       <link_name>base_link</link_name>
-      <control_joint_name>cs22_joint</control_joint_name>
+      <topic_name>lift_force/cs3</topic_name>
+      <control_joint_name>cs3_joint</control_joint_name>
       <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
@@ -1274,13 +1295,14 @@
       <forward>0 0 1</forward>
       <upward>-0.866 -0.5 0</upward>
       <link_name>base_link</link_name>
+      <topic_name>lift_force/cs2</topic_name>
       <control_joint_name>cs2_joint</control_joint_name>
       <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
 
-    <plugin name="cs3_plugin" filename="libLiftDragPlugin.so">
+    <plugin name="cs4_plugin" filename="libLiftDragPlugin.so">
       <propeller_wind_map>
         <propeller joint="rotor_joint" k_v="0.01" rotorVelocitySlowdownSim="10" />
         <wash_only>false</wash_only>
@@ -1299,12 +1321,13 @@
       <forward>0 0 1</forward>
       <upward>0 1 0</upward>
       <link_name>base_link</link_name>
-      <control_joint_name>cs3_joint</control_joint_name>
+      <topic_name>lift_force/cs4</topic_name>
+      <control_joint_name>cs4_joint</control_joint_name>
       <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
-    <plugin name="cs4_plugin" filename="libLiftDragPlugin.so">
+    <plugin name="cs5_plugin" filename="libLiftDragPlugin.so">
       <propeller_wind_map>
         <propeller joint="rotor_joint" k_v="0.01" rotorVelocitySlowdownSim="10" />
         <wash_only>false</wash_only>
@@ -1323,7 +1346,8 @@
       <forward>0 0 1</forward>
       <upward>0.866 0.5 0</upward>
       <link_name>base_link</link_name>
-      <control_joint_name>cs4_joint</control_joint_name>
+      <topic_name>lift_force/cs5</topic_name>
+      <control_joint_name>cs5_joint</control_joint_name>
       <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
@@ -1434,7 +1458,7 @@
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position_kinematic</joint_control_type>
-          <joint_name>cs22_joint</joint_name>
+          <joint_name>cs3_joint</joint_name>
         </channel>
         <channel name="4">
           <input_index>4</input_index>
@@ -1443,7 +1467,7 @@
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position_kinematic</joint_control_type>
-          <joint_name>cs3_joint</joint_name>
+          <joint_name>cs4_joint</joint_name>
         </channel>
         <channel name="5">
           <input_index>5</input_index>
@@ -1452,7 +1476,7 @@
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position_kinematic</joint_control_type>
-          <joint_name>cs4_joint</joint_name>
+          <joint_name>cs5_joint</joint_name>
         </channel>
         <channel name="6">
           <input_index>6</input_index>
@@ -1461,7 +1485,7 @@
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position_kinematic</joint_control_type>
-          <joint_name>cs11_joint</joint_name>
+          <joint_name>cs6_joint</joint_name>
         </channel>
 
       </control_channels>
