@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <sdf version='1.6'>
-  <model name='tailsitter'>
+  <model name='advanced_tailsitter.sdf'>
     <pose>0 0 0.5 0 0 0</pose>
     <link name='base_link'>
       <pose>0 0 0 0 0 0</pose>
@@ -50,7 +50,7 @@
       <velocity_decay/>
       <self_collide>0</self_collide>
     </link>
-    <link name='tailsitter/imu_link'>
+    <link name='advanced_tailsitter/imu_link'>
       <pose>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
@@ -65,9 +65,23 @@
         </inertia>
       </inertial>
     </link>
-    <joint name='tailsitter/imu_joint' type='fixed'>
-      <child>tailsitter/imu_link</child>
+    <joint name='advanced_tailsitter/imu_joint' type='revolute'>
+      <child>advanced_tailsitter/imu_link</child>
       <parent>base_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
     </joint>
     <include>
       <uri>model://airspeed</uri>
@@ -493,7 +507,7 @@
     </plugin>
     <plugin name='gazebo_imu_plugin' filename='libgazebo_imu_plugin.so'>
       <robotNamespace></robotNamespace>
-      <linkName>tailsitter/imu_link</linkName>
+      <linkName>advanced_tailsitter/imu_link</linkName>
       <imuTopic>/imu</imuTopic>
     </plugin>
     <plugin name='groundtruth_plugin' filename='libgazebo_groundtruth_plugin.so'>
