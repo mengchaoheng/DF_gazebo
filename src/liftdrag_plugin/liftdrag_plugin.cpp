@@ -307,7 +307,7 @@ void LiftDragPlugin::OnUpdate()
     this->sweep = this->sweep > 0 ? this->sweep - M_PI
                                   : this->sweep + M_PI;
   // get cos from trig identity
-  double cosSweepAngle = sqrt(1.0 - sin(this->sweep) * sin(this->sweep));
+  double cosSweepAngle = 1.0;//sqrt(1.0 - sin(this->sweep) * sin(this->sweep));
 
   // angle of attack is the angle between
   // velI projected into lift-drag plane
