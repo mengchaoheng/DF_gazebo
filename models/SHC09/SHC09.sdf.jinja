@@ -1050,7 +1050,7 @@
         <cast_shadows>1</cast_shadows>
       </visual>
     </link>
-    <link name='CS5'>
+    <link name='CS3'>
       <inertial>
         <!-- <mass>0.006</mass>
         <inertia>
@@ -1094,7 +1094,7 @@
         <cast_shadows>1</cast_shadows>
       </visual>
     </link>
-    <link name='CS6'>
+    <link name='CS2'>
       <inertial>
         <!-- <mass>0.006</mass>
         <inertia>
@@ -1182,7 +1182,7 @@
         <cast_shadows>1</cast_shadows>
       </visual>
     </link>
-    <link name='CS2'>
+    <link name='CS6'>
       <inertial>
         <!-- <mass>0.006</mass>
         <inertia>
@@ -1226,7 +1226,7 @@
         <cast_shadows>1</cast_shadows>
       </visual>
     </link>
-    <link name='CS3'>
+    <link name='CS5'>
       <inertial>
         <!-- <mass>0.006</mass>
         <inertia>
@@ -1482,9 +1482,9 @@
       </physics>
 
     </joint>
-    <joint name='CS2_joint' type='revolute'>
+    <joint name='CS6_joint' type='revolute'>
       <parent>base_link</parent>
-      <child>CS2</child>
+      <child>CS6</child>
       <pose>0 0 -0.158 0 -0 -1.0472</pose>
       <axis>
         <xyz>1 0 0</xyz>
@@ -1503,9 +1503,9 @@
       </physics>
 
     </joint>
-    <joint name='CS3_joint' type='revolute'>
+    <joint name='CS5_joint' type='revolute'>
       <parent>base_link</parent>
-      <child>CS3</child>
+      <child>CS5</child>
       <pose>0 0 -0.158 0 -0 -2.0944</pose>
       <axis>
         <xyz>1 0 0</xyz>
@@ -1545,9 +1545,9 @@
       </physics>
 
     </joint>
-    <joint name='CS5_joint' type='revolute'>
+    <joint name='CS3_joint' type='revolute'>
       <parent>base_link</parent>
-      <child>CS5</child>
+      <child>CS3</child>
       <pose>0 0 -0.158 0 0 2.0944</pose>
       <axis>
         <xyz>1 0 0</xyz>
@@ -1566,9 +1566,9 @@
       </physics>
 
     </joint>
-    <joint name='CS6_joint' type='revolute'>
+    <joint name='CS2_joint' type='revolute'>
       <parent>base_link</parent>
-      <child>CS6</child>
+      <child>CS2</child>
       <pose>0 0 -0.158 0 0 1.0472</pose>
       <axis>
         <xyz>1 0 0</xyz>
@@ -1705,7 +1705,7 @@
       <forward>0 0 1</forward>
       <upward>0.866 -0.5 0</upward>
       <link_name>base_link</link_name>
-      <control_joint_name>CS6_joint</control_joint_name>
+      <control_joint_name>CS2_joint</control_joint_name>
       <control_joint_rad_to_cl>2.9584</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
@@ -1729,7 +1729,7 @@
       <forward>0 0 1</forward>
       <upward>-0.866 0.5 0</upward>
       <link_name>base_link</link_name>
-      <control_joint_name>CS3_joint</control_joint_name>
+      <control_joint_name>CS5_joint</control_joint_name>
       <control_joint_rad_to_cl>2.9584</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
@@ -1753,7 +1753,7 @@
       <forward>0 0 1</forward>
       <upward>-0.866 -0.5 0</upward>
       <link_name>base_link</link_name>
-      <control_joint_name>CS2_joint</control_joint_name>
+      <control_joint_name>CS6_joint</control_joint_name>
       <control_joint_rad_to_cl>2.9584</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
@@ -1802,7 +1802,7 @@
       <forward>0 0 1</forward>
       <upward>0.866 0.5 0</upward>
       <link_name>base_link</link_name>
-      <control_joint_name>CS5_joint</control_joint_name>
+      <control_joint_name>CS3_joint</control_joint_name>
       <control_joint_rad_to_cl>2.9584</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
@@ -1899,7 +1899,7 @@
         <channel name="1">
           <input_index>4</input_index>
           <input_offset>0</input_offset>
-          <input_scaling>0.35</input_scaling>
+          <input_scaling>0.7</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position_kinematic</joint_control_type>
@@ -1908,7 +1908,7 @@
         <channel name="2">
           <input_index>5</input_index>
           <input_offset>0</input_offset>
-          <input_scaling>0.35</input_scaling>
+          <input_scaling>0.7</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position_kinematic</joint_control_type>
@@ -1917,7 +1917,7 @@
         <channel name="3">
           <input_index>6</input_index>
           <input_offset>0</input_offset>
-          <input_scaling>0.35</input_scaling>
+          <input_scaling>0.7</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position_kinematic</joint_control_type>
@@ -1926,7 +1926,7 @@
         <channel name="4">
           <input_index>7</input_index>
           <input_offset>0</input_offset>
-          <input_scaling>0.35</input_scaling>
+          <input_scaling>0.7</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position_kinematic</joint_control_type>
@@ -1935,7 +1935,7 @@
         <channel name="5">
           <input_index>8</input_index>
           <input_offset>0</input_offset>
-          <input_scaling>0.35</input_scaling>
+          <input_scaling>0.7</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position_kinematic</joint_control_type>
@@ -1944,7 +1944,7 @@
         <channel name="6">
           <input_index>9</input_index>
           <input_offset>0</input_offset>
-          <input_scaling>0.35</input_scaling>
+          <input_scaling>0.7</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position_kinematic</joint_control_type>
