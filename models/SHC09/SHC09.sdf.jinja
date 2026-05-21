@@ -5,14 +5,14 @@
     <link name='base_link'>
       <inertial>
         <pose>0 0 0.117687 0 0 0</pose>
-        <mass>1.6</mass>
+        <mass>2.1</mass>
         <inertia>
-            <ixx>0.01149</ixx>
+            <ixx>0.0438</ixx>
             <ixy>0</ixy>
             <ixz>0</ixz>
-            <iyy>0.01153</iyy>
+            <iyy>0.0436</iyy>
             <iyz>0</iyz>
-            <izz>0.004865</izz>
+            <izz>0.005006</izz>
           </inertia>
       </inertial>
       <visual name='visual'>
@@ -1664,7 +1664,7 @@
     </joint>
     <plugin name="CS1_plugin" filename="libLiftDragPlugin.so">
       <propeller_wind_map>
-        <propeller joint="rotor_joint" k_v="0.01" rotorVelocitySlowdownSim="10" />
+        <propeller joint="rotor_joint" k_v="0.02" rotorVelocitySlowdownSim="10" />
         <wash_only>false</wash_only>
       </propeller_wind_map>
       <a0>0</a0>
@@ -1682,13 +1682,13 @@
       <upward>0 -1 0</upward>
       <link_name>base_link</link_name>
       <control_joint_name>CS1_joint</control_joint_name>
-      <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>2.9584</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name="CS6_plugin" filename="libLiftDragPlugin.so">
       <propeller_wind_map>
-        <propeller joint="rotor_joint" k_v="0.01" rotorVelocitySlowdownSim="10" />
+        <propeller joint="rotor_joint" k_v="0.02" rotorVelocitySlowdownSim="10" />
         <wash_only>false</wash_only>
       </propeller_wind_map>
       <a0>0</a0>
@@ -1706,13 +1706,13 @@
       <upward>0.866 -0.5 0</upward>
       <link_name>base_link</link_name>
       <control_joint_name>CS6_joint</control_joint_name>
-      <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>2.9584</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name="CS3_plugin" filename="libLiftDragPlugin.so">
       <propeller_wind_map>
-        <propeller joint="rotor_joint" k_v="0.01" rotorVelocitySlowdownSim="10" />
+        <propeller joint="rotor_joint" k_v="0.02" rotorVelocitySlowdownSim="10" />
         <wash_only>false</wash_only>
       </propeller_wind_map>
       <a0>0</a0>
@@ -1730,13 +1730,13 @@
       <upward>-0.866 0.5 0</upward>
       <link_name>base_link</link_name>
       <control_joint_name>CS3_joint</control_joint_name>
-      <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>2.9584</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name="CS2_plugin" filename="libLiftDragPlugin.so">
       <propeller_wind_map>
-        <propeller joint="rotor_joint" k_v="0.01" rotorVelocitySlowdownSim="10" />
+        <propeller joint="rotor_joint" k_v="0.02" rotorVelocitySlowdownSim="10" />
         <wash_only>false</wash_only>
       </propeller_wind_map>
       <a0>0</a0>
@@ -1754,14 +1754,14 @@
       <upward>-0.866 -0.5 0</upward>
       <link_name>base_link</link_name>
       <control_joint_name>CS2_joint</control_joint_name>
-      <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>2.9584</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
 
     <plugin name="CS4_plugin" filename="libLiftDragPlugin.so">
       <propeller_wind_map>
-        <propeller joint="rotor_joint" k_v="0.01" rotorVelocitySlowdownSim="10" />
+        <propeller joint="rotor_joint" k_v="0.02" rotorVelocitySlowdownSim="10" />
         <wash_only>false</wash_only>
       </propeller_wind_map>
       <a0>0</a0>
@@ -1779,13 +1779,13 @@
       <upward>0 1 0</upward>
       <link_name>base_link</link_name>
       <control_joint_name>CS4_joint</control_joint_name>
-      <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>2.9584</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name="CS5_plugin" filename="libLiftDragPlugin.so">
       <propeller_wind_map>
-        <propeller joint="rotor_joint" k_v="0.01" rotorVelocitySlowdownSim="10" />
+        <propeller joint="rotor_joint" k_v="0.02" rotorVelocitySlowdownSim="10" />
         <wash_only>false</wash_only>
       </propeller_wind_map>
       <a0>0</a0>
@@ -1803,7 +1803,7 @@
       <upward>0.866 0.5 0</upward>
       <link_name>base_link</link_name>
       <control_joint_name>CS5_joint</control_joint_name>
-      <control_joint_rad_to_cl>6.7362</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>2.9584</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
