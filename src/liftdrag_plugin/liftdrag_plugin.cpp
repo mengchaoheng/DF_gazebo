@@ -382,6 +382,7 @@ void LiftDragPlugin::OnUpdate()
 
   // compute lift force at cp
   ignition::math::Vector3d lift = cl * q * this->area * liftI;
+  // ignition::math::Vector3d lift = 3.0 * controlAngle * liftI;
   // gzdbg << "k_omega2force: " << (cl * q * this->area)/(controlAngle ) << "\n"; //  k_omega2force
 
   // compute cd at cp, check for stall, correct for sweep
