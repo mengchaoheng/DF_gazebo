@@ -248,6 +248,7 @@ void LiftDragPlugin::OnUpdate()
       wash_vel_world += (-axis) * speed_mag;
     }
   }
+  // gzdbg << "wash_vel_world: " << wash_vel_world << "\n";
   // For the link under propeller slipstream, the air velocity air_velocity = link_vel_world - (wind_vel_ + wash_vel_world)
   ignition::math::Vector3d air_velocity;
   if (this->wash_only_) {
@@ -392,6 +393,8 @@ void LiftDragPlugin::OnUpdate()
 
   // compute lift force at cp
   ignition::math::Vector3d lift = cl * q * this->area * liftI;
+  // ignition::math::Vector3d lift = 3.0 * controlAngle * liftI;
+  // gzdbg << "k_omega2force: " << (cl * q * this->area)/(controlAngle ) << "\n"; //  k_omega2force
 
   // compute cd at cp, check for stall, correct for sweep
   double cd;
