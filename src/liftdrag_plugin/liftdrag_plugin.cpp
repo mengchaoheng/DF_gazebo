@@ -248,7 +248,6 @@ void LiftDragPlugin::OnUpdate()
       wash_vel_world += (-axis) * speed_mag;
     }
   }
-  // gzdbg << "wash_vel_world: " << wash_vel_world << "\n";
   // For the link under propeller slipstream, the air velocity air_velocity = link_vel_world - (wind_vel_ + wash_vel_world)
   ignition::math::Vector3d air_velocity;
   if (this->wash_only_) {
@@ -257,6 +256,7 @@ void LiftDragPlugin::OnUpdate()
   } else {
     air_velocity = link_vel_world - wind_vel_ - wash_vel_world;
   }
+//   gzdbg << "air_velocity: " << air_velocity << "\n";
   ignition::math::Vector3d velI = air_velocity;
   velI.Normalize();
   const double dt = (current_time - this->last_pub_time).Double();
@@ -394,7 +394,6 @@ void LiftDragPlugin::OnUpdate()
   // compute lift force at cp
   ignition::math::Vector3d lift = cl * q * this->area * liftI;
   // ignition::math::Vector3d lift = 3.0 * controlAngle * liftI;
-  // gzdbg << "k_omega2force: " << (cl * q * this->area)/(controlAngle ) << "\n"; //  k_omega2force
 
   // compute cd at cp, check for stall, correct for sweep
   double cd;
@@ -458,6 +457,7 @@ void LiftDragPlugin::OnUpdate()
   if (0)
   {
     gzdbg << "=============================\n";
+    gzdbg << "k_omega2force: " << this->controlJointRadToCL * q * this->area << "\n"; //  k_omega2force
     gzdbg << "sensor: [" << this->GetHandle() << "]\n";
     gzdbg << "Link: [" << this->link->GetName()
           << "] pose: [" << pose
