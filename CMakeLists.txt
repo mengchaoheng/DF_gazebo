@@ -387,8 +387,13 @@ add_library(gazebo_parachute_plugin SHARED src/gazebo_parachute_plugin.cpp)
 add_library(gazebo_pose_sniffer_plugin SHARED src/gazebo_pose_sniffer_plugin.cpp)
 add_library(gazebo_airship_dynamics_plugin SHARED src/gazebo_airship_dynamics_plugin.cpp)
 add_library(gazebo_drop_plugin SHARED src/gazebo_drop_plugin.cpp)
+add_library(DuctedFanPlugin SHARED
+  src/ductedfan_plugin/ductedfan_plugin.cpp
+  src/ductedfan_plugin/spline_ppval.cpp
+)
 
 set(plugins
+  DuctedFanPlugin
   torque_disturbance_plugin
   gazebo_airspeed_plugin
   gazebo_camera_manager_plugin
