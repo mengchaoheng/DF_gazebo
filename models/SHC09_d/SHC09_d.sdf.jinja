@@ -1698,7 +1698,155 @@
       <child>gps::link</child>
       <parent>base_link</parent>
     </joint>
-    <plugin name='ductedfan_plugin' filename='libDuctedFanPlugin.so'>
+    <plugin name="CS1_plugin" filename="libLiftDragPlugin.so">
+      <propeller_wind_map>
+        <propeller joint="rotor_joint" k_v="0.02867" rotorVelocitySlowdownSim="10" />
+        <wash_only>false</wash_only>
+      </propeller_wind_map>
+      <a0>0</a0>
+      <cla>0</cla>
+      <cda>0</cda>
+      <cma>0</cma>
+      <alpha_stall>0.6</alpha_stall>
+      <cla_stall>0</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>0.066 0 -0.1745</cp>
+      <area>0.00693</area>
+      <air_density>1.2041</air_density>
+      <forward>0 0 1</forward>
+      <upward>0 -1 0</upward>
+      <link_name>base_link</link_name>
+      <!-- <topic_name>lift_force/cs1</topic_name> -->
+      <control_joint_name>CS1_joint</control_joint_name>
+      <control_joint_rad_to_cl>0.767</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+    <plugin name="CS2_plugin" filename="libLiftDragPlugin.so">
+      <propeller_wind_map>
+        <propeller joint="rotor_joint" k_v="0.02867" rotorVelocitySlowdownSim="10" />
+        <wash_only>false</wash_only>
+      </propeller_wind_map>
+      <a0>0</a0>
+      <cla>0</cla>
+      <cda>0</cda>
+      <cma>0</cma>
+      <alpha_stall>0.6</alpha_stall>
+      <cla_stall>0</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>0.033 0.057158 -0.1745</cp>
+      <area>0.00693</area>
+      <air_density>1.2041</air_density>
+      <forward>0 0 1</forward>
+      <upward>0.866 -0.5 0</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>CS2_joint</control_joint_name>
+      <control_joint_rad_to_cl>0.767</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+    <plugin name="CS5_plugin" filename="libLiftDragPlugin.so">
+      <propeller_wind_map>
+        <propeller joint="rotor_joint" k_v="0.02867" rotorVelocitySlowdownSim="10" />
+        <wash_only>false</wash_only>
+      </propeller_wind_map>
+      <a0>0</a0>
+      <cla>0</cla>
+      <cda>0</cda>
+      <cma>0</cma>
+      <alpha_stall>0.6</alpha_stall>
+      <cla_stall>0</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>-0.033 -0.057158 -0.1745</cp>
+      <area>0.00693</area>
+      <air_density>1.2041</air_density>
+      <forward>0 0 1</forward>
+      <upward>-0.866 0.5 0</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>CS5_joint</control_joint_name>
+      <control_joint_rad_to_cl>0.767</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+    <plugin name="CS6_plugin" filename="libLiftDragPlugin.so">
+      <propeller_wind_map>
+        <propeller joint="rotor_joint" k_v="0.02867" rotorVelocitySlowdownSim="10" />
+        <wash_only>false</wash_only>
+      </propeller_wind_map>
+      <a0>0</a0>
+      <cla>0</cla>
+      <cda>0</cda>
+      <cma>0</cma>
+      <alpha_stall>0.6</alpha_stall>
+      <cla_stall>0</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>0.033 -0.057158 -0.1745</cp>
+      <area>0.00693</area>
+      <air_density>1.2041</air_density>
+      <forward>0 0 1</forward>
+      <upward>-0.866 -0.5 0</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>CS6_joint</control_joint_name>
+      <control_joint_rad_to_cl>0.767</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+
+    <plugin name="CS4_plugin" filename="libLiftDragPlugin.so">
+      <propeller_wind_map>
+        <propeller joint="rotor_joint" k_v="0.02867" rotorVelocitySlowdownSim="10" />
+        <wash_only>false</wash_only>
+      </propeller_wind_map>
+      <a0>0</a0>
+      <cla>0</cla>
+      <cda>0</cda>
+      <cma>0</cma>
+      <alpha_stall>0.6</alpha_stall>
+      <cla_stall>0</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>-0.066 0 -0.1745</cp>
+      <area>0.00693</area>
+      <air_density>1.2041</air_density>
+      <forward>0 0 1</forward>
+      <upward>0 1 0</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>CS4_joint</control_joint_name>
+      <control_joint_rad_to_cl>0.767</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+    <plugin name="CS3_plugin" filename="libLiftDragPlugin.so">
+      <propeller_wind_map>
+        <propeller joint="rotor_joint" k_v="0.02867" rotorVelocitySlowdownSim="10" />
+        <wash_only>false</wash_only>
+      </propeller_wind_map>
+      <a0>0</a0>
+      <cla>0</cla>
+      <cda>0</cda>
+      <cma>0</cma>
+      <alpha_stall>0.6</alpha_stall>
+      <cla_stall>0</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>-0.033 0.057158 -0.1745</cp>
+      <area>0.00693</area>
+      <air_density>1.2041</air_density>
+      <forward>0 0 1</forward>
+      <upward>0.866 0.5 0</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>CS3_joint</control_joint_name>
+      <control_joint_rad_to_cl>0.767</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+
+
+    <plugin name='rotor_plugin' filename='libgazebo_motor_model.so'>
       <robotNamespace></robotNamespace>
       <jointName>rotor_joint</jointName>
       <linkName>rotor</linkName>
@@ -1706,77 +1854,16 @@
       <timeConstantUp>0.03</timeConstantUp>
       <timeConstantDown>0.03</timeConstantDown>
       <maxRotVelocity>1200</maxRotVelocity>
-
-      <!-- k_T0 悬停时的拉力系数 -->
+      <!-- Lift Force T -->
       <motorConstant>2.937612e-05</motorConstant>
-      <!-- k_Th 推力‑速度耦合项  跟C_T_J0相关 -->
-      <thrustVelocityCoupling>-3.7614e-04</thrustVelocityCoupling>
-      <!-- k_Ts 推力‑速度‑迎角项 跟C_T_J相关  拉力随a_df的衰减系数 -->
-      <thrustAoaCoupling>-2.6733e-04</thrustAoaCoupling>
-      <!-- k_Ns 侧向力‑速度‑迎角项 %跟C_N_J相关  侧向力力随a_df的衰减系数 -->
-      <sideForceVelocityCoupling>5.0699e-04</sideForceVelocityCoupling>
-      <!-- k_Q0 跟C_Q相关    风扇扭矩系数 -->
-      <momentConstant>5.7792e-07</momentConstant>
-      <!-- l_cpz 跟l_N相关    侧向力N_df对机体中心的力臂 -->
-      <sideForceArmZ>-0.15</sideForceArmZ>
-      <!-- k_cpx 跟l_T相关    拉力中心的法向偏移 -->
-      <thrustCenterOffsetCoeff>2.6619</thrustCenterOffsetCoeff>
-      <!-- 涵道扩压比 sd -->
-      <ductExpansionRatio>0.7</ductExpansionRatio>
-      <!-- 桨盘面积 S (m^2)，示例值根据半径 0.114m 计算 -->
-      <ductDiskArea>0.0408</ductDiskArea>
-      <!-- 空气密度 den (kg/m^3) -->
-      <airDensity>1.225</airDensity>
-      <!-- k_my0 俯仰阻尼-->
-      <pitchDampingConstant>0.0198</pitchDampingConstant>
-      <!-- k_myv -->
-      <pitchDampingVelocityCoeff>0.0015</pitchDampingVelocityCoeff>
-      <!-- 涵道反扭矩系数 k_sta -->
-      <ductTorqueCoeff>5.3688e-04</ductTorqueCoeff>
-      <!-- 风扇转动惯量 I_fan (kg·m²) -->
-      <fanInertia>3.7e-05</fanInertia>
-
-      <!-- 控制舵面 -->
-      <control_joint_name_1>CS1_joint</control_joint_name_1>
-      <control_joint_name_2>CS2_joint</control_joint_name_2>
-      <control_joint_name_3>CS3_joint</control_joint_name_3>
-      <control_joint_name_4>CS4_joint</control_joint_name_4>
-      <control_joint_name_5>CS5_joint</control_joint_name_5>
-      <control_joint_name_6>CS6_joint</control_joint_name_6>
-
-      <!-- 控制舵面力矩模型参数 -->
-      <control_surface_force_coeff>0.0032</control_surface_force_coeff>
-      <control_surface_arm_l1>0.267</control_surface_arm_l1>
-      <control_surface_arm_l2>0.066</control_surface_arm_l2>
-      <!-- P_cs for B = K*P_cs, K = I\diag([l1 l1 l2])*k_cs  -->
-      <!-- k_cs = dF_d_delta_h_cs = k_tau*V^2_e = controlJointRadToCL_cs* q_h_cs * area_cs = k_omega2force -->
-      <!-- 控制效能矩阵中的P_cs，FRD 机体系：行分别为 roll(x前)、pitch(y右)、yaw(z下) -->
-      <control_effectiveness_matrix>
-       -1.0     -0.5        0.5        1.0   0.5        -0.5
-        0.0    0.8660254   0.8660254   0.0  -0.8660254 -0.8660254
-        1.0      1.0        1.0        1.0   1.0        1.0
-      </control_effectiveness_matrix>
-      <forceTopicName>ductedfan/force</forceTopicName>
-      <torqueTopicName>ductedfan/torque</torqueTopicName>
-
       <!-- The Drag moment generated by the rotation of the rotor (the same as T) -->
+      <momentConstant>2.35e-05</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>0</motorNumber>
       <!-- Air Drag Force H acting on rotor due to relative wind vel-->
       <rotorDragCoefficient>0</rotorDragCoefficient>
       <!-- Rolling moment due to air drag Force H -->
       <rollingMomentCoefficient>0</rollingMomentCoefficient>
-
-      <!-- 新增：涵道气动系数样条文件路径 -->
-      <ductSplineDtFile>model://SHC09/duct_spline_dt.csv</ductSplineDtFile>
-      <ductSplineDnFile>model://SHC09/duct_spline_dn.csv</ductSplineDnFile>
-
-      <!-- 新增：机翼气动系数样条文件路径 -->
-      <wingSplineWlFile>model://SHC09/wing_spline_wl.csv</wingSplineWlFile>
-      <wingSplineWdFile>model://SHC09/wing_spline_wd.csv</wingSplineWdFile>
-      <wingSplineWmFile>model://SHC09/wing_spline_wm.csv</wingSplineWmFile>
-
-
       <motorSpeedPubTopic>/motor_speed/0</motorSpeedPubTopic>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
       <robotNamespace></robotNamespace>
