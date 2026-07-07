@@ -73,6 +73,18 @@ void TorqueDisturbancePlugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sd
     return;
   }
 
+  this->force_amplitude_x_ = _sdf->Get<double>("force_amplitude_x", 0.0).first;
+  this->force_amplitude_y_ = _sdf->Get<double>("force_amplitude_y", 0.0).first;
+  this->force_amplitude_z_ = _sdf->Get<double>("force_amplitude_z", 0.0).first;
+
+  this->force_frequency_x_ = _sdf->Get<double>("force_frequency_x", 1.0).first;
+  this->force_frequency_y_ = _sdf->Get<double>("force_frequency_y", 1.0).first;
+  this->force_frequency_z_ = _sdf->Get<double>("force_frequency_z", 1.0).first;
+
+  this->force_bias_x_ = _sdf->Get<double>("force_bias_x", 0.0).first;
+  this->force_bias_y_ = _sdf->Get<double>("force_bias_y", 0.0).first;
+  this->force_bias_z_ = _sdf->Get<double>("force_bias_z", 0.0).first;
+
   this->bias_x_ = _sdf->Get<double>("bias_x", 0.0).first;
   this->bias_y_ = _sdf->Get<double>("bias_y", 0.0).first;
   this->bias_z_ = _sdf->Get<double>("bias_z", 0.0).first;
@@ -94,11 +106,27 @@ void TorqueDisturbancePlugin::OnUpdate()
   {
     gzdbg << "[TorqueDisturbancePlugin] Sim time: " << t << " s\n";
   }
-  double tau_x = this->bias_x_ + this->amplitude_x_ * sin(2.0 * M_PI * this->frequency_x_ * (t - this->start_time_sec_));
-  double tau_y = this->bias_y_ + this->amplitude_y_ * sin(2.0 * M_PI * this->frequency_y_ * (t - this->start_time_sec_));
-  double tau_z = this->bias_z_ + this->amplitude_z_ * sin(2.0 * M_PI * this->frequency_z_ * (t - this->start_time_sec_));
+  double disturbance_time = t - this->start_time_sec_;
+
+  double tau_x = this->bias_x_ +
+      this->amplitude_x_ * sin(2.0 * M_PI * this->frequency_x_ * disturbance_time);
+  double tau_y = this->bias_y_ +
+      this->amplitude_y_ * sin(2.0 * M_PI * this->frequency_y_ * disturbance_time);
+  double tau_z = this->bias_z_ +
+      this->amplitude_z_ * sin(2.0 * M_PI * this->frequency_z_ * disturbance_time);
 
   ignition::math::Vector3d torque(tau_x, tau_y, tau_z);
   this->link_->AddRelativeTorque(torque);
+
+  double force_x = this->force_bias_x_ +
+      this->force_amplitude_x_ * sin(2.0 * M_PI * this->force_frequency_x_ * disturbance_time);
+  double force_y = this->force_bias_y_ +
+      this->force_amplitude_y_ * sin(2.0 * M_PI * this->force_frequency_y_ * disturbance_time);
+  double force_z = this->force_bias_z_ +
+      this->force_amplitude_z_ * sin(2.0 * M_PI * this->force_frequency_z_ * disturbance_time);
+
+  ignition::math::Vector3d force(force_x, force_y, force_z);
+  this->link_->AddRelativeForce(force);
+
 }
 }

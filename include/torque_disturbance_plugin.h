@@ -27,6 +27,11 @@ private:
   double frequency_x_, frequency_y_, frequency_z_;
 
   double bias_x_, bias_y_, bias_z_;  // 新增：三轴常值偏置
+
+  double force_amplitude_x_, force_amplitude_y_, force_amplitude_z_;
+  double force_frequency_x_, force_frequency_y_, force_frequency_z_;
+  double force_bias_x_, force_bias_y_, force_bias_z_;
+
   common::Time start_time_;
   double start_time_sec_;  // 新增：扰动开始时间（秒）
   double running_time_sec_;
