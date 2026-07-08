@@ -1101,7 +1101,7 @@
       <forward>0 0 1</forward>
       <upward>0 -1 0</upward>
       <link_name>base_link</link_name>
-      <topic_name>lift_force/cs1</topic_name>
+      <!-- <topic_name>lift_force/cs1</topic_name> -->
       <control_joint_name>cs1_joint</control_joint_name>
       <control_joint_rad_to_cl>1.7266</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
@@ -1247,26 +1247,26 @@
       <link_name>base_link</link_name>
 
       <start_time>30.0</start_time>
-      <running_time>100.0</running_time>
+      <running_time>0.0</running_time>
 
       <!-- 力矩扰动，单位 N·m -->
       <bias_x>0.0</bias_x>
       <bias_y>0.0</bias_y>
       <bias_z>0.0</bias_z>
-      <amplitude_x>0.0</amplitude_x>
-      <amplitude_y>0.0</amplitude_y>
-      <amplitude_z>0.0</amplitude_z>
+      <amplitude_x>0.1</amplitude_x>
+      <amplitude_y>0.1</amplitude_y>
+      <amplitude_z>0.01</amplitude_z>
       <frequency_x>0.2</frequency_x>
       <frequency_y>0.4</frequency_y>
-      <frequency_z>0.0</frequency_z>
+      <frequency_z>0.2</frequency_z>
 
       <!-- 力扰动，单位 N，方向在 base_link 坐标系下 -->
       <force_bias_x>0.0</force_bias_x>
       <force_bias_y>0.0</force_bias_y>
-      <force_bias_z>5.0</force_bias_z>
-      <force_amplitude_x>0.0</force_amplitude_x>
-      <force_amplitude_y>0.0</force_amplitude_y>
-      <force_amplitude_z>8</force_amplitude_z>
+      <force_bias_z>0.0</force_bias_z>
+      <force_amplitude_x>2.0</force_amplitude_x>
+      <force_amplitude_y>2.0</force_amplitude_y>
+      <force_amplitude_z>5.0</force_amplitude_z>
       <force_frequency_x>0.2</force_frequency_x>
       <force_frequency_y>0.2</force_frequency_y>
       <force_frequency_z>0.2</force_frequency_z>
