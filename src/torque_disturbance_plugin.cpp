@@ -66,6 +66,16 @@ void TorqueDisturbancePlugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sd
   else
     this->running_time_sec_ = 0.1;
 
+  this->repeat_count_ = _sdf->Get<int>("repeat_count", 1).first;
+  if (this->repeat_count_ < 1)
+    this->repeat_count_ = 1;
+
+  this->repeat_interval_sec_ = _sdf->Get<double>("repeat_interval", 0.0).first;
+  if (this->repeat_interval_sec_ < 0.0)
+    this->repeat_interval_sec_ = 0.0;
+
+  this->last_repeat_index_ = -1;
+
   this->link_ = this->model_->GetLink(this->link_name_);
   if (!this->link_)
   {
@@ -98,15 +108,46 @@ void TorqueDisturbancePlugin::OnUpdate()
   common::Time current_time = this->model_->GetWorld()->SimTime();
   double t = (current_time - this->start_time_).Double();
 
-  if (t < this->start_time_sec_ || t > this->start_time_sec_ + this->running_time_sec_)
+  if (this->running_time_sec_ <= 0.0)
     return;
+
+  if (t < this->start_time_sec_)
+    return;
+
+  double elapsed_time = t - this->start_time_sec_;
+  double cycle_time = this->running_time_sec_ + this->repeat_interval_sec_;
+
+  if (cycle_time <= 0.0)
+    return;
+
+  int repeat_index = static_cast<int>(elapsed_time / cycle_time);
+
+  if (repeat_index >= this->repeat_count_)
+    return;
+
+  double time_in_cycle = elapsed_time - repeat_index * cycle_time;
+
+  if (time_in_cycle > this->running_time_sec_)
+    return;
+
+  double disturbance_time = time_in_cycle;
 
   // 打印仿真时间（调试用）
   if (0)
   {
     gzdbg << "[TorqueDisturbancePlugin] Sim time: " << t << " s\n";
   }
-  double disturbance_time = t - this->start_time_sec_;
+  if (repeat_index != this->last_repeat_index_)
+  {
+    this->last_repeat_index_ = repeat_index;
+
+    gzmsg << "[TorqueDisturbancePlugin] Disturbance repeat "
+          << repeat_index + 1 << " / " << this->repeat_count_
+          << ", sim time: " << t
+          << ", disturbance local time: " << time_in_cycle
+          << " s\n";
+  }
+
 
   double tau_x = this->bias_x_ +
       this->amplitude_x_ * sin(2.0 * M_PI * this->frequency_x_ * disturbance_time);

@@ -35,6 +35,10 @@ private:
   common::Time start_time_;
   double start_time_sec_;  // 新增：扰动开始时间（秒）
   double running_time_sec_;
+
+  int repeat_count_;
+  double repeat_interval_sec_;
+  int last_repeat_index_;
 };
 }
 
