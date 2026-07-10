@@ -42,13 +42,40 @@
             <uri>model://iris/meshes/iris.stl</uri>
           </mesh>
         </geometry>
+        <!-- Publication-style neutral grey airframe -->
         <material>
-          <script>
-            <name>Gazebo/DarkGrey</name>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-          </script>
+          <lighting>true</lighting>
+          <ambient>0.25 0.26 0.28 1</ambient>
+          <diffuse>0.40 0.41 0.44 1</diffuse>
+          <specular>0.10 0.10 0.10 1</specular>
+          <emissive>0 0 0 1</emissive>
         </material>
+        <cast_shadows>true</cast_shadows>
       </visual>
+      <!-- 8K publication camera: follows the vehicle and reproduces the GUI track offset xyz=-1 0 0.5. -->
+      <!-- <sensor name="publication_8k_follow_camera" type="camera"> -->
+        <!-- Camera optical axis is +X; pitch 0.463647609 points from (-1,0,0.5) to base_link origin. -->
+        <!-- <pose>-0.6 0 0.2 0 0.35 0</pose>
+        <always_on>true</always_on>
+        <update_rate>0.5</update_rate>
+        <visualize>false</visualize>
+        <camera name="publication_8k_camera">
+          <horizontal_fov>1.0471975512</horizontal_fov>
+          <image>
+            <width>7680</width>
+            <height>4320</height>
+            <format>R8G8B8</format>
+            <anti_aliasing>8</anti_aliasing>
+          </image>
+          <clip>
+            <near>0.02</near>
+            <far>100</far>
+          </clip>
+          <save enabled="true">
+            <path>/tmp/gazebo_paper_frames/iris</path>
+          </save>
+        </camera>
+      </sensor> -->
       <gravity>1</gravity>
       <velocity_decay/>
     </link>
@@ -124,12 +151,33 @@
             <uri>model://iris/meshes/iris_prop_ccw.dae</uri>
           </mesh>
         </geometry>
+        <!-- Black propeller for strong silhouette on a white background -->
         <material>
-          <script>
-            <name>Gazebo/Blue</name>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-          </script>
+          <lighting>true</lighting>
+          <ambient>0.015 0.015 0.015 1</ambient>
+          <diffuse>0.035 0.035 0.035 1</diffuse>
+          <specular>0.08 0.08 0.08 1</specular>
+          <emissive>0 0 0 1</emissive>
         </material>
+        <cast_shadows>true</cast_shadows>
+      </visual>
+      <!-- Red motor housing: visual only, simulation parameters are unchanged -->
+      <visual name='motor_0_housing_visual'>
+        <pose>0 0 -0.018 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.024</radius>
+            <length>0.030</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <lighting>true</lighting>
+          <ambient>0.24 0.08 0.07 1</ambient>
+          <diffuse>0.52 0.18 0.16 1</diffuse>
+          <specular>0.10 0.10 0.10 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <cast_shadows>true</cast_shadows>
       </visual>
       <gravity>1</gravity>
       <velocity_decay/>
@@ -189,12 +237,33 @@
             <uri>model://iris/meshes/iris_prop_ccw.dae</uri>
           </mesh>
         </geometry>
+        <!-- Black propeller for strong silhouette on a white background -->
         <material>
-          <script>
-            <name>Gazebo/DarkGrey</name>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-          </script>
+          <lighting>true</lighting>
+          <ambient>0.015 0.015 0.015 1</ambient>
+          <diffuse>0.035 0.035 0.035 1</diffuse>
+          <specular>0.08 0.08 0.08 1</specular>
+          <emissive>0 0 0 1</emissive>
         </material>
+        <cast_shadows>true</cast_shadows>
+      </visual>
+      <!-- Red motor housing: visual only, simulation parameters are unchanged -->
+      <visual name='motor_1_housing_visual'>
+        <pose>0 0 -0.018 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.024</radius>
+            <length>0.030</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <lighting>true</lighting>
+          <ambient>0.24 0.08 0.07 1</ambient>
+          <diffuse>0.52 0.18 0.16 1</diffuse>
+          <specular>0.10 0.10 0.10 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <cast_shadows>true</cast_shadows>
       </visual>
       <gravity>1</gravity>
       <velocity_decay/>
@@ -254,12 +323,33 @@
             <uri>model://iris/meshes/iris_prop_cw.dae</uri>
           </mesh>
         </geometry>
+        <!-- Black propeller for strong silhouette on a white background -->
         <material>
-          <script>
-            <name>Gazebo/Blue</name>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-          </script>
+          <lighting>true</lighting>
+          <ambient>0.015 0.015 0.015 1</ambient>
+          <diffuse>0.035 0.035 0.035 1</diffuse>
+          <specular>0.08 0.08 0.08 1</specular>
+          <emissive>0 0 0 1</emissive>
         </material>
+        <cast_shadows>true</cast_shadows>
+      </visual>
+      <!-- Red motor housing: visual only, simulation parameters are unchanged -->
+      <visual name='motor_2_housing_visual'>
+        <pose>0 0 -0.018 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.024</radius>
+            <length>0.030</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <lighting>true</lighting>
+          <ambient>0.24 0.08 0.07 1</ambient>
+          <diffuse>0.52 0.18 0.16 1</diffuse>
+          <specular>0.10 0.10 0.10 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <cast_shadows>true</cast_shadows>
       </visual>
       <gravity>1</gravity>
       <velocity_decay/>
@@ -319,12 +409,33 @@
             <uri>model://iris/meshes/iris_prop_cw.dae</uri>
           </mesh>
         </geometry>
+        <!-- Black propeller for strong silhouette on a white background -->
         <material>
-          <script>
-            <name>Gazebo/DarkGrey</name>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-          </script>
+          <lighting>true</lighting>
+          <ambient>0.015 0.015 0.015 1</ambient>
+          <diffuse>0.035 0.035 0.035 1</diffuse>
+          <specular>0.08 0.08 0.08 1</specular>
+          <emissive>0 0 0 1</emissive>
         </material>
+        <cast_shadows>true</cast_shadows>
+      </visual>
+      <!-- Red motor housing: visual only, simulation parameters are unchanged -->
+      <visual name='motor_3_housing_visual'>
+        <pose>0 0 -0.018 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.024</radius>
+            <length>0.030</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <lighting>true</lighting>
+          <ambient>0.24 0.08 0.07 1</ambient>
+          <diffuse>0.52 0.18 0.16 1</diffuse>
+          <specular>0.10 0.10 0.10 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <cast_shadows>true</cast_shadows>
       </visual>
       <gravity>1</gravity>
       <velocity_decay/>

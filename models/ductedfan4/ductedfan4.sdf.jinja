@@ -48,12 +48,35 @@
           </mesh>
         </geometry>
         <material>
-          <script>
-            <name>Gazebo/Blue</name>
-            <uri>__default__</uri>
-          </script>
+          <ambient>0.20 0.40 0.75 1</ambient>
+          <diffuse>0.20 0.40 0.75 1</diffuse>
+          <specular>0.10 0.10 0.10 1</specular>
         </material>
       </visual>
+      <!-- 8K publication camera: follows the vehicle and reproduces the GUI track offset xyz=-1 0 0.5. -->
+      <!-- <sensor name="publication_8k_follow_camera" type="camera"> -->
+        <!-- Camera optical axis is +X; pitch 0.463647609 points from (-1,0,0.5) to base_link origin. -->
+        <!-- <pose>-0.6 0 0.2 0 0.45 0</pose>
+        <always_on>true</always_on>
+        <update_rate>0.5</update_rate>
+        <visualize>false</visualize>
+        <camera name="publication_8k_camera">
+          <horizontal_fov>1.0471975512</horizontal_fov>
+          <image>
+            <width>7680</width>
+            <height>4320</height>
+            <format>R8G8B8</format>
+            <anti_aliasing>8</anti_aliasing>
+          </image>
+          <clip>
+            <near>0.02</near>
+            <far>100</far>
+          </clip>
+          <save enabled="true">
+            <path>/tmp/gazebo_paper_frames/ductedfan4</path>
+          </save>
+        </camera>
+      </sensor> -->
       <gravity>1</gravity>
       <velocity_decay/>
       <self_collide>0</self_collide>
@@ -85,6 +108,13 @@
             <name>Gazebo/White</name>
           </script>
         </material>
+        <!-- <material>
+          <lighting>true</lighting>
+          <ambient>0.78 0.78 0.78 1</ambient>
+          <diffuse>0.92 0.92 0.92 1</diffuse>
+          <specular>0.06 0.06 0.06 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material> -->
       </visual>
     </link>
     <joint name='JOINT_0' type='fixed'>
@@ -119,6 +149,13 @@
             <name>Gazebo/White</name>
           </script>
         </material>
+        <!-- <material>
+          <lighting>true</lighting>
+          <ambient>0.78 0.78 0.78 1</ambient>
+          <diffuse>0.92 0.92 0.92 1</diffuse>
+          <specular>0.06 0.06 0.06 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material> -->
       </visual>
     </link>
     <joint name='JOINT_1' type='fixed'>
@@ -154,6 +191,13 @@
             <name>Gazebo/White</name>
           </script>
         </material>
+        <!-- <material>
+          <lighting>true</lighting>
+          <ambient>0.78 0.78 0.78 1</ambient>
+          <diffuse>0.92 0.92 0.92 1</diffuse>
+          <specular>0.06 0.06 0.06 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material> -->
       </visual>
     </link>
     <joint name='JOINT_2' type='fixed'>
@@ -188,6 +232,13 @@
             <name>Gazebo/White</name>
           </script>
         </material>
+        <!-- <material>
+          <lighting>true</lighting>
+          <ambient>0.78 0.78 0.78 1</ambient>
+          <diffuse>0.92 0.92 0.92 1</diffuse>
+          <specular>0.06 0.06 0.06 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material> -->
       </visual>
     </link>
     <joint name='JOINT_3' type='fixed'>
@@ -354,10 +405,11 @@
           </mesh>
         </geometry>
         <material>
-          <script>
-            <uri>__default__</uri>
-            <name>Gazebo/Red</name>
-          </script>
+          <lighting>true</lighting>
+          <ambient>0.38 0.06 0.05 1</ambient>
+          <diffuse>0.72 0.16 0.14 1</diffuse>
+          <specular>0.16 0.16 0.16 1</specular>
+          <emissive>0 0 0 1</emissive>
         </material>
       </visual>
     </link>
@@ -459,10 +511,9 @@
           </mesh>
         </geometry>
         <material>
-          <script>
-            <uri>__default__</uri>
-            <name>Gazebo/Grey</name>
-          </script>
+          <ambient>0.55 0.55 0.55 1</ambient>
+          <diffuse>0.55 0.55 0.55 1</diffuse>
+          <specular>0.10 0.10 0.10 1</specular>
         </material>
       </visual>
     </link>
@@ -493,11 +544,11 @@
           </mesh>
         </geometry>
         <material>
-          <lighting>1</lighting>
-          <script>
-            <uri>__default__</uri>
-            <name>Gazebo/Red</name>
-          </script>
+          <lighting>true</lighting>
+          <ambient>0.38 0.06 0.05 1</ambient>
+          <diffuse>0.72 0.16 0.14 1</diffuse>
+          <specular>0.16 0.16 0.16 1</specular>
+          <emissive>0 0 0 1</emissive>
         </material>
       </visual>
     </link>
@@ -528,10 +579,11 @@
           </mesh>
         </geometry>
         <material>
-          <script>
-            <uri>__default__</uri>
-            <name>Gazebo/Red</name>
-          </script>
+          <lighting>true</lighting>
+          <ambient>0.38 0.06 0.05 1</ambient>
+          <diffuse>0.72 0.16 0.14 1</diffuse>
+          <specular>0.16 0.16 0.16 1</specular>
+          <emissive>0 0 0 1</emissive>
         </material>
       </visual>
     </link>
@@ -561,12 +613,12 @@
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
-        <material>
-          <lighting>1</lighting>
-          <script>
-            <uri>__default__</uri>
-            <name>Gazebo/Red</name>
-          </script>
+         <material>
+          <lighting>true</lighting>
+          <ambient>0.38 0.06 0.05 1</ambient>
+          <diffuse>0.72 0.16 0.14 1</diffuse>
+          <specular>0.16 0.16 0.16 1</specular>
+          <emissive>0 0 0 1</emissive>
         </material>
       </visual>
     </link>
@@ -596,12 +648,12 @@
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
-        <material>
-          <lighting>1</lighting>
-          <script>
-            <uri>__default__</uri>
-            <name>Gazebo/Red</name>
-          </script>
+         <material>
+          <lighting>true</lighting>
+          <ambient>0.38 0.06 0.05 1</ambient>
+          <diffuse>0.72 0.16 0.14 1</diffuse>
+          <specular>0.16 0.16 0.16 1</specular>
+          <emissive>0 0 0 1</emissive>
         </material>
       </visual>
     </link>
@@ -632,10 +684,9 @@
           </mesh>
         </geometry>
         <material>
-          <script>
-            <uri>__default__</uri>
-            <name>Gazebo/Grey</name>
-          </script>
+          <ambient>0.55 0.55 0.55 1</ambient>
+          <diffuse>0.55 0.55 0.55 1</diffuse>
+          <specular>0.10 0.10 0.10 1</specular>
         </material>
       </visual>
     </link>
@@ -666,10 +717,9 @@
           </mesh>
         </geometry>
         <material>
-          <script>
-            <uri>__default__</uri>
-            <name>Gazebo/Grey</name>
-          </script>
+          <ambient>0.55 0.55 0.55 1</ambient>
+          <diffuse>0.55 0.55 0.55 1</diffuse>
+          <specular>0.10 0.10 0.10 1</specular>
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
@@ -804,10 +854,11 @@
           </mesh>
         </geometry>
         <material>
-          <script>
-            <name>Gazebo/Grey</name>
-            <uri>__default__</uri>
-          </script>
+          <lighting>true</lighting>
+          <ambient>0.32 0.32 0.32 1</ambient>
+          <diffuse>0.40 0.40 0.40 1</diffuse>
+          <specular>0.10 0.10 0.10 1</specular>
+          <emissive>0 0 0 1</emissive>
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
@@ -840,11 +891,12 @@
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
-        <material>
-          <script>
-            <name>Gazebo/Grey</name>
-            <uri>__default__</uri>
-          </script>
+       <material>
+          <lighting>true</lighting>
+          <ambient>0.32 0.32 0.32 1</ambient>
+          <diffuse>0.40 0.40 0.40 1</diffuse>
+          <specular>0.10 0.10 0.10 1</specular>
+          <emissive>0 0 0 1</emissive>
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
@@ -879,10 +931,11 @@
           </mesh>
         </geometry>
         <material>
-          <script>
-            <name>Gazebo/Grey</name>
-            <uri>__default__</uri>
-          </script>
+          <lighting>true</lighting>
+          <ambient>0.32 0.32 0.32 1</ambient>
+          <diffuse>0.40 0.40 0.40 1</diffuse>
+          <specular>0.10 0.10 0.10 1</specular>
+          <emissive>0 0 0 1</emissive>
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
@@ -916,10 +969,11 @@
           </mesh>
         </geometry>
         <material>
-          <script>
-            <name>Gazebo/Grey</name>
-            <uri>__default__</uri>
-          </script>
+          <lighting>true</lighting>
+          <ambient>0.32 0.32 0.32 1</ambient>
+          <diffuse>0.40 0.40 0.40 1</diffuse>
+          <specular>0.10 0.10 0.10 1</specular>
+          <emissive>0 0 0 1</emissive>
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>

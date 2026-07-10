@@ -4,29 +4,60 @@
     <gui>
       <camera name="user_camera">
         <track_visual>
-          <!-- Set fixed view perspective or not. -->
           <static>true</static>
           <use_model_frame>true</use_model_frame>
-          <!-- Camera position offset relative to the target when <static> is set to true -->
           <xyz>-3 0 1</xyz>
-          <!-- Optional: When static=false, you can also use <min_dist> and <max_dist> to control the follow distance -->
           <min_dist>0.1</min_dist>
           <max_dist>2.0</max_dist>
         </track_visual>
       </camera>
     </gui>
-    <!-- A global light source -->
+
+    <!-- Pure-white publication background -->
+    <!-- <scene>
+      <ambient>0.72 0.72 0.72 1</ambient>
+      <background>1 1 1 1</background>
+      <shadows>true</shadows>
+      <grid>false</grid>
+      <origin_visual>false</origin_visual>
+    </scene> -->
+
+    <!-- Directional illumination -->
     <include>
       <uri>model://sun</uri>
     </include>
-    <!-- A ground plane -->
-    <include>
-      <uri>model://ground_plane</uri>
-    </include>
-    <include>
-      <uri>model://asphalt_plane</uri>
-    </include>
-    <physics name='default_physics' default='0' type='ode'>
+
+    <!-- Physical support plane with no visual geometry.
+         It supports takeoff / landing while the rendered background stays white. -->
+    <model name="invisible_ground">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>200 200</size>
+            </plane>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <min_depth>0.001</min_depth>
+                <max_vel>0.1</max_vel>
+              </ode>
+            </contact>
+            <friction>
+              <ode>
+                <mu>1.0</mu>
+                <mu2>1.0</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+      </link>
+    </model>
+
+    <physics name="default_physics" default="0" type="ode">
       <gravity>0 0 -9.8066</gravity>
       <ode>
         <solver>
