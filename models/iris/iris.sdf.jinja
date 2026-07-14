@@ -5,6 +5,8 @@
       <pose>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
+        <!-- Vehicle mass and inertia used by MPC_MASS and MC_J_*. The IMU is
+             attached directly; GPS and rotor inertias are kept negligible. -->
         <mass>0.75</mass>
         <inertia>
           <ixx>0.0025</ixx>
@@ -79,51 +81,18 @@
       <gravity>1</gravity>
       <velocity_decay/>
     </link>
-    <link name='/imu_link'>
-      <pose>0 0 0.02 0 0 0</pose>
-      <inertial>
-        <pose>0 0 0 0 0 0</pose>
-        <mass>0.015</mass>
-        <inertia>
-          <ixx>1e-05</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>1e-05</iyy>
-          <iyz>0</iyz>
-          <izz>1e-05</izz>
-        </inertia>
-      </inertial>
-    </link>
-    <joint name='/imu_joint' type='revolute'>
-      <child>/imu_link</child>
-      <parent>base_link</parent>
-      <axis>
-        <xyz>1 0 0</xyz>
-        <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
-        </limit>
-        <dynamics>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-        </dynamics>
-        <use_parent_model_frame>1</use_parent_model_frame>
-      </axis>
-    </joint>
     <link name='rotor_0'>
       <pose>0.13 -0.22 0.023 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>0.005</mass>
+        <mass>0.00001</mass>
         <inertia>
-          <ixx>9.75e-07</ixx>
+          <ixx>4.0981e-08</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.000273104</iyy>
+          <iyy>4.0981e-08</iyy>
           <iyz>0</iyz>
-          <izz>0.000274004</izz>
+          <izz>8.192e-08</izz>
         </inertia>
       </inertial>
       <collision name='rotor_0_collision'>
@@ -202,14 +171,14 @@
       <pose>-0.13 0.2 0.023 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>0.005</mass>
+        <mass>0.00001</mass>
         <inertia>
-          <ixx>9.75e-07</ixx>
+          <ixx>4.0981e-08</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.000273104</iyy>
+          <iyy>4.0981e-08</iyy>
           <iyz>0</iyz>
-          <izz>0.000274004</izz>
+          <izz>8.192e-08</izz>
         </inertia>
       </inertial>
       <collision name='rotor_1_collision'>
@@ -288,14 +257,14 @@
       <pose>0.13 0.22 0.023 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>0.005</mass>
+        <mass>0.00001</mass>
         <inertia>
-          <ixx>9.75e-07</ixx>
+          <ixx>4.0981e-08</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.000273104</iyy>
+          <iyy>4.0981e-08</iyy>
           <iyz>0</iyz>
-          <izz>0.000274004</izz>
+          <izz>8.192e-08</izz>
         </inertia>
       </inertial>
       <collision name='rotor_2_collision'>
@@ -374,14 +343,14 @@
       <pose>-0.13 -0.2 0.023 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>0.005</mass>
+        <mass>0.00001</mass>
         <inertia>
-          <ixx>9.75e-07</ixx>
+          <ixx>4.0981e-08</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.000273104</iyy>
+          <iyy>4.0981e-08</iyy>
           <iyz>0</iyz>
-          <izz>0.000274004</izz>
+          <izz>8.192e-08</izz>
         </inertia>
       </inertial>
       <collision name='rotor_3_collision'>
@@ -529,11 +498,85 @@
       <motorSpeedPubTopic>/motor_speed/3</motorSpeedPubTopic>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
     </plugin>
-    <include>
-      <uri>model://gps</uri>
+
+    <plugin name="torque_disturbance" filename="libtorque_disturbance_plugin.so">
+      <link_name>base_link</link_name>
+
+      <start_time>20.0</start_time>
+      <running_time>0.0</running_time>
+      <repeat_count>1</repeat_count>
+      <repeat_interval>8.0</repeat_interval>
+
+      <!-- 力矩扰动，单位 N·m -->
+      <bias_x>0.0</bias_x>
+      <bias_y>0.0</bias_y>
+      <bias_z>0.0</bias_z>
+      <amplitude_x>0.25</amplitude_x>
+      <amplitude_y>0.25</amplitude_y>
+      <amplitude_z>0.05</amplitude_z>
+      <frequency_x>0.2</frequency_x>
+      <frequency_y>0.4</frequency_y>
+      <frequency_z>0.2</frequency_z>
+
+      <!-- 力扰动，单位 N，方向在 base_link 坐标系下 -->
+      <force_bias_x>0.0</force_bias_x>
+      <force_bias_y>0.0</force_bias_y>
+      <force_bias_z>0.0</force_bias_z>
+      <force_amplitude_x>0.8</force_amplitude_x>
+      <force_amplitude_y>0.8</force_amplitude_y>
+      <force_amplitude_z>1.5</force_amplitude_z>
+      <force_frequency_x>0.1</force_frequency_x>
+      <force_frequency_y>0.2</force_frequency_y>
+      <force_frequency_z>0.3</force_frequency_z>
+    </plugin>
+
+    <!-- Keep a gps0 nested model because gazebo_mavlink_interface discovers
+         GPS topics by nested-model/joint name. Its inertia is intentionally
+         negligible so base_link continues to represent the vehicle m/J. -->
+    <model name='gps0'>
       <pose>0.05 0 0.04 0 0 0</pose>
-      <name>gps0</name>
-    </include>
+      <link name='link'>
+        <inertial>
+          <mass>0.000001</mass>
+          <inertia>
+            <ixx>1e-09</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1e-09</iyy>
+            <iyz>0</iyz>
+            <izz>1e-09</izz>
+          </inertia>
+        </inertial>
+        <visual name='visual'>
+          <geometry>
+            <cylinder>
+              <radius>0.01</radius>
+              <length>0.002</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Black</name>
+            </script>
+          </material>
+        </visual>
+        <sensor name='gps' type='gps'>
+          <update_rate>5.0</update_rate>
+          <always_on>true</always_on>
+          <visualize>false</visualize>
+          <plugin name='gps_plugin' filename='libgazebo_gps_plugin.so'>
+            <robotNamespace/>
+            <gpsNoise>true</gpsNoise>
+            <gpsXYRandomWalk>2.0</gpsXYRandomWalk>
+            <gpsZRandomWalk>4.0</gpsZRandomWalk>
+            <gpsXYNoiseDensity>2.0e-4</gpsXYNoiseDensity>
+            <gpsZNoiseDensity>4.0e-4</gpsZNoiseDensity>
+            <gpsVXYNoiseDensity>0.2</gpsVXYNoiseDensity>
+            <gpsVZNoiseDensity>0.4</gpsVZNoiseDensity>
+          </plugin>
+        </sensor>
+      </link>
+    </model>
     <joint name='gps0_joint' type='fixed'>
       <child>gps0::link</child>
       <parent>base_link</parent>
@@ -677,7 +720,7 @@
     <static>0</static>
     <plugin name='rotors_gazebo_imu_plugin' filename='libgazebo_imu_plugin.so'>
       <robotNamespace/>
-      <linkName>/imu_link</linkName>
+      <linkName>base_link</linkName>
       <imuTopic>/imu</imuTopic>
     </plugin>
   </model>
