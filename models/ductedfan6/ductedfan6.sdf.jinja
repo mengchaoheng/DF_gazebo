@@ -22,14 +22,16 @@
             <uri>model://ductedfan6/meshes/DF - Product-gazebo-1.STL</uri>
           </mesh-->
           <box>
-            <size>0.25 0.25 0.52</size>
+            <size>0.25 0.25 0.47</size>
           </box>
         </geometry>
-        <!--surface>
+        <surface>
           <contact>
             <ode>
-              <max_vel>10</max_vel>
-              <min_depth>0.01</min_depth>
+              <kp>2000</kp>
+              <kd>100</kd>
+              <max_vel>0.1</max_vel>
+              <min_depth>0.001</min_depth>
             </ode>
           </contact>
           <friction>
@@ -37,7 +39,7 @@
               <mu>1.0</mu>
             </ode>
           </friction>
-        </surface-->
+        </surface>
       </collision>
       <visual name='base_link_visual'>
         <pose>0.0 0 -0.0 0 0 0</pose>
@@ -1181,7 +1183,7 @@
         <dynamics>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
-          <damping>0.0001</damping>
+          <damping>0.00000001</damping>
           <friction>0</friction>
         </dynamics>
       </axis>
@@ -1449,7 +1451,7 @@
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position_kinematic</joint_control_type>
-          <joint_name>cs2_joint</joint_name>
+          <joint_name>cs6_joint</joint_name>
         </channel>
         <channel name="3">
           <input_index>3</input_index>
@@ -1458,7 +1460,7 @@
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position_kinematic</joint_control_type>
-          <joint_name>cs3_joint</joint_name>
+          <joint_name>cs5_joint</joint_name>
         </channel>
         <channel name="4">
           <input_index>4</input_index>
@@ -1476,7 +1478,7 @@
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position_kinematic</joint_control_type>
-          <joint_name>cs5_joint</joint_name>
+          <joint_name>cs3_joint</joint_name>
         </channel>
         <channel name="6">
           <input_index>6</input_index>
@@ -1485,7 +1487,7 @@
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position_kinematic</joint_control_type>
-          <joint_name>cs6_joint</joint_name>
+          <joint_name>cs2_joint</joint_name>
         </channel>
 
       </control_channels>

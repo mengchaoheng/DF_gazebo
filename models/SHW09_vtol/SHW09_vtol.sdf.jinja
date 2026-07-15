@@ -20,9 +20,22 @@
         <pose>0 0 -0.0 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.25 0.25 0.52</size>
+            <size>0.25 0.25 0.47</size>
           </box>
         </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>2000</kp>
+              <kd>100</kd>
+              <max_vel>0.1</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
       </collision>
       <visual name='visual'>
         <pose>0 0 0 0 -0 3.1415926</pose>
