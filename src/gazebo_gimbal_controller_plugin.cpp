@@ -683,8 +683,11 @@ void GimbalControllerPlugin::SendGimbalDeviceInformation()
     pitchMax,
     yawMin,
     yawMax,
-    0, /*gimbal_device_id*/
-    0  /*cap_flags2*/);
+    0 /*gimbal_device_id*/
+#if MAVLINK_MSG_ID_GIMBAL_DEVICE_INFORMATION_LEN > 145
+    , 0 /*cap_flags2*/
+#endif
+  );
   SendMavlinkMessage(msg);
 }
 
