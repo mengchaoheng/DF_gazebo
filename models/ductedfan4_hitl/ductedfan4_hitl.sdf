@@ -1338,7 +1338,7 @@
     <plugin name="torque_disturbance" filename="libtorque_disturbance_plugin.so">
       <link_name>base_link</link_name>
 
-      <start_time>30.0</start_time>
+      <start_time>40.0</start_time>
       <running_time>0.0</running_time>
       <repeat_count>1</repeat_count>
       <repeat_interval>8.0</repeat_interval>
@@ -1347,8 +1347,8 @@
       <bias_x>0.0</bias_x>
       <bias_y>0.0</bias_y>
       <bias_z>0.0</bias_z>
-      <amplitude_x>0.1</amplitude_x>
-      <amplitude_y>0.1</amplitude_y>
+      <amplitude_x>0.05</amplitude_x>
+      <amplitude_y>0.05</amplitude_y>
       <amplitude_z>0.01</amplitude_z>
       <frequency_x>0.2</frequency_x>
       <frequency_y>0.4</frequency_y>
@@ -1358,9 +1358,9 @@
       <force_bias_x>0.0</force_bias_x>
       <force_bias_y>0.0</force_bias_y>
       <force_bias_z>0.0</force_bias_z>
-      <force_amplitude_x>1.0</force_amplitude_x>
-      <force_amplitude_y>1.0</force_amplitude_y>
-      <force_amplitude_z>3.0</force_amplitude_z>
+      <force_amplitude_x>0.50</force_amplitude_x>
+      <force_amplitude_y>0.50</force_amplitude_y>
+      <force_amplitude_z>0.80</force_amplitude_z>
       <force_frequency_x>0.2</force_frequency_x>
       <force_frequency_y>0.2</force_frequency_y>
       <force_frequency_z>0.2</force_frequency_z>
