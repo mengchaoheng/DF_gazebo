@@ -57,10 +57,10 @@
           <specular>0.10 0.10 0.10 1</specular>
         </material>
       </visual>
-      <!-- 8K publication camera: follows the vehicle and reproduces the GUI track offset xyz=-1 0 0.5. -->
-      <!-- <sensor name="publication_8k_follow_camera" type="camera"> -->
-        <!-- Camera optical axis is +X; pitch 0.463647609 points from (-1,0,0.5) to base_link origin. -->
-        <!-- <pose>-0.6 0 0.2 0 0.45 0</pose>
+      <!-- 8K publication camera: follows the vehicle and writes frames to
+           /tmp/gazebo_paper_frames/ductedfan4. -->
+      <!-- <sensor name="publication_8k_follow_camera" type="camera">
+        <pose>0.693315 -0.000241 0.515708 0 0.691497 3.11619</pose>
         <always_on>true</always_on>
         <update_rate>0.5</update_rate>
         <visualize>false</visualize>
@@ -114,11 +114,13 @@
         </material>
         <!-- <material>
           <lighting>true</lighting>
-          <ambient>0.78 0.78 0.78 1</ambient>
-          <diffuse>0.92 0.92 0.92 1</diffuse>
-          <specular>0.06 0.06 0.06 1</specular>
+          <ambient>0.68 0.68 0.68 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+          <specular>0.03 0.03 0.03 1</specular>
           <emissive>0 0 0 1</emissive>
-        </material> -->
+        </material>
+        <transparency>0.1</transparency>
+        <cast_shadows>false</cast_shadows>-->
       </visual>
     </link>
     <joint name='JOINT_0' type='fixed'>
@@ -155,11 +157,13 @@
         </material>
         <!-- <material>
           <lighting>true</lighting>
-          <ambient>0.78 0.78 0.78 1</ambient>
-          <diffuse>0.92 0.92 0.92 1</diffuse>
-          <specular>0.06 0.06 0.06 1</specular>
+          <ambient>0.68 0.68 0.68 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+          <specular>0.03 0.03 0.03 1</specular>
           <emissive>0 0 0 1</emissive>
-        </material> -->
+        </material>
+        <transparency>0.2</transparency>
+        <cast_shadows>false</cast_shadows> -->
       </visual>
     </link>
     <joint name='JOINT_1' type='fixed'>
@@ -197,11 +201,13 @@
         </material>
         <!-- <material>
           <lighting>true</lighting>
-          <ambient>0.78 0.78 0.78 1</ambient>
-          <diffuse>0.92 0.92 0.92 1</diffuse>
-          <specular>0.06 0.06 0.06 1</specular>
+          <ambient>0.68 0.68 0.68 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+          <specular>0.03 0.03 0.03 1</specular>
           <emissive>0 0 0 1</emissive>
-        </material> -->
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>false</cast_shadows> -->
       </visual>
     </link>
     <joint name='JOINT_2' type='fixed'>
@@ -209,7 +215,7 @@
       <child>ductout2</child>
       <pose frame=''>0 0 0 0 -0 0</pose>
     </joint>
-	  <link name='ductout3'>
+    <link name='ductout3'>
       <inertial>
         <mass>0.00000003029</mass>
         <inertia>
@@ -236,13 +242,15 @@
             <name>Gazebo/White</name>
           </script>
         </material>
-        <!-- <material>
+         <!-- <material>
           <lighting>true</lighting>
-          <ambient>0.78 0.78 0.78 1</ambient>
-          <diffuse>0.92 0.92 0.92 1</diffuse>
-          <specular>0.06 0.06 0.06 1</specular>
+          <ambient>0.68 0.68 0.68 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+          <specular>0.03 0.03 0.03 1</specular>
           <emissive>0 0 0 1</emissive>
-        </material> -->
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>false</cast_shadows> -->
       </visual>
     </link>
     <joint name='JOINT_3' type='fixed'>
