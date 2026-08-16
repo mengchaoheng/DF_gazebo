@@ -54,10 +54,10 @@
         </material>
         <cast_shadows>true</cast_shadows>
       </visual>
-      <!-- 8K publication camera: follows the vehicle and reproduces the GUI track offset xyz=-1 0 0.5. -->
-      <!-- <sensor name="publication_8k_follow_camera" type="camera"> -->
-        <!-- Camera optical axis is +X; pitch 0.463647609 points from (-1,0,0.5) to base_link origin. -->
-        <!-- <pose>-0.6 0 0.2 0 0.35 0</pose>
+      <!-- 8K publication camera: viewpoint reproduced from /Users/mch/iris_camera_tune.world. -->
+      <!-- GUI world pose converted relative to the saved base_link state pose. -->
+      <!-- <sensor name="publication_8k_follow_camera" type="camera">
+        <pose>0.555446 0.390241 0.454509 -0.003707 0.660851 -2.538963</pose>
         <always_on>true</always_on>
         <update_rate>0.5</update_rate>
         <visualize>false</visualize>
@@ -82,7 +82,7 @@
       <velocity_decay/>
     </link>
     <link name='rotor_0'>
-      <pose>0.13 -0.22 0.023 0 0 0</pose>
+      <pose>0.125 -0.22 0.023 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.00001</mass>
@@ -113,7 +113,7 @@
         </surface>
       </collision>
       <visual name='rotor_0_visual'>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0.005 0 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -154,6 +154,7 @@
     <joint name='rotor_0_joint' type='revolute'>
       <child>rotor_0</child>
       <parent>base_link</parent>
+      <pose>0 0 0 0 0 0</pose>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
@@ -168,7 +169,7 @@
       </axis>
     </joint>
     <link name='rotor_1'>
-      <pose>-0.13 0.2 0.023 0 0 0</pose>
+      <pose>-0.1385 0.206 0.023 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.00001</mass>
@@ -199,7 +200,7 @@
         </surface>
       </collision>
       <visual name='rotor_1_visual'>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0.005 0.0002 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -240,6 +241,7 @@
     <joint name='rotor_1_joint' type='revolute'>
       <child>rotor_1</child>
       <parent>base_link</parent>
+      <pose>0 0 0 0 0 0</pose>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
@@ -254,7 +256,7 @@
       </axis>
     </joint>
     <link name='rotor_2'>
-      <pose>0.13 0.22 0.023 0 0 0</pose>
+      <pose>0.125 0.223 0.023 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.00001</mass>
@@ -326,6 +328,7 @@
     <joint name='rotor_2_joint' type='revolute'>
       <child>rotor_2</child>
       <parent>base_link</parent>
+      <pose>0 0 0 0 0 0</pose>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
@@ -340,7 +343,7 @@
       </axis>
     </joint>
     <link name='rotor_3'>
-      <pose>-0.13 -0.2 0.023 0 0 0</pose>
+      <pose>-0.1385 -0.2025 0.023 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.00001</mass>
@@ -371,7 +374,7 @@
         </surface>
       </collision>
       <visual name='rotor_3_visual'>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0.0015 0 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -412,6 +415,7 @@
     <joint name='rotor_3_joint' type='revolute'>
       <child>rotor_3</child>
       <parent>base_link</parent>
+      <pose>0 0 0 0 0 0</pose>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>

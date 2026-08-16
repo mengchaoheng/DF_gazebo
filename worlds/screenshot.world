@@ -5,7 +5,7 @@
     <gui>
       <!-- Camera pose copied from /Users/mch/ductedfan4_camera_tune.world. -->
       <camera name="user_camera">
-        <pose>1.70343 0.979759 0.747706 0 0.691643 3.11619</pose>
+        <pose>0.753438 0.453582 0.715853 0 0.769165 1.09852</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
