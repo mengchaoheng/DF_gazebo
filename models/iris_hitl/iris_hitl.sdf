@@ -16,10 +16,13 @@
         </inertia>
       </inertial>
       <collision name='base_link_inertia_collision'>
-        <pose>0 0 0 0 0 0</pose>
+        <!-- Match the validated Classic/GZ Iris collision geometry. The old
+             0.47 m box causes ODE contact chatter with this small inertia,
+             producing nonzero IMU rates while resting on the ground. -->
+        <pose>0 0 -0.025 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.47 0.47 0.11</size>
+            <size>0.1766 0.1939 0.0490</size>
           </box>
         </geometry>
         <surface>
@@ -492,7 +495,7 @@
       <mavlink_tcp_port>4560</mavlink_tcp_port>
       <mavlink_udp_port>14560</mavlink_udp_port>
       <serialEnabled>1</serialEnabled>
-      <serialDevice>/dev/ttyACM0</serialDevice>
+      <serialDevice>/dev/tty.usbmodem01</serialDevice>
       <baudRate>921600</baudRate>
       <qgc_addr>INADDR_ANY</qgc_addr>
       <qgc_udp_port>14550</qgc_udp_port>
@@ -511,7 +514,7 @@
           <input_offset>0</input_offset>
           <input_scaling>2372.6</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
-          <zero_position_armed>100</zero_position_armed>
+          <zero_position_armed>0</zero_position_armed>
           <joint_control_type>velocity</joint_control_type>
         </channel>
         <channel name='rotor2'>
@@ -519,7 +522,7 @@
           <input_offset>0</input_offset>
           <input_scaling>2372.6</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
-          <zero_position_armed>100</zero_position_armed>
+          <zero_position_armed>0</zero_position_armed>
           <joint_control_type>velocity</joint_control_type>
         </channel>
         <channel name='rotor3'>
@@ -527,7 +530,7 @@
           <input_offset>0</input_offset>
           <input_scaling>2372.6</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
-          <zero_position_armed>100</zero_position_armed>
+          <zero_position_armed>0</zero_position_armed>
           <joint_control_type>velocity</joint_control_type>
         </channel>
         <channel name='rotor4'>
@@ -535,7 +538,7 @@
           <input_offset>0</input_offset>
           <input_scaling>2372.6</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
-          <zero_position_armed>100</zero_position_armed>
+          <zero_position_armed>0</zero_position_armed>
           <joint_control_type>velocity</joint_control_type>
         </channel>
         <channel name='rotor5'>
