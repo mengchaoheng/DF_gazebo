@@ -365,6 +365,8 @@
       <momentConstant>0.0157</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>0</motorNumber>
+      <!-- Match gz thrust: make Classic-only axial loss negligible. -->
+      <maxRelativeAirspeed>1000000</maxRelativeAirspeed>
       <rotorDragCoefficient>0.000175</rotorDragCoefficient>
       <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
       <motorSpeedPubTopic>/motor_speed/0</motorSpeedPubTopic>
@@ -382,6 +384,8 @@
       <momentConstant>0.0157</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>1</motorNumber>
+      <!-- Match gz thrust: make Classic-only axial loss negligible. -->
+      <maxRelativeAirspeed>1000000</maxRelativeAirspeed>
       <rotorDragCoefficient>0.000175</rotorDragCoefficient>
       <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
       <motorSpeedPubTopic>/motor_speed/1</motorSpeedPubTopic>
@@ -399,8 +403,10 @@
       <momentConstant>0.0157</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>2</motorNumber>
+      <!-- Match gz thrust: make Classic-only axial loss negligible. -->
+      <maxRelativeAirspeed>1000000</maxRelativeAirspeed>
       <rotorDragCoefficient>0.000175</rotorDragCoefficient>
-      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <rollingMomentCoefficient>-1e-06</rollingMomentCoefficient>
       <motorSpeedPubTopic>/motor_speed/2</motorSpeedPubTopic>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
     </plugin>
@@ -416,8 +422,10 @@
       <momentConstant>0.0157</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>3</motorNumber>
+      <!-- Match gz thrust: make Classic-only axial loss negligible. -->
+      <maxRelativeAirspeed>1000000</maxRelativeAirspeed>
       <rotorDragCoefficient>0.000175</rotorDragCoefficient>
-      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <rollingMomentCoefficient>-1e-06</rollingMomentCoefficient>
       <motorSpeedPubTopic>/motor_speed/3</motorSpeedPubTopic>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
     </plugin>
