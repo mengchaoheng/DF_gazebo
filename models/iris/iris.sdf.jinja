@@ -439,15 +439,19 @@
       <jointName>rotor_0_joint</jointName>
       <linkName>rotor_0</linkName>
       <turningDirection>ccw</turningDirection>
-      <timeConstantUp>0.00125</timeConstantUp>
-      <timeConstantDown>0.0025</timeConstantDown>
+      <!-- Fast first-order motor response; acceleration and braking use 0.5 ms. -->
+      <timeConstantUp>0.0005</timeConstantUp>
+      <timeConstantDown>0.0005</timeConstantDown>
       <maxRotVelocity>2372.6</maxRotVelocity>
       <motorConstant>1.51e-06</motorConstant>
       <momentConstant>0.0157</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>0</motorNumber>
-      <rotorDragCoefficient>0.000175</rotorDragCoefficient>
-      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <!-- Ideal rotor wrench: keep thrust and reaction torque only. -->
+      <rotorDragCoefficient>0</rotorDragCoefficient>
+      <rollingMomentCoefficient>0</rollingMomentCoefficient>
+      <!-- Negligible axial loss with the unmodified Classic motor plugin. -->
+      <maxRelativeAirspeed>1000000</maxRelativeAirspeed>
       <motorSpeedPubTopic>/motor_speed/0</motorSpeedPubTopic>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
     </plugin>
@@ -456,15 +460,19 @@
       <jointName>rotor_1_joint</jointName>
       <linkName>rotor_1</linkName>
       <turningDirection>ccw</turningDirection>
-      <timeConstantUp>0.00125</timeConstantUp>
-      <timeConstantDown>0.0025</timeConstantDown>
+      <!-- Fast first-order motor response; acceleration and braking use 0.5 ms. -->
+      <timeConstantUp>0.0005</timeConstantUp>
+      <timeConstantDown>0.0005</timeConstantDown>
       <maxRotVelocity>2372.6</maxRotVelocity>
       <motorConstant>1.51e-06</motorConstant>
       <momentConstant>0.0157</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>1</motorNumber>
-      <rotorDragCoefficient>0.000175</rotorDragCoefficient>
-      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <!-- Ideal rotor wrench: keep thrust and reaction torque only. -->
+      <rotorDragCoefficient>0</rotorDragCoefficient>
+      <rollingMomentCoefficient>0</rollingMomentCoefficient>
+      <!-- Negligible axial loss with the unmodified Classic motor plugin. -->
+      <maxRelativeAirspeed>1000000</maxRelativeAirspeed>
       <motorSpeedPubTopic>/motor_speed/1</motorSpeedPubTopic>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
     </plugin>
@@ -473,15 +481,19 @@
       <jointName>rotor_2_joint</jointName>
       <linkName>rotor_2</linkName>
       <turningDirection>cw</turningDirection>
-      <timeConstantUp>0.00125</timeConstantUp>
-      <timeConstantDown>0.0025</timeConstantDown>
+      <!-- Fast first-order motor response; acceleration and braking use 0.5 ms. -->
+      <timeConstantUp>0.0005</timeConstantUp>
+      <timeConstantDown>0.0005</timeConstantDown>
       <maxRotVelocity>2372.6</maxRotVelocity>
       <motorConstant>1.51e-06</motorConstant>
       <momentConstant>0.0157</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>2</motorNumber>
-      <rotorDragCoefficient>0.000175</rotorDragCoefficient>
-      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <!-- Ideal rotor wrench: keep thrust and reaction torque only. -->
+      <rotorDragCoefficient>0</rotorDragCoefficient>
+      <rollingMomentCoefficient>0</rollingMomentCoefficient>
+      <!-- Negligible axial loss with the unmodified Classic motor plugin. -->
+      <maxRelativeAirspeed>1000000</maxRelativeAirspeed>
       <motorSpeedPubTopic>/motor_speed/2</motorSpeedPubTopic>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
     </plugin>
@@ -490,19 +502,24 @@
       <jointName>rotor_3_joint</jointName>
       <linkName>rotor_3</linkName>
       <turningDirection>cw</turningDirection>
-      <timeConstantUp>0.00125</timeConstantUp>
-      <timeConstantDown>0.0025</timeConstantDown>
+      <!-- Fast first-order motor response; acceleration and braking use 0.5 ms. -->
+      <timeConstantUp>0.0005</timeConstantUp>
+      <timeConstantDown>0.0005</timeConstantDown>
       <maxRotVelocity>2372.6</maxRotVelocity>
       <motorConstant>1.51e-06</motorConstant>
       <momentConstant>0.0157</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>3</motorNumber>
-      <rotorDragCoefficient>0.000175</rotorDragCoefficient>
-      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <!-- Ideal rotor wrench: keep thrust and reaction torque only. -->
+      <rotorDragCoefficient>0</rotorDragCoefficient>
+      <rollingMomentCoefficient>0</rollingMomentCoefficient>
+      <!-- Negligible axial loss with the unmodified Classic motor plugin. -->
+      <maxRelativeAirspeed>1000000</maxRelativeAirspeed>
       <motorSpeedPubTopic>/motor_speed/3</motorSpeedPubTopic>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
     </plugin>
 
+    <!-- Nominal control model: external force/torque disturbances are zero. -->
     <plugin name="torque_disturbance" filename="libtorque_disturbance_plugin.so">
       <link_name>base_link</link_name>
 
@@ -515,9 +532,9 @@
       <bias_x>0.0</bias_x>
       <bias_y>0.0</bias_y>
       <bias_z>0.0</bias_z>
-      <amplitude_x>0.25</amplitude_x>
-      <amplitude_y>0.25</amplitude_y>
-      <amplitude_z>0.05</amplitude_z>
+      <amplitude_x>0.0</amplitude_x>
+      <amplitude_y>0.0</amplitude_y>
+      <amplitude_z>0.0</amplitude_z>
       <frequency_x>0.2</frequency_x>
       <frequency_y>0.4</frequency_y>
       <frequency_z>0.2</frequency_z>
@@ -526,9 +543,9 @@
       <force_bias_x>0.0</force_bias_x>
       <force_bias_y>0.0</force_bias_y>
       <force_bias_z>0.0</force_bias_z>
-      <force_amplitude_x>0.8</force_amplitude_x>
-      <force_amplitude_y>0.8</force_amplitude_y>
-      <force_amplitude_z>1.5</force_amplitude_z>
+      <force_amplitude_x>0.0</force_amplitude_x>
+      <force_amplitude_y>0.0</force_amplitude_y>
+      <force_amplitude_z>0.0</force_amplitude_z>
       <force_frequency_x>0.1</force_frequency_x>
       <force_frequency_y>0.2</force_frequency_y>
       <force_frequency_z>0.3</force_frequency_z>

@@ -358,17 +358,19 @@
       <jointName>rotor_0_joint</jointName>
       <linkName>rotor_0</linkName>
       <turningDirection>ccw</turningDirection>
-      <timeConstantUp>0.00125</timeConstantUp>
-      <timeConstantDown>0.0025</timeConstantDown>
+      <!-- Fast first-order motor response; acceleration and braking use 0.5 ms. -->
+      <timeConstantUp>0.0005</timeConstantUp>
+      <timeConstantDown>0.0005</timeConstantDown>
       <maxRotVelocity>2372.6</maxRotVelocity>
       <motorConstant>1.51e-06</motorConstant>
       <momentConstant>0.0157</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>0</motorNumber>
-      <!-- Match gz thrust: make Classic-only axial loss negligible. -->
+      <!-- Ideal rotor wrench: keep thrust and reaction torque only. -->
+      <rotorDragCoefficient>0</rotorDragCoefficient>
+      <rollingMomentCoefficient>0</rollingMomentCoefficient>
+      <!-- Negligible axial loss with the unmodified Classic motor plugin. -->
       <maxRelativeAirspeed>1000000</maxRelativeAirspeed>
-      <rotorDragCoefficient>0.000175</rotorDragCoefficient>
-      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
       <motorSpeedPubTopic>/motor_speed/0</motorSpeedPubTopic>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
     </plugin>
@@ -377,17 +379,19 @@
       <jointName>rotor_1_joint</jointName>
       <linkName>rotor_1</linkName>
       <turningDirection>ccw</turningDirection>
-      <timeConstantUp>0.00125</timeConstantUp>
-      <timeConstantDown>0.0025</timeConstantDown>
+      <!-- Fast first-order motor response; acceleration and braking use 0.5 ms. -->
+      <timeConstantUp>0.0005</timeConstantUp>
+      <timeConstantDown>0.0005</timeConstantDown>
       <maxRotVelocity>2372.6</maxRotVelocity>
       <motorConstant>1.51e-06</motorConstant>
       <momentConstant>0.0157</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>1</motorNumber>
-      <!-- Match gz thrust: make Classic-only axial loss negligible. -->
+      <!-- Ideal rotor wrench: keep thrust and reaction torque only. -->
+      <rotorDragCoefficient>0</rotorDragCoefficient>
+      <rollingMomentCoefficient>0</rollingMomentCoefficient>
+      <!-- Negligible axial loss with the unmodified Classic motor plugin. -->
       <maxRelativeAirspeed>1000000</maxRelativeAirspeed>
-      <rotorDragCoefficient>0.000175</rotorDragCoefficient>
-      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
       <motorSpeedPubTopic>/motor_speed/1</motorSpeedPubTopic>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
     </plugin>
@@ -396,17 +400,19 @@
       <jointName>rotor_2_joint</jointName>
       <linkName>rotor_2</linkName>
       <turningDirection>cw</turningDirection>
-      <timeConstantUp>0.00125</timeConstantUp>
-      <timeConstantDown>0.0025</timeConstantDown>
+      <!-- Fast first-order motor response; acceleration and braking use 0.5 ms. -->
+      <timeConstantUp>0.0005</timeConstantUp>
+      <timeConstantDown>0.0005</timeConstantDown>
       <maxRotVelocity>2372.6</maxRotVelocity>
       <motorConstant>1.51e-06</motorConstant>
       <momentConstant>0.0157</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>2</motorNumber>
-      <!-- Match gz thrust: make Classic-only axial loss negligible. -->
+      <!-- Ideal rotor wrench: keep thrust and reaction torque only. -->
+      <rotorDragCoefficient>0</rotorDragCoefficient>
+      <rollingMomentCoefficient>0</rollingMomentCoefficient>
+      <!-- Negligible axial loss with the unmodified Classic motor plugin. -->
       <maxRelativeAirspeed>1000000</maxRelativeAirspeed>
-      <rotorDragCoefficient>0.000175</rotorDragCoefficient>
-      <rollingMomentCoefficient>-1e-06</rollingMomentCoefficient>
       <motorSpeedPubTopic>/motor_speed/2</motorSpeedPubTopic>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
     </plugin>
@@ -415,17 +421,19 @@
       <jointName>rotor_3_joint</jointName>
       <linkName>rotor_3</linkName>
       <turningDirection>cw</turningDirection>
-      <timeConstantUp>0.00125</timeConstantUp>
-      <timeConstantDown>0.0025</timeConstantDown>
+      <!-- Fast first-order motor response; acceleration and braking use 0.5 ms. -->
+      <timeConstantUp>0.0005</timeConstantUp>
+      <timeConstantDown>0.0005</timeConstantDown>
       <maxRotVelocity>2372.6</maxRotVelocity>
       <motorConstant>1.51e-06</motorConstant>
       <momentConstant>0.0157</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>3</motorNumber>
-      <!-- Match gz thrust: make Classic-only axial loss negligible. -->
+      <!-- Ideal rotor wrench: keep thrust and reaction torque only. -->
+      <rotorDragCoefficient>0</rotorDragCoefficient>
+      <rollingMomentCoefficient>0</rollingMomentCoefficient>
+      <!-- Negligible axial loss with the unmodified Classic motor plugin. -->
       <maxRelativeAirspeed>1000000</maxRelativeAirspeed>
-      <rotorDragCoefficient>0.000175</rotorDragCoefficient>
-      <rollingMomentCoefficient>-1e-06</rollingMomentCoefficient>
       <motorSpeedPubTopic>/motor_speed/3</motorSpeedPubTopic>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
     </plugin>
