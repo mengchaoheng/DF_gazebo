@@ -123,6 +123,15 @@ void LiftDragPlugin::Load(physics::ModelPtr _model,
   if (_sdf->HasElement("cp"))
     this->cp = _sdf->Get<ignition::math::Vector3d>("cp");
 
+  if (_sdf->HasElement("linear_drag"))
+    this->linearDrag = _sdf->Get<ignition::math::Vector3d>("linear_drag");
+
+  if (_sdf->HasElement("angular_drag"))
+    this->angularDrag = _sdf->Get<ignition::math::Vector3d>("angular_drag");
+
+  if (_sdf->HasElement("cp_from_link_origin"))
+    this->cpFromLinkOrigin = _sdf->Get<bool>("cp_from_link_origin");
+
   // blade forward (-drag) direction in link frame
   if (_sdf->HasElement("forward"))
     this->forward = _sdf->Get<ignition::math::Vector3d>("forward");
@@ -236,6 +245,36 @@ void LiftDragPlugin::OnUpdate()
   ignition::math::Vector3d link_vel_world = ignitionFromGazeboMath(this->link->GetWorldLinearVel(this->cp));
   const common::Time current_time = this->world->GetSimTime();
 #endif
+  if (this->linearDrag.SquaredLength() > 0.0)
+  {
+    // New hull drag uses a link-origin cp, independently of legacy lift settings.
+#if GAZEBO_MAJOR_VERSION >= 9
+    const auto link_pose = this->link->WorldPose();
+#else
+    const auto link_pose = ignitionFromGazeboMath(this->link->GetWorldPose());
+#endif
+    const auto rotation = link_pose.Rot();
+    const auto body_air = rotation.RotateVectorReverse(link_vel_world - this->wind_vel_);
+    const ignition::math::Vector3d body_drag(-this->linearDrag.X() * body_air.X(),
+        -this->linearDrag.Y() * body_air.Y(), -this->linearDrag.Z() * body_air.Z());
+    const auto world_cp = link_pose.Pos() + rotation.RotateVector(this->cp);
+    this->link->AddForceAtWorldPosition(rotation.RotateVector(body_drag), world_cp);
+  }
+
+  if (this->angularDrag.SquaredLength() > 0.0)
+  {
+#if GAZEBO_MAJOR_VERSION >= 9
+    const auto rates = this->link->RelativeAngularVel();
+#else
+    const auto rates = ignitionFromGazeboMath(this->link->GetRelativeAngularVel());
+#endif
+    this->link->AddRelativeTorque(ignition::math::Vector3d(-this->angularDrag.X() * rates.X(),
+        -this->angularDrag.Y() * rates.Y(), -this->angularDrag.Z() * rates.Z()));
+  }
+
+  if (this->area <= 0.0)
+    return;
+
   // Calculate the washing flow of propeller
   ignition::math::Vector3d wash_vel_world(0, 0, 0);
   if (this->HasPropellerWind_)
@@ -485,10 +524,21 @@ void LiftDragPlugin::OnUpdate()
   moment.Correct();
 
   // apply forces at cg (with torques for position shift)
-  this->link->AddForceAtRelativePosition(force, this->cp);
+  if (this->cpFromLinkOrigin)
+  {
+    // WorldLinearVel(cp) uses a link-origin offset, while ODE's
+    // AddForceAtRelativePosition expects a COM offset. Keep force and
+    // point velocity at the same physical location for opted-in models.
+    this->link->AddForceAtWorldPosition(force, pose.Pos() + pose.Rot().RotateVector(this->cp));
+  }
+  else
+  {
+    this->link->AddForceAtRelativePosition(force, this->cp);
+  }
   this->link->AddTorque(moment);
 
-  auto relative_center = this->link->GetInertial()->Pose().Pos() + this->cp;
+  auto relative_center = this->cpFromLinkOrigin ? this->cp :
+      this->link->GetInertial()->Pose().Pos() + this->cp;
 
   // Publish force and center of pressure for potential visual plugin.
   // - dt is used to control the rate at which the force is published

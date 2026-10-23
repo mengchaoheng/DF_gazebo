@@ -116,6 +116,12 @@ namespace gazebo
     /// \brief center of pressure in link local coordinates
     protected: ignition::math::Vector3d cp;
 
+    /// Optional body-axis drag [N/(m/s)] at cp; independent of propeller wash.
+    protected: ignition::math::Vector3d linearDrag{0.0, 0.0, 0.0};
+    protected: ignition::math::Vector3d angularDrag{0.0, 0.0, 0.0}; // [Nm/(rad/s)]
+    /// Opt in to SDF link-origin cp coordinates; legacy models keep COM offsets.
+    protected: bool cpFromLinkOrigin{false};
+
     /// \brief Normally, this is taken as a direction parallel to the chord
     /// of the airfoil in zero angle of attack forward flight.
     protected: ignition::math::Vector3d forward;

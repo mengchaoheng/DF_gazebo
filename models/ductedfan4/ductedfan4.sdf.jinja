@@ -1047,7 +1047,7 @@
           <upper>0.3491</upper>
         </limit>
         <dynamics>
-          <damping>0.001</damping>
+          <damping>0.000004</damping>
         </dynamics>
       </axis>
       <physics>
@@ -1068,7 +1068,7 @@
           <upper>0.3491</upper>
         </limit>
         <dynamics>
-          <damping>0.001</damping>
+          <damping>0.000004</damping>
         </dynamics>
       </axis>
       <physics>
@@ -1090,7 +1090,7 @@
           <upper>0.3491</upper>
         </limit>
         <dynamics>
-          <damping>0.001</damping>
+          <damping>0.000004</damping>
         </dynamics>
       </axis>
       <physics>
@@ -1111,7 +1111,7 @@
           <upper>0.3491</upper>
         </limit>
         <dynamics>
-          <damping>0.001</damping>
+          <damping>0.000004</damping>
         </dynamics>
       </axis>
       <physics>
@@ -1150,7 +1150,7 @@
 
     <plugin name="cs1_plugin" filename="libLiftDragPlugin.so">
       <propeller_wind_map>
-        <propeller joint="rotor_joint" k_v="0.01624" rotorVelocitySlowdownSim="10" />
+        <propeller joint="rotor_joint" k_v="0.015990232159" rotorVelocitySlowdownSim="10" />
         <wash_only>false</wash_only>
       </propeller_wind_map>
       <a0>0</a0>
@@ -1169,13 +1169,15 @@
       <link_name>base_link</link_name>
       <!-- <topic_name>lift_force/cs1</topic_name> -->
       <control_joint_name>cs1_joint</control_joint_name>
-      <control_joint_rad_to_cl>1.7266</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>1.70864541647572</control_joint_rad_to_cl>
+      <!-- cp is measured from base_link for both point velocity and force. -->
+      <cp_from_link_origin>true</cp_from_link_origin>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name="cs2_plugin" filename="libLiftDragPlugin.so">
       <propeller_wind_map>
-        <propeller joint="rotor_joint" k_v="0.01624" rotorVelocitySlowdownSim="10" />
+        <propeller joint="rotor_joint" k_v="0.015990232159" rotorVelocitySlowdownSim="10" />
         <wash_only>false</wash_only>
       </propeller_wind_map>
       <a0>0</a0>
@@ -1194,14 +1196,16 @@
       <link_name>base_link</link_name>
       <!-- <topic_name>lift_force/cs2</topic_name> -->
       <control_joint_name>cs2_joint</control_joint_name>
-      <control_joint_rad_to_cl>1.7266</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>1.70864541647572</control_joint_rad_to_cl>
+      <!-- cp is measured from base_link for both point velocity and force. -->
+      <cp_from_link_origin>true</cp_from_link_origin>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
 
     <plugin name="cs3_plugin" filename="libLiftDragPlugin.so">
       <propeller_wind_map>
-        <propeller joint="rotor_joint" k_v="0.01624" rotorVelocitySlowdownSim="10" />
+        <propeller joint="rotor_joint" k_v="0.015990232159" rotorVelocitySlowdownSim="10" />
         <wash_only>false</wash_only>
       </propeller_wind_map>
       <a0>0</a0>
@@ -1220,13 +1224,15 @@
       <link_name>base_link</link_name>
       <!-- <topic_name>lift_force/cs3</topic_name> -->
       <control_joint_name>cs3_joint</control_joint_name>
-      <control_joint_rad_to_cl>1.7266</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>1.70864541647572</control_joint_rad_to_cl>
+      <!-- cp is measured from base_link for both point velocity and force. -->
+      <cp_from_link_origin>true</cp_from_link_origin>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name="cs4_plugin" filename="libLiftDragPlugin.so">
       <propeller_wind_map>
-        <propeller joint="rotor_joint" k_v="0.01624" rotorVelocitySlowdownSim="10" />
+        <propeller joint="rotor_joint" k_v="0.015990232159" rotorVelocitySlowdownSim="10" />
         <wash_only>false</wash_only>
       </propeller_wind_map>
       <a0>0</a0>
@@ -1245,9 +1251,24 @@
       <link_name>base_link</link_name>
       <!-- <topic_name>lift_force/cs4</topic_name> -->
       <control_joint_name>cs4_joint</control_joint_name>
-      <control_joint_rad_to_cl>1.7266</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>1.70864541647572</control_joint_rad_to_cl>
+      <!-- cp is measured from base_link for both point velocity and force. -->
+      <cp_from_link_origin>true</cp_from_link_origin>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+
+    <!-- Same effective hull drag and COM as SIH/gz, fitted to logs 108/109.
+         These forces are independent of propeller wash and vane lift. -->
+    <plugin name='df4_body_drag' filename='libLiftDragPlugin.so'>
+      <robotNamespace></robotNamespace>
+      <windSubTopic>world_wind</windSubTopic>
+      <link_name>base_link</link_name>
+      <cp>0 0 0.011</cp>
+      <area>0</area>
+      <linear_drag>0.9 0.9 0.9</linear_drag>
+      <angular_drag>0.003 0.003 0.003</angular_drag>
+      <cp_from_link_origin>true</cp_from_link_origin>
     </plugin>
 
     <plugin name='rotor_plugin' filename='libgazebo_motor_model.so'>
@@ -1266,6 +1287,7 @@
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>0</motorNumber>
       <!-- Air Drag Force H acting on rotor due to relative wind vel-->
+      <!-- Hull drag acts at its separately configured centre of pressure. -->
       <rotorDragCoefficient>0</rotorDragCoefficient>
       <!-- Rolling moment due to air drag Force H -->
       <rollingMomentCoefficient>0</rollingMomentCoefficient>
@@ -1278,6 +1300,11 @@
       <robotNamespace></robotNamespace>
       <linkName>ductedfan4/imu_link</linkName>
       <imuTopic>/imu</imuTopic>
+      <!-- Native white-noise densities fitted to the 8-20 Hz flight-log floor.
+           The larger >20 Hz vibration is not equivalent to broadband white
+           noise; including it here overexcites INDI acceleration feedback. -->
+      <gyroscopeNoiseDensity>0.001</gyroscopeNoiseDensity>
+      <accelerometerNoiseDensity>0.006</accelerometerNoiseDensity>
     </plugin>
     <include>
       <uri>model://gps</uri>
@@ -1311,10 +1338,13 @@
     </plugin-->
 
     <plugin name="torque_disturbance" filename="libtorque_disturbance_plugin.so">
+      <!-- Authority-normalized body-FLU sine: F 3/3/10%, tau 5/5/3%.
+           Percentages refer to acceleration/torque capability, not raw N/Nm. -->
       <link_name>base_link</link_name>
+      <!-- Sine disturbance preset in body FLU, shared with SIH and gz. -->
 
       <start_time>30.0</start_time>
-      <running_time>0.0</running_time>
+      <running_time>0</running_time>
       <repeat_count>1</repeat_count>
       <repeat_interval>8.0</repeat_interval>
 
@@ -1322,9 +1352,9 @@
       <bias_x>0.0</bias_x>
       <bias_y>0.0</bias_y>
       <bias_z>0.0</bias_z>
-      <amplitude_x>0.1</amplitude_x>
-      <amplitude_y>0.1</amplitude_y>
-      <amplitude_z>0.01</amplitude_z>
+      <amplitude_x>0.0173225155</amplitude_x>
+      <amplitude_y>-0.0173225155</amplitude_y>
+      <amplitude_z>-0.00858864842</amplitude_z>
       <frequency_x>0.2</frequency_x>
       <frequency_y>0.4</frequency_y>
       <frequency_z>0.2</frequency_z>
@@ -1333,12 +1363,12 @@
       <force_bias_x>0.0</force_bias_x>
       <force_bias_y>0.0</force_bias_y>
       <force_bias_z>0.0</force_bias_z>
-      <force_amplitude_x>1.0</force_amplitude_x>
-      <force_amplitude_y>1.0</force_amplitude_y>
-      <force_amplitude_z>3.0</force_amplitude_z>
-      <force_frequency_x>0.2</force_frequency_x>
+      <force_amplitude_x>0.458960563</force_amplitude_x>
+      <force_amplitude_y>-0.458960563</force_amplitude_y>
+      <force_amplitude_z>-1.17036721</force_amplitude_z>
+      <force_frequency_x>0.1</force_frequency_x>
       <force_frequency_y>0.2</force_frequency_y>
-      <force_frequency_z>0.2</force_frequency_z>
+      <force_frequency_z>0.3</force_frequency_z>
     </plugin>
 
     <plugin name='mavlink_interface' filename='libgazebo_mavlink_interface.so'>
@@ -1361,6 +1391,9 @@
       <enable_lockstep>true</enable_lockstep>
       <use_tcp>true</use_tcp>
       <motorSpeedCommandPubTopic>/gazebo/command/motor_speed</motorSpeedCommandPubTopic>
+      <!-- Native joint position PID and damping approximate a 10 ms response.
+           Gains scale with the visual-vane inertia; they are not a physical
+           servo torque calibration. No custom actuator filter is required. -->
       <control_channels>
         <channel name="up_rotor">
           <input_index>0</input_index>
@@ -1378,7 +1411,16 @@
           <input_scaling>0.3491</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
-          <joint_control_type>position_kinematic</joint_control_type>
+          <joint_control_type>position</joint_control_type>
+          <joint_control_pid>
+            <p>0.0004</p>
+            <i>0</i>
+            <d>0</d>
+            <iMax>0</iMax>
+            <iMin>0</iMin>
+            <cmdMax>2</cmdMax>
+            <cmdMin>-2</cmdMin>
+          </joint_control_pid>
           <joint_name>cs1_joint</joint_name>
         </channel>
         <channel name="pitch1">
@@ -1387,7 +1429,16 @@
           <input_scaling>-0.3491</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
-          <joint_control_type>position_kinematic</joint_control_type>
+          <joint_control_type>position</joint_control_type>
+          <joint_control_pid>
+            <p>0.0004</p>
+            <i>0</i>
+            <d>0</d>
+            <iMax>0</iMax>
+            <iMin>0</iMin>
+            <cmdMax>2</cmdMax>
+            <cmdMin>-2</cmdMin>
+          </joint_control_pid>
           <joint_name>cs2_joint</joint_name>
         </channel>
         <channel name="roll2">
@@ -1396,7 +1447,16 @@
           <input_scaling>-0.3491</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
-          <joint_control_type>position_kinematic</joint_control_type>
+          <joint_control_type>position</joint_control_type>
+          <joint_control_pid>
+            <p>0.0004</p>
+            <i>0</i>
+            <d>0</d>
+            <iMax>0</iMax>
+            <iMin>0</iMin>
+            <cmdMax>2</cmdMax>
+            <cmdMin>-2</cmdMin>
+          </joint_control_pid>
           <joint_name>cs3_joint</joint_name>
         </channel>
         <channel name="pitch2">
@@ -1405,7 +1465,16 @@
           <input_scaling>0.3491</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
-          <joint_control_type>position_kinematic</joint_control_type>
+          <joint_control_type>position</joint_control_type>
+          <joint_control_pid>
+            <p>0.0004</p>
+            <i>0</i>
+            <d>0</d>
+            <iMax>0</iMax>
+            <iMin>0</iMin>
+            <cmdMax>2</cmdMax>
+            <cmdMin>-2</cmdMin>
+          </joint_control_pid>
           <joint_name>cs4_joint</joint_name>
         </channel>
       </control_channels>

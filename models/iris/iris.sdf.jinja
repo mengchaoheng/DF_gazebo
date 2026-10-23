@@ -429,6 +429,20 @@
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
+    <!-- Linear drag from Sun et al. (2022), Table II. Force at COM.
+         Rotor drag below stays zero to avoid counting this force twice. -->
+    <plugin name='iris_body_drag' filename='libLiftDragPlugin.so'>
+      <robotNamespace></robotNamespace>
+      <windSubTopic>world_wind</windSubTopic>
+      <link_name>base_link</link_name>
+      <cp>0 0 0</cp>
+      <cp_from_link_origin>true</cp_from_link_origin>
+      <area>0</area>
+      <linear_drag>0.26 0.28 0.42</linear_drag>
+      <!-- Angular damping stress case: 20x the initial inertia-scaled values.
+           Free-decay times J/K are approximately 0.38, 0.39 and 0.17 s. -->
+      <angular_drag>0.0066 0.0054 0.026</angular_drag>
+    </plugin>
     <plugin name='rosbag' filename='libgazebo_multirotor_base_plugin.so'>
       <robotNamespace/>
       <linkName>base_link</linkName>
@@ -519,12 +533,15 @@
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
     </plugin>
 
-    <!-- Nominal control model: external force/torque disturbances are zero. -->
+    <!-- Sine loads match the SIH body-FRD preset after FLU sign conversion.
+         running_time=0 disables the preset without erasing its amplitudes. -->
     <plugin name="torque_disturbance" filename="libtorque_disturbance_plugin.so">
+      <!-- Authority-normalized body-FLU sine: F 3/3/10%, tau 5/5/3%.
+           Percentages refer to acceleration/torque capability, not raw N/Nm. -->
       <link_name>base_link</link_name>
 
       <start_time>30.0</start_time>
-      <running_time>0.0</running_time>
+      <running_time>0</running_time>
       <repeat_count>1</repeat_count>
       <repeat_interval>8.0</repeat_interval>
 
@@ -532,9 +549,9 @@
       <bias_x>0.0</bias_x>
       <bias_y>0.0</bias_y>
       <bias_z>0.0</bias_z>
-      <amplitude_x>0.0</amplitude_x>
-      <amplitude_y>0.0</amplitude_y>
-      <amplitude_z>0.0</amplitude_z>
+      <amplitude_x>0.0736801232</amplitude_x>
+      <amplitude_y>-0.0456279967</amplitude_y>
+      <amplitude_z>-0.00313348436</amplitude_z>
       <frequency_x>0.2</frequency_x>
       <frequency_y>0.4</frequency_y>
       <frequency_z>0.2</frequency_z>
@@ -543,9 +560,9 @@
       <force_bias_x>0.0</force_bias_x>
       <force_bias_y>0.0</force_bias_y>
       <force_bias_z>0.0</force_bias_z>
-      <force_amplitude_x>0.0</force_amplitude_x>
-      <force_amplitude_y>0.0</force_amplitude_y>
-      <force_amplitude_z>0.0</force_amplitude_z>
+      <force_amplitude_x>0.995864252</force_amplitude_x>
+      <force_amplitude_y>-0.995864252</force_amplitude_y>
+      <force_amplitude_z>-0.565510984</force_amplitude_z>
       <force_frequency_x>0.1</force_frequency_x>
       <force_frequency_y>0.2</force_frequency_y>
       <force_frequency_z>0.3</force_frequency_z>
