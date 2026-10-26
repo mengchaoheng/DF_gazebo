@@ -1300,11 +1300,6 @@
       <robotNamespace></robotNamespace>
       <linkName>ductedfan4/imu_link</linkName>
       <imuTopic>/imu</imuTopic>
-      <!-- Native white-noise densities fitted to the 8-20 Hz flight-log floor.
-           The larger >20 Hz vibration is not equivalent to broadband white
-           noise; including it here overexcites INDI acceleration feedback. -->
-      <gyroscopeNoiseDensity>0.001</gyroscopeNoiseDensity>
-      <accelerometerNoiseDensity>0.006</accelerometerNoiseDensity>
     </plugin>
     <include>
       <uri>model://gps</uri>
