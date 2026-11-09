@@ -883,56 +883,6 @@
         <cast_shadows>1</cast_shadows>
       </visual>
     </link>
-    <link name='CS4'>
-      <inertial>
-        <!-- <mass>0.006</mass>
-        <inertia>
-          <ixx>0.000001</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.000004</iyy>
-          <iyz>0</iyz>
-          <izz>0.000003</izz>
-        </inertia> -->
-        <mass>0.00000001</mass>
-        <inertia>
-          <ixx>0.000001</ixx>
-          <ixy>0.0</ixy>
-          <iyy>0.000001</iyy>
-          <ixz>0.0</ixz>
-          <iyz>0.0</iyz>
-          <izz>0.000001</izz>
-        </inertia>
-        <pose>-0.073 0 -0.174479 0 -0 0</pose>
-      </inertial>
-
-      <visual name='visual'>
-        <pose>0 0 0 0 -0 3.1415926</pose>
-        <geometry>
-          <mesh>
-            <uri>model://SHC09/meshes/control surface-60-80-1.STL</uri>
-            <scale>1 1 1</scale>
-          </mesh>
-        </geometry>
-        <material>
-          <lighting>1</lighting>
-          <script>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Grey</name>
-          </script>
-          <shader type='pixel'/>
-          <emissive>0 0 0 1</emissive>
-        </material>
-        <transparency>0</transparency>
-        <cast_shadows>1</cast_shadows>
-        <!-- <plugin name="cs4_lift_visual" filename="libForceVisual.so">
-          <topic_name>lift_force/cs4</topic_name>
-          <link_name>base_link</link_name>
-          <color>Gazebo/Red</color>
-          <scale>1</scale>
-        </plugin> -->
-      </visual>
-    </link>
     <link name='link_30'>
       <inertial>
         <mass>0.00000001</mass>
@@ -1069,106 +1019,6 @@
         <cast_shadows>1</cast_shadows>
       </visual>
     </link>
-    <link name='CS3'>
-      <inertial>
-        <!-- <mass>0.006</mass>
-        <inertia>
-          <ixx>0.000003</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.000002</iyy>
-          <iyz>0</iyz>
-          <izz>0.000003</izz>
-        </inertia> -->
-        <mass>0.00000001</mass>
-        <inertia>
-          <ixx>0.000001</ixx>
-          <ixy>0.0</ixy>
-          <iyy>0.000001</iyy>
-          <ixz>0.0</ixz>
-          <iyz>0.0</iyz>
-          <izz>0.000001</izz>
-        </inertia>
-        <pose>-0.036849 0.063825 -0.174479 0 -0 0</pose>
-      </inertial>
-
-      <visual name='visual'>
-        <pose>0 0 0 0 -0 3.1415926</pose>
-        <geometry>
-          <mesh>
-            <uri>model://SHC09/meshes/control surface-60-80-2.STL</uri>
-            <scale>1 1 1</scale>
-          </mesh>
-        </geometry>
-        <material>
-          <lighting>1</lighting>
-          <script>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Grey</name>
-          </script>
-          <shader type='pixel'/>
-          <emissive>0 0 0 1</emissive>
-        </material>
-        <transparency>0</transparency>
-        <cast_shadows>1</cast_shadows>
-        <!-- <plugin name="cs3_lift_visual" filename="libForceVisual.so">
-          <topic_name>lift_force/cs3</topic_name>
-          <link_name>base_link</link_name>
-          <color>Gazebo/Red</color>
-          <scale>1</scale>
-        </plugin> -->
-      </visual>
-    </link>
-    <link name='CS2'>
-      <inertial>
-        <!-- <mass>0.006</mass>
-        <inertia>
-          <ixx>0.000003</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.000002</iyy>
-          <iyz>0</iyz>
-          <izz>0.000003</izz>
-        </inertia> -->
-        <mass>0.00000001</mass>
-        <inertia>
-          <ixx>0.000001</ixx>
-          <ixy>0.0</ixy>
-          <iyy>0.000001</iyy>
-          <ixz>0.0</ixz>
-          <iyz>0.0</iyz>
-          <izz>0.000001</izz>
-        </inertia>
-        <pose>0.036849 0.063825 -0.174479 0 -0 0</pose>
-      </inertial>
-
-      <visual name='visual'>
-        <pose>0 0 0 0 -0 3.1415926</pose>
-        <geometry>
-          <mesh>
-            <uri>model://SHC09/meshes/control surface-60-80-3.STL</uri>
-            <scale>1 1 1</scale>
-          </mesh>
-        </geometry>
-        <material>
-          <lighting>1</lighting>
-          <script>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Grey</name>
-          </script>
-          <shader type='pixel'/>
-          <emissive>0 0 0 1</emissive>
-        </material>
-        <transparency>0</transparency>
-        <cast_shadows>1</cast_shadows>
-        <!-- <plugin name="cs2_lift_visual" filename="libForceVisual.so">
-          <topic_name>lift_force/cs2</topic_name>
-          <link_name>base_link</link_name>
-          <color>Gazebo/Red</color>
-          <scale>1</scale>
-        </plugin> -->
-      </visual>
-    </link>
     <link name='CS1'>
       <inertial>
         <!-- <mass>0.006</mass>
@@ -1219,7 +1069,7 @@
         </plugin> -->
       </visual>
     </link>
-    <link name='CS6'>
+    <link name='CS2'>
       <inertial>
         <!-- <mass>0.006</mass>
         <inertia>
@@ -1261,15 +1111,15 @@
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
-        <!-- <plugin name="cs6_lift_visual" filename="libForceVisual.so">
-          <topic_name>lift_force/cs6</topic_name>
+        <!-- <plugin name="cs2_lift_visual" filename="libForceVisual.so">
+          <topic_name>lift_force/cs2</topic_name>
           <link_name>base_link</link_name>
           <color>Gazebo/Red</color>
           <scale>1</scale>
         </plugin> -->
       </visual>
     </link>
-    <link name='CS5'>
+    <link name='CS3'>
       <inertial>
         <!-- <mass>0.006</mass>
         <inertia>
@@ -1311,8 +1161,158 @@
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
+        <!-- <plugin name="cs3_lift_visual" filename="libForceVisual.so">
+          <topic_name>lift_force/cs3</topic_name>
+          <link_name>base_link</link_name>
+          <color>Gazebo/Red</color>
+          <scale>1</scale>
+        </plugin> -->
+      </visual>
+    </link>
+    <link name='CS4'>
+      <inertial>
+        <!-- <mass>0.006</mass>
+        <inertia>
+          <ixx>0.000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000004</iyy>
+          <iyz>0</iyz>
+          <izz>0.000003</izz>
+        </inertia> -->
+        <mass>0.00000001</mass>
+        <inertia>
+          <ixx>0.000001</ixx>
+          <ixy>0.0</ixy>
+          <iyy>0.000001</iyy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>0.000001</izz>
+        </inertia>
+        <pose>-0.073 0 -0.174479 0 -0 0</pose>
+      </inertial>
+
+      <visual name='visual'>
+        <pose>0 0 0 0 -0 3.1415926</pose>
+        <geometry>
+          <mesh>
+            <uri>model://SHC09/meshes/control surface-60-80-1.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'/>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+        <!-- <plugin name="cs4_lift_visual" filename="libForceVisual.so">
+          <topic_name>lift_force/cs4</topic_name>
+          <link_name>base_link</link_name>
+          <color>Gazebo/Red</color>
+          <scale>1</scale>
+        </plugin> -->
+      </visual>
+    </link>
+    <link name='CS5'>
+      <inertial>
+        <!-- <mass>0.006</mass>
+        <inertia>
+          <ixx>0.000003</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000002</iyy>
+          <iyz>0</iyz>
+          <izz>0.000003</izz>
+        </inertia> -->
+        <mass>0.00000001</mass>
+        <inertia>
+          <ixx>0.000001</ixx>
+          <ixy>0.0</ixy>
+          <iyy>0.000001</iyy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>0.000001</izz>
+        </inertia>
+        <pose>-0.036849 0.063825 -0.174479 0 -0 0</pose>
+      </inertial>
+
+      <visual name='visual'>
+        <pose>0 0 0 0 -0 3.1415926</pose>
+        <geometry>
+          <mesh>
+            <uri>model://SHC09/meshes/control surface-60-80-2.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'/>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
         <!-- <plugin name="cs5_lift_visual" filename="libForceVisual.so">
           <topic_name>lift_force/cs5</topic_name>
+          <link_name>base_link</link_name>
+          <color>Gazebo/Red</color>
+          <scale>1</scale>
+        </plugin> -->
+      </visual>
+    </link>
+    <link name='CS6'>
+      <inertial>
+        <!-- <mass>0.006</mass>
+        <inertia>
+          <ixx>0.000003</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000002</iyy>
+          <iyz>0</iyz>
+          <izz>0.000003</izz>
+        </inertia> -->
+        <mass>0.00000001</mass>
+        <inertia>
+          <ixx>0.000001</ixx>
+          <ixy>0.0</ixy>
+          <iyy>0.000001</iyy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>0.000001</izz>
+        </inertia>
+        <pose>0.036849 0.063825 -0.174479 0 -0 0</pose>
+      </inertial>
+
+      <visual name='visual'>
+        <pose>0 0 0 0 -0 3.1415926</pose>
+        <geometry>
+          <mesh>
+            <uri>model://SHC09/meshes/control surface-60-80-3.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'/>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+        <!-- <plugin name="cs6_lift_visual" filename="libForceVisual.so">
+          <topic_name>lift_force/cs6</topic_name>
           <link_name>base_link</link_name>
           <color>Gazebo/Red</color>
           <scale>1</scale>
@@ -1531,9 +1531,9 @@
       </physics>
 
     </joint>
-    <joint name='CS6_joint' type='revolute'>
+    <joint name='CS2_joint' type='revolute'>
       <parent>base_link</parent>
-      <child>CS6</child>
+      <child>CS2</child>
       <pose>0 0 -0.158 0 -0 -1.0472</pose>
       <axis>
         <xyz>1 0 0</xyz>
@@ -1552,9 +1552,9 @@
       </physics>
 
     </joint>
-    <joint name='CS5_joint' type='revolute'>
+    <joint name='CS3_joint' type='revolute'>
       <parent>base_link</parent>
-      <child>CS5</child>
+      <child>CS3</child>
       <pose>0 0 -0.158 0 -0 -2.0944</pose>
       <axis>
         <xyz>1 0 0</xyz>
@@ -1594,9 +1594,9 @@
       </physics>
 
     </joint>
-    <joint name='CS3_joint' type='revolute'>
+    <joint name='CS5_joint' type='revolute'>
       <parent>base_link</parent>
-      <child>CS3</child>
+      <child>CS5</child>
       <pose>0 0 -0.158 0 0 2.0944</pose>
       <axis>
         <xyz>1 0 0</xyz>
@@ -1615,9 +1615,9 @@
       </physics>
 
     </joint>
-    <joint name='CS2_joint' type='revolute'>
+    <joint name='CS6_joint' type='revolute'>
       <parent>base_link</parent>
-      <child>CS2</child>
+      <child>CS6</child>
       <pose>0 0 -0.158 0 0 1.0472</pose>
       <axis>
         <xyz>1 0 0</xyz>
@@ -1764,11 +1764,7 @@
       <!-- P_cs for B = K*P_cs, K = I\diag([l1 l1 l2])*k_cs  -->
       <!-- k_cs = dF_d_delta_h_cs = k_tau*V^2_e = controlJointRadToCL_cs* q_h_cs * area_cs = k_omega2force -->
       <!-- 控制效能矩阵中的P_cs，FRD 机体系：行分别为 roll(x前)、pitch(y右)、yaw(z下) -->
-      <control_effectiveness_matrix>
-       -1.0     -0.5        0.5        1.0   0.5        -0.5
-        0.0    0.8660254   0.8660254   0.0  -0.8660254 -0.8660254
-        1.0      1.0        1.0        1.0   1.0        1.0
-      </control_effectiveness_matrix>
+      <control_surface_layout>frd_clockwise</control_surface_layout>
       <forceTopicName>ductedfan/force</forceTopicName>
       <torqueTopicName>ductedfan/torque</torqueTopicName>
 

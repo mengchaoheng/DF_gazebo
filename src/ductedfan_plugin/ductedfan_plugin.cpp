@@ -289,6 +289,46 @@ void DuctedFanModel::ReadControlJointAngles()
 void DuctedFanModel::LoadControlEffectivenessMatrix(sdf::ElementPtr _sdf)
 {
   if (!_sdf->HasElement("control_effectiveness_matrix")) {
+    if (_sdf->HasElement("control_surface_layout") &&
+        _sdf->Get<std::string>("control_surface_layout") == "frd_clockwise") {
+      B_cs_.setZero();
+      if (!base_link_) {
+        return;
+      }
+
+#if GAZEBO_MAJOR_VERSION >= 9
+      const auto body_rot = base_link_->WorldPose().Rot();
+#else
+      const auto body_rot = ignitionFromGazeboMath(base_link_->GetWorldPose()).Rot();
+#endif
+      for (int col = 0; col < kControlJointCount; ++col) {
+        const auto &joint = control_joints_[col + 1];
+        if (!joint) {
+          continue;
+        }
+
+#if GAZEBO_MAJOR_VERSION >= 9
+        const auto axis_world = joint->GlobalAxis(0);
+#else
+        const auto axis_world = ignitionFromGazeboMath(joint->GetGlobalAxis(0));
+#endif
+        const auto axis_flu = body_rot.RotateVectorReverse(axis_world);
+        if (!axis_flu.IsFinite() || axis_flu.Length() < 1e-6 || std::abs(axis_flu.Z()) > 1e-6) {
+          gzerr << "[ductedfan_plugin] Vane axis for joint '" << joint->GetName()
+                << "' must lie in the body XY plane.\n";
+          continue;
+        }
+
+        const auto axis_frd = FluToFrd(axis_flu.Normalized());
+        // For an outward radial hinge, positive deflection gives a tangential force
+        // along +Z cross axis. The roll/pitch moment points inward and yaw is positive.
+        B_cs_.col(col) << -axis_frd.X(), -axis_frd.Y(), 1.0;
+        gzdbg << "[ductedfan_plugin] Joint '" << joint->GetName()
+              << "' axis in body FRD: " << axis_frd << "\n";
+      }
+      return;
+    }
+
     gzerr << "[ductedfan_plugin] 未设置 control_effectiveness_matrix，B_cs_ 使用零矩阵。\n";
     B_cs_.setZero();
     return;
