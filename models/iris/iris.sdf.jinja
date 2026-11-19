@@ -54,9 +54,12 @@
         </material>
         <cast_shadows>true</cast_shadows>
       </visual>
-      <!-- 8K publication camera: viewpoint reproduced from /Users/mch/iris_camera_tune.world. -->
-      <!-- GUI world pose converted relative to the saved base_link state pose. -->
-      <!-- <sensor name="publication_8k_follow_camera" type="camera">
+      <!-- 8K publication camera: writes frames to /tmp/gazebo_paper_frames/iris. -->
+      <!-- GINDI viewpoint reproduced from /Users/mch/iris_camera_tune.world;
+           GUI world pose converted relative to the saved base_link state pose. -->
+      <!-- GINDI screenshot camera (disabled by default; enable only one camera block). -->
+      <!--
+      <sensor name="publication_8k_follow_camera" type="camera">
         <pose>0.555446 0.390241 0.454509 -0.003707 0.660851 -2.538963</pose>
         <always_on>true</always_on>
         <update_rate>0.5</update_rate>
@@ -77,7 +80,34 @@
             <path>/tmp/gazebo_paper_frames/iris</path>
           </save>
         </camera>
-      </sensor> -->
+      </sensor>
+      -->
+      <!-- MPC_INDI screenshot camera: re-aimed at the airframe with room for all four rotors.
+           Disabled by default; enable only one camera block. -->
+      <!--
+      <sensor name="publication_8k_follow_camera" type="camera">
+        <pose>-0.451619 0.404554 0.387280 0.001979 0.652324 -0.750808</pose>
+        <always_on>true</always_on>
+        <update_rate>0.5</update_rate>
+        <visualize>false</visualize>
+        <camera name="publication_8k_camera">
+          <horizontal_fov>1.0471975512</horizontal_fov>
+          <image>
+            <width>7680</width>
+            <height>4320</height>
+            <format>R8G8B8</format>
+            <anti_aliasing>8</anti_aliasing>
+          </image>
+          <clip>
+            <near>0.02</near>
+            <far>100</far>
+          </clip>
+          <save enabled="true">
+            <path>/tmp/gazebo_paper_frames/iris</path>
+          </save>
+        </camera>
+      </sensor>
+      -->
       <gravity>1</gravity>
       <velocity_decay/>
     </link>

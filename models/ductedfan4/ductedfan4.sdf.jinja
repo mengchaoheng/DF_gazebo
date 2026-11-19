@@ -59,7 +59,9 @@
       </visual>
       <!-- 8K publication camera: follows the vehicle and writes frames to
            /tmp/gazebo_paper_frames/ductedfan4. -->
-      <!-- <sensor name="publication_8k_follow_camera" type="camera">
+      <!-- GINDI screenshot camera (disabled by default; enable only one camera block). -->
+      <!--
+      <sensor name="publication_8k_follow_camera" type="camera">
         <pose>-0.256673 -0.526418 0.483717 -0.000181 0.769099 1.098394</pose>
         <always_on>true</always_on>
         <update_rate>0.5</update_rate>
@@ -80,7 +82,33 @@
             <path>/tmp/gazebo_paper_frames/ductedfan4</path>
           </save>
         </camera>
-      </sensor> -->
+      </sensor>
+      -->
+      <!-- MPC_INDI screenshot camera (disabled by default; enable only one camera block). -->
+      <!--
+      <sensor name="publication_8k_follow_camera" type="camera">
+        <pose>-0.269419 0.448467 0.323188 0.000093 0.644371 -1.027494</pose>
+        <always_on>true</always_on>
+        <update_rate>0.5</update_rate>
+        <visualize>false</visualize>
+        <camera name="publication_8k_camera">
+          <horizontal_fov>1.0471975512</horizontal_fov>
+          <image>
+            <width>7680</width>
+            <height>4320</height>
+            <format>R8G8B8</format>
+            <anti_aliasing>8</anti_aliasing>
+          </image>
+          <clip>
+            <near>0.02</near>
+            <far>100</far>
+          </clip>
+          <save enabled="true">
+            <path>/tmp/gazebo_paper_frames/ductedfan4</path>
+          </save>
+        </camera>
+      </sensor>
+      -->
       <gravity>1</gravity>
       <velocity_decay/>
       <self_collide>0</self_collide>
@@ -112,6 +140,7 @@
             <name>Gazebo/White</name>
           </script>
         </material>
+        <!-- GINDI screenshot appearance (disabled by default; replace the material above to enable). -->
         <!-- <material>
           <lighting>true</lighting>
           <ambient>0.68 0.68 0.68 1</ambient>
@@ -121,6 +150,18 @@
         </material>
         <transparency>0.1</transparency>
         <cast_shadows>false</cast_shadows> -->
+        <!-- MPC_INDI screenshot appearance (disabled by default; replace the material above to enable). -->
+        <!--
+        <material>
+          <lighting>true</lighting>
+          <ambient>0.68 0.68 0.68 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+          <specular>0.03 0.03 0.03 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <cast_shadows>false</cast_shadows>
+        <transparency>0.6</transparency>
+        -->
       </visual>
     </link>
     <joint name='JOINT_0' type='fixed'>
@@ -199,6 +240,7 @@
             <name>Gazebo/White</name>
           </script>
         </material>
+        <!-- GINDI screenshot appearance (disabled by default; replace the material above to enable). -->
         <!-- <material>
           <lighting>true</lighting>
           <ambient>0.68 0.68 0.68 1</ambient>
@@ -208,6 +250,18 @@
         </material>
         <transparency>0</transparency>
         <cast_shadows>false</cast_shadows> -->
+        <!-- MPC_INDI screenshot appearance (disabled by default; replace the material above to enable). -->
+        <!--
+        <material>
+          <lighting>true</lighting>
+          <ambient>0.68 0.68 0.68 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+          <specular>0.03 0.03 0.03 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0.8</transparency>
+        <cast_shadows>false</cast_shadows>
+        -->
       </visual>
     </link>
     <joint name='JOINT_2' type='fixed'>
