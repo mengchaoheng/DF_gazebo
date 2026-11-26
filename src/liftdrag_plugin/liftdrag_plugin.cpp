@@ -201,6 +201,9 @@ void LiftDragPlugin::Load(physics::ModelPtr _model,
   if (_sdf->HasElement("control_joint_rad_to_cl"))
     this->controlJointRadToCL = _sdf->Get<double>("control_joint_rad_to_cl");
 
+  if (_sdf->HasElement("constant_control_lift"))
+    this->constantControlLift = _sdf->Get<double>("constant_control_lift");
+
   if (_sdf->HasElement("propeller_wind_map")) {
     sdf::ElementPtr propMapElem = _sdf->GetElement("propeller_wind_map");
 
@@ -236,6 +239,20 @@ void LiftDragPlugin::Load(physics::ModelPtr _model,
 /////////////////////////////////////////////////
 void LiftDragPlugin::OnUpdate()
 {
+  if (this->constantControlLift > 0.0 && this->controlJoint)
+  {
+#if GAZEBO_MAJOR_VERSION >= 9
+    const auto pose = this->link->WorldPose();
+    const double angle = this->controlJoint->Position(0);
+#else
+    const auto pose = ignitionFromGazeboMath(this->link->GetWorldPose());
+    const double angle = this->controlJoint->GetAngle(0).Radian();
+#endif
+    const auto lift = this->constantControlLift * angle * pose.Rot().RotateVector(this->upward);
+    this->link->AddForceAtRelativePosition(lift, this->cp);
+    return;
+  }
+
   GZ_ASSERT(this->link, "Link was NULL");
   // get linear velocity at cp in inertial frame
 #if GAZEBO_MAJOR_VERSION >= 9

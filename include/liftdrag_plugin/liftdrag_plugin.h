@@ -121,6 +121,7 @@ namespace gazebo
     protected: ignition::math::Vector3d angularDrag{0.0, 0.0, 0.0}; // [Nm/(rad/s)]
     /// Opt in to SDF link-origin cp coordinates; legacy models keep COM offsets.
     protected: bool cpFromLinkOrigin{false};
+    protected: double constantControlLift{0.0};
 
     /// \brief Normally, this is taken as a direction parallel to the chord
     /// of the airfoil in zero angle of attack forward flight.
