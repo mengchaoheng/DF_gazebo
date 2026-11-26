@@ -74,7 +74,8 @@ void TorqueDisturbancePlugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sd
   {
     this->running_time_sec_ = _sdf->Get<double>("pindi_running_time");
     std::clog << "[TorqueDisturbancePlugin] PINDI preset enabled for " << this->running_time_sec_
-              << " s at simulation time " << this->start_time_sec_ << " s" << std::endl;
+              << " s after " << this->start_time_sec_ << " s from model load"
+              << " (world time " << this->start_time_.Double() << " s)" << std::endl;
   }
 
   this->repeat_count_ = _sdf->Get<int>("repeat_count", 1).first;
