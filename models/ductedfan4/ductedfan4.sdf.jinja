@@ -1387,13 +1387,13 @@
     </plugin-->
 
     <plugin name="torque_disturbance" filename="libtorque_disturbance_plugin.so">
-      <!-- Authority-normalized body-FLU sine: F 3/3/10%, tau 5/5/3%.
-           Percentages refer to acceleration/torque capability, not raw N/Nm. -->
+      <!-- PINDI Experiment 1: original roll and pitch torque in body FLU.
+           Set PX4_PINDI_EXTERNAL_DIST=1 before starting Gazebo to enable. -->
       <link_name>base_link</link_name>
-      <!-- Sine disturbance preset in body FLU, shared with SIH and gz. -->
 
       <start_time>30.0</start_time>
       <running_time>0</running_time>
+      <pindi_running_time>150.0</pindi_running_time>
       <repeat_count>1</repeat_count>
       <repeat_interval>8.0</repeat_interval>
 
@@ -1401,23 +1401,12 @@
       <bias_x>0.0</bias_x>
       <bias_y>0.0</bias_y>
       <bias_z>0.0</bias_z>
-      <amplitude_x>0.0173225155</amplitude_x>
-      <amplitude_y>-0.0173225155</amplitude_y>
-      <amplitude_z>-0.00858864842</amplitude_z>
+      <amplitude_x>0.1</amplitude_x>
+      <amplitude_y>0.1</amplitude_y>
+      <amplitude_z>0.0</amplitude_z>
       <frequency_x>0.2</frequency_x>
       <frequency_y>0.4</frequency_y>
-      <frequency_z>0.2</frequency_z>
-
-      <!-- 力扰动，单位 N，方向在 base_link 坐标系下 -->
-      <force_bias_x>0.0</force_bias_x>
-      <force_bias_y>0.0</force_bias_y>
-      <force_bias_z>0.0</force_bias_z>
-      <force_amplitude_x>0.458960563</force_amplitude_x>
-      <force_amplitude_y>-0.458960563</force_amplitude_y>
-      <force_amplitude_z>-1.17036721</force_amplitude_z>
-      <force_frequency_x>0.1</force_frequency_x>
-      <force_frequency_y>0.2</force_frequency_y>
-      <force_frequency_z>0.3</force_frequency_z>
+      <frequency_z>0.0</frequency_z>
     </plugin>
 
     <plugin name='mavlink_interface' filename='libgazebo_mavlink_interface.so'>
