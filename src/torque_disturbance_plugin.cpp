@@ -1,6 +1,7 @@
 #include "torque_disturbance_plugin.h"
 #include <ignition/math/Vector3.hh>
 #include <cstdlib>
+#include <iostream>
 #include <string>
 
 namespace gazebo
@@ -72,7 +73,8 @@ void TorqueDisturbancePlugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sd
   if (pindi_external_dist && std::string(pindi_external_dist) == "1" && _sdf->HasElement("pindi_running_time"))
   {
     this->running_time_sec_ = _sdf->Get<double>("pindi_running_time");
-    gzmsg << "[TorqueDisturbancePlugin] PINDI preset enabled for " << this->running_time_sec_ << " s\n";
+    std::clog << "[TorqueDisturbancePlugin] PINDI preset enabled for " << this->running_time_sec_
+              << " s at simulation time " << this->start_time_sec_ << " s" << std::endl;
   }
 
   this->repeat_count_ = _sdf->Get<int>("repeat_count", 1).first;
